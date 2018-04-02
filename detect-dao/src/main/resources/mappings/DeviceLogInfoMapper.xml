@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.zstu.dao.DeviceLogInfoMapper">
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceLogInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="LogTime" jdbcType="INTEGER" property="logTime" />
+    <result column="LogInfo" jdbcType="VARCHAR" property="logInfo" />
+    <result column="LogLevel" jdbcType="TINYINT" property="logLevel" />
+    <result column="DetectRollCode" jdbcType="INTEGER" property="detectRollCode" />
+    <result column="DetectDeviceId" jdbcType="INTEGER" property="detectDeviceId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, LogTime, LogInfo, LogLevel, DetectRollCode, DetectDeviceId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo (Id, LogTime, LogInfo, 
+      LogLevel, DetectRollCode, DetectDeviceId
+      )
+    values (#{id,jdbcType=INTEGER}, #{logTime,jdbcType=INTEGER}, #{logInfo,jdbcType=VARCHAR}, 
+      #{logLevel,jdbcType=TINYINT}, #{detectRollCode,jdbcType=INTEGER}, #{detectDeviceId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="logTime != null">
+        LogTime,
+      </if>
+      <if test="logInfo != null">
+        LogInfo,
+      </if>
+      <if test="logLevel != null">
+        LogLevel,
+      </if>
+      <if test="detectRollCode != null">
+        DetectRollCode,
+      </if>
+      <if test="detectDeviceId != null">
+        DetectDeviceId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logTime != null">
+        #{logTime,jdbcType=INTEGER},
+      </if>
+      <if test="logInfo != null">
+        #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="logLevel != null">
+        #{logLevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectRollCode != null">
+        #{detectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="detectDeviceId != null">
+        #{detectDeviceId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    <set>
+      <if test="logTime != null">
+        LogTime = #{logTime,jdbcType=INTEGER},
+      </if>
+      <if test="logInfo != null">
+        LogInfo = #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="logLevel != null">
+        LogLevel = #{logLevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectRollCode != null">
+        DetectRollCode = #{detectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="detectDeviceId != null">
+        DetectDeviceId = #{detectDeviceId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    set LogTime = #{logTime,jdbcType=INTEGER},
+      LogInfo = #{logInfo,jdbcType=VARCHAR},
+      LogLevel = #{logLevel,jdbcType=TINYINT},
+      DetectRollCode = #{detectRollCode,jdbcType=INTEGER},
+      DetectDeviceId = #{detectDeviceId,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceLogInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="LogTime" jdbcType="INTEGER" property="logTime" />
+    <result column="LogInfo" jdbcType="VARCHAR" property="logInfo" />
+    <result column="LogLevel" jdbcType="TINYINT" property="logLevel" />
+    <result column="DetectRollCode" jdbcType="INTEGER" property="detectRollCode" />
+    <result column="DetectDeviceId" jdbcType="INTEGER" property="detectDeviceId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, LogTime, LogInfo, LogLevel, DetectRollCode, DetectDeviceId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo (Id, LogTime, LogInfo, 
+      LogLevel, DetectRollCode, DetectDeviceId
+      )
+    values (#{id,jdbcType=INTEGER}, #{logTime,jdbcType=INTEGER}, #{logInfo,jdbcType=VARCHAR}, 
+      #{logLevel,jdbcType=TINYINT}, #{detectRollCode,jdbcType=INTEGER}, #{detectDeviceId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="logTime != null">
+        LogTime,
+      </if>
+      <if test="logInfo != null">
+        LogInfo,
+      </if>
+      <if test="logLevel != null">
+        LogLevel,
+      </if>
+      <if test="detectRollCode != null">
+        DetectRollCode,
+      </if>
+      <if test="detectDeviceId != null">
+        DetectDeviceId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logTime != null">
+        #{logTime,jdbcType=INTEGER},
+      </if>
+      <if test="logInfo != null">
+        #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="logLevel != null">
+        #{logLevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectRollCode != null">
+        #{detectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="detectDeviceId != null">
+        #{detectDeviceId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    <set>
+      <if test="logTime != null">
+        LogTime = #{logTime,jdbcType=INTEGER},
+      </if>
+      <if test="logInfo != null">
+        LogInfo = #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="logLevel != null">
+        LogLevel = #{logLevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectRollCode != null">
+        DetectRollCode = #{detectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="detectDeviceId != null">
+        DetectDeviceId = #{detectDeviceId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    set LogTime = #{logTime,jdbcType=INTEGER},
+      LogInfo = #{logInfo,jdbcType=VARCHAR},
+      LogLevel = #{logLevel,jdbcType=TINYINT},
+      DetectRollCode = #{detectRollCode,jdbcType=INTEGER},
+      DetectDeviceId = #{detectDeviceId,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceLogInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="LogTime" jdbcType="INTEGER" property="logTime" />
+    <result column="LogInfo" jdbcType="VARCHAR" property="logInfo" />
+    <result column="LogLevel" jdbcType="TINYINT" property="logLevel" />
+    <result column="DetectRollCode" jdbcType="INTEGER" property="detectRollCode" />
+    <result column="DetectDeviceId" jdbcType="INTEGER" property="detectDeviceId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, LogTime, LogInfo, LogLevel, DetectRollCode, DetectDeviceId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo (Id, LogTime, LogInfo, 
+      LogLevel, DetectRollCode, DetectDeviceId
+      )
+    values (#{id,jdbcType=INTEGER}, #{logTime,jdbcType=INTEGER}, #{logInfo,jdbcType=VARCHAR}, 
+      #{logLevel,jdbcType=TINYINT}, #{detectRollCode,jdbcType=INTEGER}, #{detectDeviceId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="logTime != null">
+        LogTime,
+      </if>
+      <if test="logInfo != null">
+        LogInfo,
+      </if>
+      <if test="logLevel != null">
+        LogLevel,
+      </if>
+      <if test="detectRollCode != null">
+        DetectRollCode,
+      </if>
+      <if test="detectDeviceId != null">
+        DetectDeviceId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logTime != null">
+        #{logTime,jdbcType=INTEGER},
+      </if>
+      <if test="logInfo != null">
+        #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="logLevel != null">
+        #{logLevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectRollCode != null">
+        #{detectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="detectDeviceId != null">
+        #{detectDeviceId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    <set>
+      <if test="logTime != null">
+        LogTime = #{logTime,jdbcType=INTEGER},
+      </if>
+      <if test="logInfo != null">
+        LogInfo = #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="logLevel != null">
+        LogLevel = #{logLevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectRollCode != null">
+        DetectRollCode = #{detectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="detectDeviceId != null">
+        DetectDeviceId = #{detectDeviceId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    set LogTime = #{logTime,jdbcType=INTEGER},
+      LogInfo = #{logInfo,jdbcType=VARCHAR},
+      LogLevel = #{logLevel,jdbcType=TINYINT},
+      DetectRollCode = #{detectRollCode,jdbcType=INTEGER},
+      DetectDeviceId = #{detectDeviceId,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceLogInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="LogTime" jdbcType="INTEGER" property="logTime" />
+    <result column="LogInfo" jdbcType="VARCHAR" property="logInfo" />
+    <result column="LogLevel" jdbcType="TINYINT" property="logLevel" />
+    <result column="DetectRollCode" jdbcType="INTEGER" property="detectRollCode" />
+    <result column="DetectDeviceId" jdbcType="INTEGER" property="detectDeviceId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, LogTime, LogInfo, LogLevel, DetectRollCode, DetectDeviceId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo (Id, LogTime, LogInfo, 
+      LogLevel, DetectRollCode, DetectDeviceId
+      )
+    values (#{id,jdbcType=INTEGER}, #{logTime,jdbcType=INTEGER}, #{logInfo,jdbcType=VARCHAR}, 
+      #{logLevel,jdbcType=TINYINT}, #{detectRollCode,jdbcType=INTEGER}, #{detectDeviceId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="logTime != null">
+        LogTime,
+      </if>
+      <if test="logInfo != null">
+        LogInfo,
+      </if>
+      <if test="logLevel != null">
+        LogLevel,
+      </if>
+      <if test="detectRollCode != null">
+        DetectRollCode,
+      </if>
+      <if test="detectDeviceId != null">
+        DetectDeviceId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logTime != null">
+        #{logTime,jdbcType=INTEGER},
+      </if>
+      <if test="logInfo != null">
+        #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="logLevel != null">
+        #{logLevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectRollCode != null">
+        #{detectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="detectDeviceId != null">
+        #{detectDeviceId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    <set>
+      <if test="logTime != null">
+        LogTime = #{logTime,jdbcType=INTEGER},
+      </if>
+      <if test="logInfo != null">
+        LogInfo = #{logInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="logLevel != null">
+        LogLevel = #{logLevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectRollCode != null">
+        DetectRollCode = #{detectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="detectDeviceId != null">
+        DetectDeviceId = #{detectDeviceId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    set LogTime = #{logTime,jdbcType=INTEGER},
+      LogInfo = #{logInfo,jdbcType=VARCHAR},
+      LogLevel = #{logLevel,jdbcType=TINYINT},
+      DetectRollCode = #{detectRollCode,jdbcType=INTEGER},
+      DetectDeviceId = #{detectDeviceId,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceLogInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="LogTime" jdbcType="INTEGER" property="logtime" />
+    <result column="LogInfo" jdbcType="VARCHAR" property="loginfo" />
+    <result column="LogLevel" jdbcType="TINYINT" property="loglevel" />
+    <result column="DetectRollCode" jdbcType="INTEGER" property="detectrollcode" />
+    <result column="DetectDeviceId" jdbcType="INTEGER" property="detectdeviceid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, LogTime, LogInfo, LogLevel, DetectRollCode, DetectDeviceId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo (Id, LogTime, LogInfo, 
+      LogLevel, DetectRollCode, DetectDeviceId
+      )
+    values (#{id,jdbcType=INTEGER}, #{logtime,jdbcType=INTEGER}, #{loginfo,jdbcType=VARCHAR}, 
+      #{loglevel,jdbcType=TINYINT}, #{detectrollcode,jdbcType=INTEGER}, #{detectdeviceid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="logtime != null">
+        LogTime,
+      </if>
+      <if test="loginfo != null">
+        LogInfo,
+      </if>
+      <if test="loglevel != null">
+        LogLevel,
+      </if>
+      <if test="detectrollcode != null">
+        DetectRollCode,
+      </if>
+      <if test="detectdeviceid != null">
+        DetectDeviceId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logtime != null">
+        #{logtime,jdbcType=INTEGER},
+      </if>
+      <if test="loginfo != null">
+        #{loginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="loglevel != null">
+        #{loglevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectrollcode != null">
+        #{detectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="detectdeviceid != null">
+        #{detectdeviceid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    <set>
+      <if test="logtime != null">
+        LogTime = #{logtime,jdbcType=INTEGER},
+      </if>
+      <if test="loginfo != null">
+        LogInfo = #{loginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="loglevel != null">
+        LogLevel = #{loglevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectrollcode != null">
+        DetectRollCode = #{detectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="detectdeviceid != null">
+        DetectDeviceId = #{detectdeviceid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    set LogTime = #{logtime,jdbcType=INTEGER},
+      LogInfo = #{loginfo,jdbcType=VARCHAR},
+      LogLevel = #{loglevel,jdbcType=TINYINT},
+      DetectRollCode = #{detectrollcode,jdbcType=INTEGER},
+      DetectDeviceId = #{detectdeviceid,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceLogInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="LogTime" jdbcType="INTEGER" property="logtime" />
+    <result column="LogInfo" jdbcType="VARCHAR" property="loginfo" />
+    <result column="LogLevel" jdbcType="TINYINT" property="loglevel" />
+    <result column="DetectRollCode" jdbcType="INTEGER" property="detectrollcode" />
+    <result column="DetectDeviceId" jdbcType="INTEGER" property="detectdeviceid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, LogTime, LogInfo, LogLevel, DetectRollCode, DetectDeviceId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo (Id, LogTime, LogInfo, 
+      LogLevel, DetectRollCode, DetectDeviceId
+      )
+    values (#{id,jdbcType=INTEGER}, #{logtime,jdbcType=INTEGER}, #{loginfo,jdbcType=VARCHAR}, 
+      #{loglevel,jdbcType=TINYINT}, #{detectrollcode,jdbcType=INTEGER}, #{detectdeviceid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="logtime != null">
+        LogTime,
+      </if>
+      <if test="loginfo != null">
+        LogInfo,
+      </if>
+      <if test="loglevel != null">
+        LogLevel,
+      </if>
+      <if test="detectrollcode != null">
+        DetectRollCode,
+      </if>
+      <if test="detectdeviceid != null">
+        DetectDeviceId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logtime != null">
+        #{logtime,jdbcType=INTEGER},
+      </if>
+      <if test="loginfo != null">
+        #{loginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="loglevel != null">
+        #{loglevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectrollcode != null">
+        #{detectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="detectdeviceid != null">
+        #{detectdeviceid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    <set>
+      <if test="logtime != null">
+        LogTime = #{logtime,jdbcType=INTEGER},
+      </if>
+      <if test="loginfo != null">
+        LogInfo = #{loginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="loglevel != null">
+        LogLevel = #{loglevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectrollcode != null">
+        DetectRollCode = #{detectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="detectdeviceid != null">
+        DetectDeviceId = #{detectdeviceid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    set LogTime = #{logtime,jdbcType=INTEGER},
+      LogInfo = #{loginfo,jdbcType=VARCHAR},
+      LogLevel = #{loglevel,jdbcType=TINYINT},
+      DetectRollCode = #{detectrollcode,jdbcType=INTEGER},
+      DetectDeviceId = #{detectdeviceid,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceLogInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="LogTime" jdbcType="INTEGER" property="logtime" />
+    <result column="LogInfo" jdbcType="VARCHAR" property="loginfo" />
+    <result column="LogLevel" jdbcType="TINYINT" property="loglevel" />
+    <result column="DetectRollCode" jdbcType="INTEGER" property="detectrollcode" />
+    <result column="DetectDeviceId" jdbcType="INTEGER" property="detectdeviceid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, LogTime, LogInfo, LogLevel, DetectRollCode, DetectDeviceId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceloginfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo (Id, LogTime, LogInfo, 
+      LogLevel, DetectRollCode, DetectDeviceId
+      )
+    values (#{id,jdbcType=INTEGER}, #{logtime,jdbcType=INTEGER}, #{loginfo,jdbcType=VARCHAR}, 
+      #{loglevel,jdbcType=TINYINT}, #{detectrollcode,jdbcType=INTEGER}, #{detectdeviceid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    insert into deviceloginfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="logtime != null">
+        LogTime,
+      </if>
+      <if test="loginfo != null">
+        LogInfo,
+      </if>
+      <if test="loglevel != null">
+        LogLevel,
+      </if>
+      <if test="detectrollcode != null">
+        DetectRollCode,
+      </if>
+      <if test="detectdeviceid != null">
+        DetectDeviceId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logtime != null">
+        #{logtime,jdbcType=INTEGER},
+      </if>
+      <if test="loginfo != null">
+        #{loginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="loglevel != null">
+        #{loglevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectrollcode != null">
+        #{detectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="detectdeviceid != null">
+        #{detectdeviceid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    <set>
+      <if test="logtime != null">
+        LogTime = #{logtime,jdbcType=INTEGER},
+      </if>
+      <if test="loginfo != null">
+        LogInfo = #{loginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="loglevel != null">
+        LogLevel = #{loglevel,jdbcType=TINYINT},
+      </if>
+      <if test="detectrollcode != null">
+        DetectRollCode = #{detectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="detectdeviceid != null">
+        DetectDeviceId = #{detectdeviceid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceLogInfo">
+    update deviceloginfo
+    set LogTime = #{logtime,jdbcType=INTEGER},
+      LogInfo = #{loginfo,jdbcType=VARCHAR},
+      LogLevel = #{loglevel,jdbcType=TINYINT},
+      DetectRollCode = #{detectrollcode,jdbcType=INTEGER},
+      DetectDeviceId = #{detectdeviceid,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

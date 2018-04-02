@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/detect.iml" filepath="$PROJECT_DIR$/detect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/detect-cache/detect-cache.iml" filepath="$PROJECT_DIR$/detect-cache/detect-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/detect-dao/detect-dao.iml" filepath="$PROJECT_DIR$/detect-dao/detect-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/detect-utils/detect-utils.iml" filepath="$PROJECT_DIR$/detect-utils/detect-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/detect-web/detect-web.iml" filepath="$PROJECT_DIR$/detect-web/detect-web.iml" />
+    </modules>
+  </component>
+</project>

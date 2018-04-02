@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.zstu.dao.IPPoolInfoMapper">
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPPoolInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="IPInfo" jdbcType="INTEGER" property="IPInfo" />
+    <result column="DeviceId" jdbcType="INTEGER" property="deviceId" />
+    <result column="MACInfo" jdbcType="CHAR" property="MACInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, IPInfo, DeviceId, MACInfo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo (Id, IPInfo, DeviceId, 
+      MACInfo)
+    values (#{id,jdbcType=INTEGER}, #{IPInfo,jdbcType=INTEGER}, #{deviceId,jdbcType=INTEGER}, 
+      #{MACInfo,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="IPInfo != null">
+        IPInfo,
+      </if>
+      <if test="deviceId != null">
+        DeviceId,
+      </if>
+      <if test="MACInfo != null">
+        MACInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="IPInfo != null">
+        #{IPInfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="MACInfo != null">
+        #{MACInfo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    <set>
+      <if test="IPInfo != null">
+        IPInfo = #{IPInfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        DeviceId = #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="MACInfo != null">
+        MACInfo = #{MACInfo,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    set IPInfo = #{IPInfo,jdbcType=INTEGER},
+      DeviceId = #{deviceId,jdbcType=INTEGER},
+      MACInfo = #{MACInfo,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPPoolInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="IPInfo" jdbcType="INTEGER" property="IPInfo" />
+    <result column="DeviceId" jdbcType="INTEGER" property="deviceId" />
+    <result column="MACInfo" jdbcType="CHAR" property="MACInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, IPInfo, DeviceId, MACInfo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo (Id, IPInfo, DeviceId, 
+      MACInfo)
+    values (#{id,jdbcType=INTEGER}, #{IPInfo,jdbcType=INTEGER}, #{deviceId,jdbcType=INTEGER}, 
+      #{MACInfo,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="IPInfo != null">
+        IPInfo,
+      </if>
+      <if test="deviceId != null">
+        DeviceId,
+      </if>
+      <if test="MACInfo != null">
+        MACInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="IPInfo != null">
+        #{IPInfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="MACInfo != null">
+        #{MACInfo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    <set>
+      <if test="IPInfo != null">
+        IPInfo = #{IPInfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        DeviceId = #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="MACInfo != null">
+        MACInfo = #{MACInfo,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    set IPInfo = #{IPInfo,jdbcType=INTEGER},
+      DeviceId = #{deviceId,jdbcType=INTEGER},
+      MACInfo = #{MACInfo,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPPoolInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="IPInfo" jdbcType="INTEGER" property="IPInfo" />
+    <result column="DeviceId" jdbcType="INTEGER" property="deviceId" />
+    <result column="MACInfo" jdbcType="CHAR" property="MACInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, IPInfo, DeviceId, MACInfo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo (Id, IPInfo, DeviceId, 
+      MACInfo)
+    values (#{id,jdbcType=INTEGER}, #{IPInfo,jdbcType=INTEGER}, #{deviceId,jdbcType=INTEGER}, 
+      #{MACInfo,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="IPInfo != null">
+        IPInfo,
+      </if>
+      <if test="deviceId != null">
+        DeviceId,
+      </if>
+      <if test="MACInfo != null">
+        MACInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="IPInfo != null">
+        #{IPInfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="MACInfo != null">
+        #{MACInfo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    <set>
+      <if test="IPInfo != null">
+        IPInfo = #{IPInfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        DeviceId = #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="MACInfo != null">
+        MACInfo = #{MACInfo,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    set IPInfo = #{IPInfo,jdbcType=INTEGER},
+      DeviceId = #{deviceId,jdbcType=INTEGER},
+      MACInfo = #{MACInfo,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPPoolInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="IPInfo" jdbcType="INTEGER" property="IPInfo" />
+    <result column="DeviceId" jdbcType="INTEGER" property="deviceId" />
+    <result column="MACInfo" jdbcType="CHAR" property="MACInfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, IPInfo, DeviceId, MACInfo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo (Id, IPInfo, DeviceId, 
+      MACInfo)
+    values (#{id,jdbcType=INTEGER}, #{IPInfo,jdbcType=INTEGER}, #{deviceId,jdbcType=INTEGER}, 
+      #{MACInfo,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="IPInfo != null">
+        IPInfo,
+      </if>
+      <if test="deviceId != null">
+        DeviceId,
+      </if>
+      <if test="MACInfo != null">
+        MACInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="IPInfo != null">
+        #{IPInfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="MACInfo != null">
+        #{MACInfo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    <set>
+      <if test="IPInfo != null">
+        IPInfo = #{IPInfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        DeviceId = #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="MACInfo != null">
+        MACInfo = #{MACInfo,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    set IPInfo = #{IPInfo,jdbcType=INTEGER},
+      DeviceId = #{deviceId,jdbcType=INTEGER},
+      MACInfo = #{MACInfo,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPPoolInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="IPInfo" jdbcType="INTEGER" property="ipinfo" />
+    <result column="DeviceId" jdbcType="INTEGER" property="deviceid" />
+    <result column="MACInfo" jdbcType="CHAR" property="macinfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, IPInfo, DeviceId, MACInfo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo (Id, IPInfo, DeviceId, 
+      MACInfo)
+    values (#{id,jdbcType=INTEGER}, #{ipinfo,jdbcType=INTEGER}, #{deviceid,jdbcType=INTEGER}, 
+      #{macinfo,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="ipinfo != null">
+        IPInfo,
+      </if>
+      <if test="deviceid != null">
+        DeviceId,
+      </if>
+      <if test="macinfo != null">
+        MACInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ipinfo != null">
+        #{ipinfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="macinfo != null">
+        #{macinfo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    <set>
+      <if test="ipinfo != null">
+        IPInfo = #{ipinfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceid != null">
+        DeviceId = #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="macinfo != null">
+        MACInfo = #{macinfo,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    set IPInfo = #{ipinfo,jdbcType=INTEGER},
+      DeviceId = #{deviceid,jdbcType=INTEGER},
+      MACInfo = #{macinfo,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPPoolInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="IPInfo" jdbcType="INTEGER" property="ipinfo" />
+    <result column="DeviceId" jdbcType="INTEGER" property="deviceid" />
+    <result column="MACInfo" jdbcType="CHAR" property="macinfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, IPInfo, DeviceId, MACInfo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo (Id, IPInfo, DeviceId, 
+      MACInfo)
+    values (#{id,jdbcType=INTEGER}, #{ipinfo,jdbcType=INTEGER}, #{deviceid,jdbcType=INTEGER}, 
+      #{macinfo,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="ipinfo != null">
+        IPInfo,
+      </if>
+      <if test="deviceid != null">
+        DeviceId,
+      </if>
+      <if test="macinfo != null">
+        MACInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ipinfo != null">
+        #{ipinfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="macinfo != null">
+        #{macinfo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    <set>
+      <if test="ipinfo != null">
+        IPInfo = #{ipinfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceid != null">
+        DeviceId = #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="macinfo != null">
+        MACInfo = #{macinfo,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    set IPInfo = #{ipinfo,jdbcType=INTEGER},
+      DeviceId = #{deviceid,jdbcType=INTEGER},
+      MACInfo = #{macinfo,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPPoolInfo">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="IPInfo" jdbcType="INTEGER" property="ipinfo" />
+    <result column="DeviceId" jdbcType="INTEGER" property="deviceid" />
+    <result column="MACInfo" jdbcType="CHAR" property="macinfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, IPInfo, DeviceId, MACInfo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ippoolinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo (Id, IPInfo, DeviceId, 
+      MACInfo)
+    values (#{id,jdbcType=INTEGER}, #{ipinfo,jdbcType=INTEGER}, #{deviceid,jdbcType=INTEGER}, 
+      #{macinfo,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    insert into ippoolinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="ipinfo != null">
+        IPInfo,
+      </if>
+      <if test="deviceid != null">
+        DeviceId,
+      </if>
+      <if test="macinfo != null">
+        MACInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ipinfo != null">
+        #{ipinfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="macinfo != null">
+        #{macinfo,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    <set>
+      <if test="ipinfo != null">
+        IPInfo = #{ipinfo,jdbcType=INTEGER},
+      </if>
+      <if test="deviceid != null">
+        DeviceId = #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="macinfo != null">
+        MACInfo = #{macinfo,jdbcType=CHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPPoolInfo">
+    update ippoolinfo
+    set IPInfo = #{ipinfo,jdbcType=INTEGER},
+      DeviceId = #{deviceid,jdbcType=INTEGER},
+      MACInfo = #{macinfo,jdbcType=CHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

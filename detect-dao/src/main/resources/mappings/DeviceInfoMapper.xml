@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.zstu.dao.DeviceInfoMapper">
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceInfo">
+    <id column="DeviceId" jdbcType="INTEGER" property="deviceId" />
+    <result column="DeviceDescribe" jdbcType="VARCHAR" property="deviceDescribe" />
+    <result column="DeviceGroupId" jdbcType="INTEGER" property="deviceGroupId" />
+    <result column="NormalStartIP" jdbcType="INTEGER" property="normalStartIP" />
+    <result column="NormalEndIP" jdbcType="INTEGER" property="normalEndIP" />
+    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normalDetectRollCode" />
+    <result column="DeviceBeatInfo" jdbcType="INTEGER" property="deviceBeatInfo" />
+    <result column="CurrentRunStatus" jdbcType="INTEGER" property="currentRunStatus" />
+    <result column="SpecialDetectStartTime" jdbcType="INTEGER" property="specialDetectStartTime" />
+    <result column="SpecialDetectRollCode" jdbcType="INTEGER" property="specialDetectRollCode" />
+    <result column="SpecialDetectRate" jdbcType="INTEGER" property="specialDetectRate" />
+    <result column="LastSpecialDetectTotalTime" jdbcType="INTEGER" property="lastSpecialDetectTotalTime" />
+    <result column="DeviceCtrlCmd" jdbcType="TINYINT" property="deviceCtrlCmd" />
+    <result column="NetWorkGroupId" jdbcType="TINYINT" property="netWorkGroupId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DeviceId, DeviceDescribe, DeviceGroupId, NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+    DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, SpecialDetectRollCode, 
+    SpecialDetectRate, LastSpecialDetectTotalTime, DeviceCtrlCmd, NetWorkGroupId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceinfo
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo (DeviceId, DeviceDescribe, DeviceGroupId, 
+      NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+      DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, 
+      SpecialDetectRollCode, SpecialDetectRate, 
+      LastSpecialDetectTotalTime, DeviceCtrlCmd, 
+      NetWorkGroupId)
+    values (#{deviceId,jdbcType=INTEGER}, #{deviceDescribe,jdbcType=VARCHAR}, #{deviceGroupId,jdbcType=INTEGER}, 
+      #{normalStartIP,jdbcType=INTEGER}, #{normalEndIP,jdbcType=INTEGER}, #{normalDetectRollCode,jdbcType=INTEGER}, 
+      #{deviceBeatInfo,jdbcType=INTEGER}, #{currentRunStatus,jdbcType=INTEGER}, #{specialDetectStartTime,jdbcType=INTEGER}, 
+      #{specialDetectRollCode,jdbcType=INTEGER}, #{specialDetectRate,jdbcType=INTEGER}, 
+      #{lastSpecialDetectTotalTime,jdbcType=INTEGER}, #{deviceCtrlCmd,jdbcType=TINYINT}, 
+      #{netWorkGroupId,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        DeviceId,
+      </if>
+      <if test="deviceDescribe != null">
+        DeviceDescribe,
+      </if>
+      <if test="deviceGroupId != null">
+        DeviceGroupId,
+      </if>
+      <if test="normalStartIP != null">
+        NormalStartIP,
+      </if>
+      <if test="normalEndIP != null">
+        NormalEndIP,
+      </if>
+      <if test="normalDetectRollCode != null">
+        NormalDetectRollCode,
+      </if>
+      <if test="deviceBeatInfo != null">
+        DeviceBeatInfo,
+      </if>
+      <if test="currentRunStatus != null">
+        CurrentRunStatus,
+      </if>
+      <if test="specialDetectStartTime != null">
+        SpecialDetectStartTime,
+      </if>
+      <if test="specialDetectRollCode != null">
+        SpecialDetectRollCode,
+      </if>
+      <if test="specialDetectRate != null">
+        SpecialDetectRate,
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        LastSpecialDetectTotalTime,
+      </if>
+      <if test="deviceCtrlCmd != null">
+        DeviceCtrlCmd,
+      </if>
+      <if test="netWorkGroupId != null">
+        NetWorkGroupId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceDescribe != null">
+        #{deviceDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceGroupId != null">
+        #{deviceGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="normalStartIP != null">
+        #{normalStartIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalEndIP != null">
+        #{normalEndIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalDetectRollCode != null">
+        #{normalDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="deviceBeatInfo != null">
+        #{deviceBeatInfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentRunStatus != null">
+        #{currentRunStatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectStartTime != null">
+        #{specialDetectStartTime,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRollCode != null">
+        #{specialDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRate != null">
+        #{specialDetectRate,jdbcType=INTEGER},
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCtrlCmd != null">
+        #{deviceCtrlCmd,jdbcType=TINYINT},
+      </if>
+      <if test="netWorkGroupId != null">
+        #{netWorkGroupId,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    <set>
+      <if test="deviceDescribe != null">
+        DeviceDescribe = #{deviceDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceGroupId != null">
+        DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="normalStartIP != null">
+        NormalStartIP = #{normalStartIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalEndIP != null">
+        NormalEndIP = #{normalEndIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalDetectRollCode != null">
+        NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="deviceBeatInfo != null">
+        DeviceBeatInfo = #{deviceBeatInfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentRunStatus != null">
+        CurrentRunStatus = #{currentRunStatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectStartTime != null">
+        SpecialDetectStartTime = #{specialDetectStartTime,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRollCode != null">
+        SpecialDetectRollCode = #{specialDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRate != null">
+        SpecialDetectRate = #{specialDetectRate,jdbcType=INTEGER},
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        LastSpecialDetectTotalTime = #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCtrlCmd != null">
+        DeviceCtrlCmd = #{deviceCtrlCmd,jdbcType=TINYINT},
+      </if>
+      <if test="netWorkGroupId != null">
+        NetWorkGroupId = #{netWorkGroupId,jdbcType=TINYINT},
+      </if>
+    </set>
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    set DeviceDescribe = #{deviceDescribe,jdbcType=VARCHAR},
+      DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER},
+      NormalStartIP = #{normalStartIP,jdbcType=INTEGER},
+      NormalEndIP = #{normalEndIP,jdbcType=INTEGER},
+      NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
+      DeviceBeatInfo = #{deviceBeatInfo,jdbcType=INTEGER},
+      CurrentRunStatus = #{currentRunStatus,jdbcType=INTEGER},
+      SpecialDetectStartTime = #{specialDetectStartTime,jdbcType=INTEGER},
+      SpecialDetectRollCode = #{specialDetectRollCode,jdbcType=INTEGER},
+      SpecialDetectRate = #{specialDetectRate,jdbcType=INTEGER},
+      LastSpecialDetectTotalTime = #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      DeviceCtrlCmd = #{deviceCtrlCmd,jdbcType=TINYINT},
+      NetWorkGroupId = #{netWorkGroupId,jdbcType=TINYINT}
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceInfo">
+    <id column="DeviceId" jdbcType="INTEGER" property="deviceId" />
+    <result column="DeviceDescribe" jdbcType="VARCHAR" property="deviceDescribe" />
+    <result column="DeviceGroupId" jdbcType="INTEGER" property="deviceGroupId" />
+    <result column="NormalStartIP" jdbcType="INTEGER" property="normalStartIP" />
+    <result column="NormalEndIP" jdbcType="INTEGER" property="normalEndIP" />
+    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normalDetectRollCode" />
+    <result column="DeviceBeatInfo" jdbcType="INTEGER" property="deviceBeatInfo" />
+    <result column="CurrentRunStatus" jdbcType="INTEGER" property="currentRunStatus" />
+    <result column="SpecialDetectStartTime" jdbcType="INTEGER" property="specialDetectStartTime" />
+    <result column="SpecialDetectRollCode" jdbcType="INTEGER" property="specialDetectRollCode" />
+    <result column="SpecialDetectRate" jdbcType="INTEGER" property="specialDetectRate" />
+    <result column="LastSpecialDetectTotalTime" jdbcType="INTEGER" property="lastSpecialDetectTotalTime" />
+    <result column="DeviceCtrlCmd" jdbcType="TINYINT" property="deviceCtrlCmd" />
+    <result column="NetWorkGroupId" jdbcType="TINYINT" property="netWorkGroupId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DeviceId, DeviceDescribe, DeviceGroupId, NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+    DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, SpecialDetectRollCode, 
+    SpecialDetectRate, LastSpecialDetectTotalTime, DeviceCtrlCmd, NetWorkGroupId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceinfo
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo (DeviceId, DeviceDescribe, DeviceGroupId, 
+      NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+      DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, 
+      SpecialDetectRollCode, SpecialDetectRate, 
+      LastSpecialDetectTotalTime, DeviceCtrlCmd, 
+      NetWorkGroupId)
+    values (#{deviceId,jdbcType=INTEGER}, #{deviceDescribe,jdbcType=VARCHAR}, #{deviceGroupId,jdbcType=INTEGER}, 
+      #{normalStartIP,jdbcType=INTEGER}, #{normalEndIP,jdbcType=INTEGER}, #{normalDetectRollCode,jdbcType=INTEGER}, 
+      #{deviceBeatInfo,jdbcType=INTEGER}, #{currentRunStatus,jdbcType=INTEGER}, #{specialDetectStartTime,jdbcType=INTEGER}, 
+      #{specialDetectRollCode,jdbcType=INTEGER}, #{specialDetectRate,jdbcType=INTEGER}, 
+      #{lastSpecialDetectTotalTime,jdbcType=INTEGER}, #{deviceCtrlCmd,jdbcType=TINYINT}, 
+      #{netWorkGroupId,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        DeviceId,
+      </if>
+      <if test="deviceDescribe != null">
+        DeviceDescribe,
+      </if>
+      <if test="deviceGroupId != null">
+        DeviceGroupId,
+      </if>
+      <if test="normalStartIP != null">
+        NormalStartIP,
+      </if>
+      <if test="normalEndIP != null">
+        NormalEndIP,
+      </if>
+      <if test="normalDetectRollCode != null">
+        NormalDetectRollCode,
+      </if>
+      <if test="deviceBeatInfo != null">
+        DeviceBeatInfo,
+      </if>
+      <if test="currentRunStatus != null">
+        CurrentRunStatus,
+      </if>
+      <if test="specialDetectStartTime != null">
+        SpecialDetectStartTime,
+      </if>
+      <if test="specialDetectRollCode != null">
+        SpecialDetectRollCode,
+      </if>
+      <if test="specialDetectRate != null">
+        SpecialDetectRate,
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        LastSpecialDetectTotalTime,
+      </if>
+      <if test="deviceCtrlCmd != null">
+        DeviceCtrlCmd,
+      </if>
+      <if test="netWorkGroupId != null">
+        NetWorkGroupId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceDescribe != null">
+        #{deviceDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceGroupId != null">
+        #{deviceGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="normalStartIP != null">
+        #{normalStartIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalEndIP != null">
+        #{normalEndIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalDetectRollCode != null">
+        #{normalDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="deviceBeatInfo != null">
+        #{deviceBeatInfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentRunStatus != null">
+        #{currentRunStatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectStartTime != null">
+        #{specialDetectStartTime,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRollCode != null">
+        #{specialDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRate != null">
+        #{specialDetectRate,jdbcType=INTEGER},
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCtrlCmd != null">
+        #{deviceCtrlCmd,jdbcType=TINYINT},
+      </if>
+      <if test="netWorkGroupId != null">
+        #{netWorkGroupId,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    <set>
+      <if test="deviceDescribe != null">
+        DeviceDescribe = #{deviceDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceGroupId != null">
+        DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="normalStartIP != null">
+        NormalStartIP = #{normalStartIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalEndIP != null">
+        NormalEndIP = #{normalEndIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalDetectRollCode != null">
+        NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="deviceBeatInfo != null">
+        DeviceBeatInfo = #{deviceBeatInfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentRunStatus != null">
+        CurrentRunStatus = #{currentRunStatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectStartTime != null">
+        SpecialDetectStartTime = #{specialDetectStartTime,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRollCode != null">
+        SpecialDetectRollCode = #{specialDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRate != null">
+        SpecialDetectRate = #{specialDetectRate,jdbcType=INTEGER},
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        LastSpecialDetectTotalTime = #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCtrlCmd != null">
+        DeviceCtrlCmd = #{deviceCtrlCmd,jdbcType=TINYINT},
+      </if>
+      <if test="netWorkGroupId != null">
+        NetWorkGroupId = #{netWorkGroupId,jdbcType=TINYINT},
+      </if>
+    </set>
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    set DeviceDescribe = #{deviceDescribe,jdbcType=VARCHAR},
+      DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER},
+      NormalStartIP = #{normalStartIP,jdbcType=INTEGER},
+      NormalEndIP = #{normalEndIP,jdbcType=INTEGER},
+      NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
+      DeviceBeatInfo = #{deviceBeatInfo,jdbcType=INTEGER},
+      CurrentRunStatus = #{currentRunStatus,jdbcType=INTEGER},
+      SpecialDetectStartTime = #{specialDetectStartTime,jdbcType=INTEGER},
+      SpecialDetectRollCode = #{specialDetectRollCode,jdbcType=INTEGER},
+      SpecialDetectRate = #{specialDetectRate,jdbcType=INTEGER},
+      LastSpecialDetectTotalTime = #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      DeviceCtrlCmd = #{deviceCtrlCmd,jdbcType=TINYINT},
+      NetWorkGroupId = #{netWorkGroupId,jdbcType=TINYINT}
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceInfo">
+    <id column="DeviceId" jdbcType="INTEGER" property="deviceId" />
+    <result column="DeviceDescribe" jdbcType="VARCHAR" property="deviceDescribe" />
+    <result column="DeviceGroupId" jdbcType="INTEGER" property="deviceGroupId" />
+    <result column="NormalStartIP" jdbcType="INTEGER" property="normalStartIP" />
+    <result column="NormalEndIP" jdbcType="INTEGER" property="normalEndIP" />
+    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normalDetectRollCode" />
+    <result column="DeviceBeatInfo" jdbcType="INTEGER" property="deviceBeatInfo" />
+    <result column="CurrentRunStatus" jdbcType="INTEGER" property="currentRunStatus" />
+    <result column="SpecialDetectStartTime" jdbcType="INTEGER" property="specialDetectStartTime" />
+    <result column="SpecialDetectRollCode" jdbcType="INTEGER" property="specialDetectRollCode" />
+    <result column="SpecialDetectRate" jdbcType="INTEGER" property="specialDetectRate" />
+    <result column="LastSpecialDetectTotalTime" jdbcType="INTEGER" property="lastSpecialDetectTotalTime" />
+    <result column="DeviceCtrlCmd" jdbcType="TINYINT" property="deviceCtrlCmd" />
+    <result column="NetWorkGroupId" jdbcType="TINYINT" property="netWorkGroupId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DeviceId, DeviceDescribe, DeviceGroupId, NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+    DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, SpecialDetectRollCode, 
+    SpecialDetectRate, LastSpecialDetectTotalTime, DeviceCtrlCmd, NetWorkGroupId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceinfo
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo (DeviceId, DeviceDescribe, DeviceGroupId, 
+      NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+      DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, 
+      SpecialDetectRollCode, SpecialDetectRate, 
+      LastSpecialDetectTotalTime, DeviceCtrlCmd, 
+      NetWorkGroupId)
+    values (#{deviceId,jdbcType=INTEGER}, #{deviceDescribe,jdbcType=VARCHAR}, #{deviceGroupId,jdbcType=INTEGER}, 
+      #{normalStartIP,jdbcType=INTEGER}, #{normalEndIP,jdbcType=INTEGER}, #{normalDetectRollCode,jdbcType=INTEGER}, 
+      #{deviceBeatInfo,jdbcType=INTEGER}, #{currentRunStatus,jdbcType=INTEGER}, #{specialDetectStartTime,jdbcType=INTEGER}, 
+      #{specialDetectRollCode,jdbcType=INTEGER}, #{specialDetectRate,jdbcType=INTEGER}, 
+      #{lastSpecialDetectTotalTime,jdbcType=INTEGER}, #{deviceCtrlCmd,jdbcType=TINYINT}, 
+      #{netWorkGroupId,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        DeviceId,
+      </if>
+      <if test="deviceDescribe != null">
+        DeviceDescribe,
+      </if>
+      <if test="deviceGroupId != null">
+        DeviceGroupId,
+      </if>
+      <if test="normalStartIP != null">
+        NormalStartIP,
+      </if>
+      <if test="normalEndIP != null">
+        NormalEndIP,
+      </if>
+      <if test="normalDetectRollCode != null">
+        NormalDetectRollCode,
+      </if>
+      <if test="deviceBeatInfo != null">
+        DeviceBeatInfo,
+      </if>
+      <if test="currentRunStatus != null">
+        CurrentRunStatus,
+      </if>
+      <if test="specialDetectStartTime != null">
+        SpecialDetectStartTime,
+      </if>
+      <if test="specialDetectRollCode != null">
+        SpecialDetectRollCode,
+      </if>
+      <if test="specialDetectRate != null">
+        SpecialDetectRate,
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        LastSpecialDetectTotalTime,
+      </if>
+      <if test="deviceCtrlCmd != null">
+        DeviceCtrlCmd,
+      </if>
+      <if test="netWorkGroupId != null">
+        NetWorkGroupId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceDescribe != null">
+        #{deviceDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceGroupId != null">
+        #{deviceGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="normalStartIP != null">
+        #{normalStartIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalEndIP != null">
+        #{normalEndIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalDetectRollCode != null">
+        #{normalDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="deviceBeatInfo != null">
+        #{deviceBeatInfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentRunStatus != null">
+        #{currentRunStatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectStartTime != null">
+        #{specialDetectStartTime,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRollCode != null">
+        #{specialDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRate != null">
+        #{specialDetectRate,jdbcType=INTEGER},
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCtrlCmd != null">
+        #{deviceCtrlCmd,jdbcType=TINYINT},
+      </if>
+      <if test="netWorkGroupId != null">
+        #{netWorkGroupId,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    <set>
+      <if test="deviceDescribe != null">
+        DeviceDescribe = #{deviceDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceGroupId != null">
+        DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="normalStartIP != null">
+        NormalStartIP = #{normalStartIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalEndIP != null">
+        NormalEndIP = #{normalEndIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalDetectRollCode != null">
+        NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="deviceBeatInfo != null">
+        DeviceBeatInfo = #{deviceBeatInfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentRunStatus != null">
+        CurrentRunStatus = #{currentRunStatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectStartTime != null">
+        SpecialDetectStartTime = #{specialDetectStartTime,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRollCode != null">
+        SpecialDetectRollCode = #{specialDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRate != null">
+        SpecialDetectRate = #{specialDetectRate,jdbcType=INTEGER},
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        LastSpecialDetectTotalTime = #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCtrlCmd != null">
+        DeviceCtrlCmd = #{deviceCtrlCmd,jdbcType=TINYINT},
+      </if>
+      <if test="netWorkGroupId != null">
+        NetWorkGroupId = #{netWorkGroupId,jdbcType=TINYINT},
+      </if>
+    </set>
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    set DeviceDescribe = #{deviceDescribe,jdbcType=VARCHAR},
+      DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER},
+      NormalStartIP = #{normalStartIP,jdbcType=INTEGER},
+      NormalEndIP = #{normalEndIP,jdbcType=INTEGER},
+      NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
+      DeviceBeatInfo = #{deviceBeatInfo,jdbcType=INTEGER},
+      CurrentRunStatus = #{currentRunStatus,jdbcType=INTEGER},
+      SpecialDetectStartTime = #{specialDetectStartTime,jdbcType=INTEGER},
+      SpecialDetectRollCode = #{specialDetectRollCode,jdbcType=INTEGER},
+      SpecialDetectRate = #{specialDetectRate,jdbcType=INTEGER},
+      LastSpecialDetectTotalTime = #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      DeviceCtrlCmd = #{deviceCtrlCmd,jdbcType=TINYINT},
+      NetWorkGroupId = #{netWorkGroupId,jdbcType=TINYINT}
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceInfo">
+    <id column="DeviceId" jdbcType="INTEGER" property="deviceId" />
+    <result column="DeviceDescribe" jdbcType="VARCHAR" property="deviceDescribe" />
+    <result column="DeviceGroupId" jdbcType="INTEGER" property="deviceGroupId" />
+    <result column="NormalStartIP" jdbcType="INTEGER" property="normalStartIP" />
+    <result column="NormalEndIP" jdbcType="INTEGER" property="normalEndIP" />
+    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normalDetectRollCode" />
+    <result column="DeviceBeatInfo" jdbcType="INTEGER" property="deviceBeatInfo" />
+    <result column="CurrentRunStatus" jdbcType="INTEGER" property="currentRunStatus" />
+    <result column="SpecialDetectStartTime" jdbcType="INTEGER" property="specialDetectStartTime" />
+    <result column="SpecialDetectRollCode" jdbcType="INTEGER" property="specialDetectRollCode" />
+    <result column="SpecialDetectRate" jdbcType="INTEGER" property="specialDetectRate" />
+    <result column="LastSpecialDetectTotalTime" jdbcType="INTEGER" property="lastSpecialDetectTotalTime" />
+    <result column="DeviceCtrlCmd" jdbcType="TINYINT" property="deviceCtrlCmd" />
+    <result column="NetWorkGroupId" jdbcType="TINYINT" property="netWorkGroupId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DeviceId, DeviceDescribe, DeviceGroupId, NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+    DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, SpecialDetectRollCode, 
+    SpecialDetectRate, LastSpecialDetectTotalTime, DeviceCtrlCmd, NetWorkGroupId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceinfo
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo (DeviceId, DeviceDescribe, DeviceGroupId, 
+      NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+      DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, 
+      SpecialDetectRollCode, SpecialDetectRate, 
+      LastSpecialDetectTotalTime, DeviceCtrlCmd, 
+      NetWorkGroupId)
+    values (#{deviceId,jdbcType=INTEGER}, #{deviceDescribe,jdbcType=VARCHAR}, #{deviceGroupId,jdbcType=INTEGER}, 
+      #{normalStartIP,jdbcType=INTEGER}, #{normalEndIP,jdbcType=INTEGER}, #{normalDetectRollCode,jdbcType=INTEGER}, 
+      #{deviceBeatInfo,jdbcType=INTEGER}, #{currentRunStatus,jdbcType=INTEGER}, #{specialDetectStartTime,jdbcType=INTEGER}, 
+      #{specialDetectRollCode,jdbcType=INTEGER}, #{specialDetectRate,jdbcType=INTEGER}, 
+      #{lastSpecialDetectTotalTime,jdbcType=INTEGER}, #{deviceCtrlCmd,jdbcType=TINYINT}, 
+      #{netWorkGroupId,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        DeviceId,
+      </if>
+      <if test="deviceDescribe != null">
+        DeviceDescribe,
+      </if>
+      <if test="deviceGroupId != null">
+        DeviceGroupId,
+      </if>
+      <if test="normalStartIP != null">
+        NormalStartIP,
+      </if>
+      <if test="normalEndIP != null">
+        NormalEndIP,
+      </if>
+      <if test="normalDetectRollCode != null">
+        NormalDetectRollCode,
+      </if>
+      <if test="deviceBeatInfo != null">
+        DeviceBeatInfo,
+      </if>
+      <if test="currentRunStatus != null">
+        CurrentRunStatus,
+      </if>
+      <if test="specialDetectStartTime != null">
+        SpecialDetectStartTime,
+      </if>
+      <if test="specialDetectRollCode != null">
+        SpecialDetectRollCode,
+      </if>
+      <if test="specialDetectRate != null">
+        SpecialDetectRate,
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        LastSpecialDetectTotalTime,
+      </if>
+      <if test="deviceCtrlCmd != null">
+        DeviceCtrlCmd,
+      </if>
+      <if test="netWorkGroupId != null">
+        NetWorkGroupId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceDescribe != null">
+        #{deviceDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceGroupId != null">
+        #{deviceGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="normalStartIP != null">
+        #{normalStartIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalEndIP != null">
+        #{normalEndIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalDetectRollCode != null">
+        #{normalDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="deviceBeatInfo != null">
+        #{deviceBeatInfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentRunStatus != null">
+        #{currentRunStatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectStartTime != null">
+        #{specialDetectStartTime,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRollCode != null">
+        #{specialDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRate != null">
+        #{specialDetectRate,jdbcType=INTEGER},
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCtrlCmd != null">
+        #{deviceCtrlCmd,jdbcType=TINYINT},
+      </if>
+      <if test="netWorkGroupId != null">
+        #{netWorkGroupId,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    <set>
+      <if test="deviceDescribe != null">
+        DeviceDescribe = #{deviceDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceGroupId != null">
+        DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="normalStartIP != null">
+        NormalStartIP = #{normalStartIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalEndIP != null">
+        NormalEndIP = #{normalEndIP,jdbcType=INTEGER},
+      </if>
+      <if test="normalDetectRollCode != null">
+        NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="deviceBeatInfo != null">
+        DeviceBeatInfo = #{deviceBeatInfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentRunStatus != null">
+        CurrentRunStatus = #{currentRunStatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectStartTime != null">
+        SpecialDetectStartTime = #{specialDetectStartTime,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRollCode != null">
+        SpecialDetectRollCode = #{specialDetectRollCode,jdbcType=INTEGER},
+      </if>
+      <if test="specialDetectRate != null">
+        SpecialDetectRate = #{specialDetectRate,jdbcType=INTEGER},
+      </if>
+      <if test="lastSpecialDetectTotalTime != null">
+        LastSpecialDetectTotalTime = #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCtrlCmd != null">
+        DeviceCtrlCmd = #{deviceCtrlCmd,jdbcType=TINYINT},
+      </if>
+      <if test="netWorkGroupId != null">
+        NetWorkGroupId = #{netWorkGroupId,jdbcType=TINYINT},
+      </if>
+    </set>
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    set DeviceDescribe = #{deviceDescribe,jdbcType=VARCHAR},
+      DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER},
+      NormalStartIP = #{normalStartIP,jdbcType=INTEGER},
+      NormalEndIP = #{normalEndIP,jdbcType=INTEGER},
+      NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
+      DeviceBeatInfo = #{deviceBeatInfo,jdbcType=INTEGER},
+      CurrentRunStatus = #{currentRunStatus,jdbcType=INTEGER},
+      SpecialDetectStartTime = #{specialDetectStartTime,jdbcType=INTEGER},
+      SpecialDetectRollCode = #{specialDetectRollCode,jdbcType=INTEGER},
+      SpecialDetectRate = #{specialDetectRate,jdbcType=INTEGER},
+      LastSpecialDetectTotalTime = #{lastSpecialDetectTotalTime,jdbcType=INTEGER},
+      DeviceCtrlCmd = #{deviceCtrlCmd,jdbcType=TINYINT},
+      NetWorkGroupId = #{netWorkGroupId,jdbcType=TINYINT}
+    where DeviceId = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceInfo">
+    <id column="DeviceId" jdbcType="INTEGER" property="deviceid" />
+    <result column="DeviceDescribe" jdbcType="VARCHAR" property="devicedescribe" />
+    <result column="DeviceGroupId" jdbcType="INTEGER" property="devicegroupid" />
+    <result column="NormalStartIP" jdbcType="INTEGER" property="normalstartip" />
+    <result column="NormalEndIP" jdbcType="INTEGER" property="normalendip" />
+    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normaldetectrollcode" />
+    <result column="DeviceBeatInfo" jdbcType="INTEGER" property="devicebeatinfo" />
+    <result column="CurrentRunStatus" jdbcType="INTEGER" property="currentrunstatus" />
+    <result column="SpecialDetectStartTime" jdbcType="INTEGER" property="specialdetectstarttime" />
+    <result column="SpecialDetectRollCode" jdbcType="INTEGER" property="specialdetectrollcode" />
+    <result column="SpecialDetectRate" jdbcType="INTEGER" property="specialdetectrate" />
+    <result column="LastSpecialDetectTotalTime" jdbcType="INTEGER" property="lastspecialdetecttotaltime" />
+    <result column="DeviceCtrlCmd" jdbcType="TINYINT" property="devicectrlcmd" />
+    <result column="NetWorkGroupId" jdbcType="TINYINT" property="networkgroupid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DeviceId, DeviceDescribe, DeviceGroupId, NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+    DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, SpecialDetectRollCode, 
+    SpecialDetectRate, LastSpecialDetectTotalTime, DeviceCtrlCmd, NetWorkGroupId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceinfo
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo (DeviceId, DeviceDescribe, DeviceGroupId, 
+      NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+      DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, 
+      SpecialDetectRollCode, SpecialDetectRate, 
+      LastSpecialDetectTotalTime, DeviceCtrlCmd, 
+      NetWorkGroupId)
+    values (#{deviceid,jdbcType=INTEGER}, #{devicedescribe,jdbcType=VARCHAR}, #{devicegroupid,jdbcType=INTEGER}, 
+      #{normalstartip,jdbcType=INTEGER}, #{normalendip,jdbcType=INTEGER}, #{normaldetectrollcode,jdbcType=INTEGER}, 
+      #{devicebeatinfo,jdbcType=INTEGER}, #{currentrunstatus,jdbcType=INTEGER}, #{specialdetectstarttime,jdbcType=INTEGER}, 
+      #{specialdetectrollcode,jdbcType=INTEGER}, #{specialdetectrate,jdbcType=INTEGER}, 
+      #{lastspecialdetecttotaltime,jdbcType=INTEGER}, #{devicectrlcmd,jdbcType=TINYINT}, 
+      #{networkgroupid,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        DeviceId,
+      </if>
+      <if test="devicedescribe != null">
+        DeviceDescribe,
+      </if>
+      <if test="devicegroupid != null">
+        DeviceGroupId,
+      </if>
+      <if test="normalstartip != null">
+        NormalStartIP,
+      </if>
+      <if test="normalendip != null">
+        NormalEndIP,
+      </if>
+      <if test="normaldetectrollcode != null">
+        NormalDetectRollCode,
+      </if>
+      <if test="devicebeatinfo != null">
+        DeviceBeatInfo,
+      </if>
+      <if test="currentrunstatus != null">
+        CurrentRunStatus,
+      </if>
+      <if test="specialdetectstarttime != null">
+        SpecialDetectStartTime,
+      </if>
+      <if test="specialdetectrollcode != null">
+        SpecialDetectRollCode,
+      </if>
+      <if test="specialdetectrate != null">
+        SpecialDetectRate,
+      </if>
+      <if test="lastspecialdetecttotaltime != null">
+        LastSpecialDetectTotalTime,
+      </if>
+      <if test="devicectrlcmd != null">
+        DeviceCtrlCmd,
+      </if>
+      <if test="networkgroupid != null">
+        NetWorkGroupId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="devicedescribe != null">
+        #{devicedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="devicegroupid != null">
+        #{devicegroupid,jdbcType=INTEGER},
+      </if>
+      <if test="normalstartip != null">
+        #{normalstartip,jdbcType=INTEGER},
+      </if>
+      <if test="normalendip != null">
+        #{normalendip,jdbcType=INTEGER},
+      </if>
+      <if test="normaldetectrollcode != null">
+        #{normaldetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="devicebeatinfo != null">
+        #{devicebeatinfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentrunstatus != null">
+        #{currentrunstatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectstarttime != null">
+        #{specialdetectstarttime,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrollcode != null">
+        #{specialdetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrate != null">
+        #{specialdetectrate,jdbcType=INTEGER},
+      </if>
+      <if test="lastspecialdetecttotaltime != null">
+        #{lastspecialdetecttotaltime,jdbcType=INTEGER},
+      </if>
+      <if test="devicectrlcmd != null">
+        #{devicectrlcmd,jdbcType=TINYINT},
+      </if>
+      <if test="networkgroupid != null">
+        #{networkgroupid,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    <set>
+      <if test="devicedescribe != null">
+        DeviceDescribe = #{devicedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="devicegroupid != null">
+        DeviceGroupId = #{devicegroupid,jdbcType=INTEGER},
+      </if>
+      <if test="normalstartip != null">
+        NormalStartIP = #{normalstartip,jdbcType=INTEGER},
+      </if>
+      <if test="normalendip != null">
+        NormalEndIP = #{normalendip,jdbcType=INTEGER},
+      </if>
+      <if test="normaldetectrollcode != null">
+        NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="devicebeatinfo != null">
+        DeviceBeatInfo = #{devicebeatinfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentrunstatus != null">
+        CurrentRunStatus = #{currentrunstatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectstarttime != null">
+        SpecialDetectStartTime = #{specialdetectstarttime,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrollcode != null">
+        SpecialDetectRollCode = #{specialdetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrate != null">
+        SpecialDetectRate = #{specialdetectrate,jdbcType=INTEGER},
+      </if>
+      <if test="lastspecialdetecttotaltime != null">
+        LastSpecialDetectTotalTime = #{lastspecialdetecttotaltime,jdbcType=INTEGER},
+      </if>
+      <if test="devicectrlcmd != null">
+        DeviceCtrlCmd = #{devicectrlcmd,jdbcType=TINYINT},
+      </if>
+      <if test="networkgroupid != null">
+        NetWorkGroupId = #{networkgroupid,jdbcType=TINYINT},
+      </if>
+    </set>
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    set DeviceDescribe = #{devicedescribe,jdbcType=VARCHAR},
+      DeviceGroupId = #{devicegroupid,jdbcType=INTEGER},
+      NormalStartIP = #{normalstartip,jdbcType=INTEGER},
+      NormalEndIP = #{normalendip,jdbcType=INTEGER},
+      NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
+      DeviceBeatInfo = #{devicebeatinfo,jdbcType=INTEGER},
+      CurrentRunStatus = #{currentrunstatus,jdbcType=INTEGER},
+      SpecialDetectStartTime = #{specialdetectstarttime,jdbcType=INTEGER},
+      SpecialDetectRollCode = #{specialdetectrollcode,jdbcType=INTEGER},
+      SpecialDetectRate = #{specialdetectrate,jdbcType=INTEGER},
+      LastSpecialDetectTotalTime = #{lastspecialdetecttotaltime,jdbcType=INTEGER},
+      DeviceCtrlCmd = #{devicectrlcmd,jdbcType=TINYINT},
+      NetWorkGroupId = #{networkgroupid,jdbcType=TINYINT}
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceInfo">
+    <id column="DeviceId" jdbcType="INTEGER" property="deviceid" />
+    <result column="DeviceDescribe" jdbcType="VARCHAR" property="devicedescribe" />
+    <result column="DeviceGroupId" jdbcType="INTEGER" property="devicegroupid" />
+    <result column="NormalStartIP" jdbcType="INTEGER" property="normalstartip" />
+    <result column="NormalEndIP" jdbcType="INTEGER" property="normalendip" />
+    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normaldetectrollcode" />
+    <result column="DeviceBeatInfo" jdbcType="INTEGER" property="devicebeatinfo" />
+    <result column="CurrentRunStatus" jdbcType="INTEGER" property="currentrunstatus" />
+    <result column="SpecialDetectStartTime" jdbcType="INTEGER" property="specialdetectstarttime" />
+    <result column="SpecialDetectRollCode" jdbcType="INTEGER" property="specialdetectrollcode" />
+    <result column="SpecialDetectRate" jdbcType="INTEGER" property="specialdetectrate" />
+    <result column="LastSpecialDetectTotalTime" jdbcType="INTEGER" property="lastspecialdetecttotaltime" />
+    <result column="DeviceCtrlCmd" jdbcType="TINYINT" property="devicectrlcmd" />
+    <result column="NetWorkGroupId" jdbcType="TINYINT" property="networkgroupid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DeviceId, DeviceDescribe, DeviceGroupId, NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+    DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, SpecialDetectRollCode, 
+    SpecialDetectRate, LastSpecialDetectTotalTime, DeviceCtrlCmd, NetWorkGroupId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceinfo
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo (DeviceId, DeviceDescribe, DeviceGroupId, 
+      NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+      DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, 
+      SpecialDetectRollCode, SpecialDetectRate, 
+      LastSpecialDetectTotalTime, DeviceCtrlCmd, 
+      NetWorkGroupId)
+    values (#{deviceid,jdbcType=INTEGER}, #{devicedescribe,jdbcType=VARCHAR}, #{devicegroupid,jdbcType=INTEGER}, 
+      #{normalstartip,jdbcType=INTEGER}, #{normalendip,jdbcType=INTEGER}, #{normaldetectrollcode,jdbcType=INTEGER}, 
+      #{devicebeatinfo,jdbcType=INTEGER}, #{currentrunstatus,jdbcType=INTEGER}, #{specialdetectstarttime,jdbcType=INTEGER}, 
+      #{specialdetectrollcode,jdbcType=INTEGER}, #{specialdetectrate,jdbcType=INTEGER}, 
+      #{lastspecialdetecttotaltime,jdbcType=INTEGER}, #{devicectrlcmd,jdbcType=TINYINT}, 
+      #{networkgroupid,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        DeviceId,
+      </if>
+      <if test="devicedescribe != null">
+        DeviceDescribe,
+      </if>
+      <if test="devicegroupid != null">
+        DeviceGroupId,
+      </if>
+      <if test="normalstartip != null">
+        NormalStartIP,
+      </if>
+      <if test="normalendip != null">
+        NormalEndIP,
+      </if>
+      <if test="normaldetectrollcode != null">
+        NormalDetectRollCode,
+      </if>
+      <if test="devicebeatinfo != null">
+        DeviceBeatInfo,
+      </if>
+      <if test="currentrunstatus != null">
+        CurrentRunStatus,
+      </if>
+      <if test="specialdetectstarttime != null">
+        SpecialDetectStartTime,
+      </if>
+      <if test="specialdetectrollcode != null">
+        SpecialDetectRollCode,
+      </if>
+      <if test="specialdetectrate != null">
+        SpecialDetectRate,
+      </if>
+      <if test="lastspecialdetecttotaltime != null">
+        LastSpecialDetectTotalTime,
+      </if>
+      <if test="devicectrlcmd != null">
+        DeviceCtrlCmd,
+      </if>
+      <if test="networkgroupid != null">
+        NetWorkGroupId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="devicedescribe != null">
+        #{devicedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="devicegroupid != null">
+        #{devicegroupid,jdbcType=INTEGER},
+      </if>
+      <if test="normalstartip != null">
+        #{normalstartip,jdbcType=INTEGER},
+      </if>
+      <if test="normalendip != null">
+        #{normalendip,jdbcType=INTEGER},
+      </if>
+      <if test="normaldetectrollcode != null">
+        #{normaldetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="devicebeatinfo != null">
+        #{devicebeatinfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentrunstatus != null">
+        #{currentrunstatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectstarttime != null">
+        #{specialdetectstarttime,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrollcode != null">
+        #{specialdetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrate != null">
+        #{specialdetectrate,jdbcType=INTEGER},
+      </if>
+      <if test="lastspecialdetecttotaltime != null">
+        #{lastspecialdetecttotaltime,jdbcType=INTEGER},
+      </if>
+      <if test="devicectrlcmd != null">
+        #{devicectrlcmd,jdbcType=TINYINT},
+      </if>
+      <if test="networkgroupid != null">
+        #{networkgroupid,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    <set>
+      <if test="devicedescribe != null">
+        DeviceDescribe = #{devicedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="devicegroupid != null">
+        DeviceGroupId = #{devicegroupid,jdbcType=INTEGER},
+      </if>
+      <if test="normalstartip != null">
+        NormalStartIP = #{normalstartip,jdbcType=INTEGER},
+      </if>
+      <if test="normalendip != null">
+        NormalEndIP = #{normalendip,jdbcType=INTEGER},
+      </if>
+      <if test="normaldetectrollcode != null">
+        NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="devicebeatinfo != null">
+        DeviceBeatInfo = #{devicebeatinfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentrunstatus != null">
+        CurrentRunStatus = #{currentrunstatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectstarttime != null">
+        SpecialDetectStartTime = #{specialdetectstarttime,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrollcode != null">
+        SpecialDetectRollCode = #{specialdetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrate != null">
+        SpecialDetectRate = #{specialdetectrate,jdbcType=INTEGER},
+      </if>
+      <if test="lastspecialdetecttotaltime != null">
+        LastSpecialDetectTotalTime = #{lastspecialdetecttotaltime,jdbcType=INTEGER},
+      </if>
+      <if test="devicectrlcmd != null">
+        DeviceCtrlCmd = #{devicectrlcmd,jdbcType=TINYINT},
+      </if>
+      <if test="networkgroupid != null">
+        NetWorkGroupId = #{networkgroupid,jdbcType=TINYINT},
+      </if>
+    </set>
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    set DeviceDescribe = #{devicedescribe,jdbcType=VARCHAR},
+      DeviceGroupId = #{devicegroupid,jdbcType=INTEGER},
+      NormalStartIP = #{normalstartip,jdbcType=INTEGER},
+      NormalEndIP = #{normalendip,jdbcType=INTEGER},
+      NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
+      DeviceBeatInfo = #{devicebeatinfo,jdbcType=INTEGER},
+      CurrentRunStatus = #{currentrunstatus,jdbcType=INTEGER},
+      SpecialDetectStartTime = #{specialdetectstarttime,jdbcType=INTEGER},
+      SpecialDetectRollCode = #{specialdetectrollcode,jdbcType=INTEGER},
+      SpecialDetectRate = #{specialdetectrate,jdbcType=INTEGER},
+      LastSpecialDetectTotalTime = #{lastspecialdetecttotaltime,jdbcType=INTEGER},
+      DeviceCtrlCmd = #{devicectrlcmd,jdbcType=TINYINT},
+      NetWorkGroupId = #{networkgroupid,jdbcType=TINYINT}
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceInfo">
+    <id column="DeviceId" jdbcType="INTEGER" property="deviceid" />
+    <result column="DeviceDescribe" jdbcType="VARCHAR" property="devicedescribe" />
+    <result column="DeviceGroupId" jdbcType="INTEGER" property="devicegroupid" />
+    <result column="NormalStartIP" jdbcType="INTEGER" property="normalstartip" />
+    <result column="NormalEndIP" jdbcType="INTEGER" property="normalendip" />
+    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normaldetectrollcode" />
+    <result column="DeviceBeatInfo" jdbcType="INTEGER" property="devicebeatinfo" />
+    <result column="CurrentRunStatus" jdbcType="INTEGER" property="currentrunstatus" />
+    <result column="SpecialDetectStartTime" jdbcType="INTEGER" property="specialdetectstarttime" />
+    <result column="SpecialDetectRollCode" jdbcType="INTEGER" property="specialdetectrollcode" />
+    <result column="SpecialDetectRate" jdbcType="INTEGER" property="specialdetectrate" />
+    <result column="LastSpecialDetectTotalTime" jdbcType="INTEGER" property="lastspecialdetecttotaltime" />
+    <result column="DeviceCtrlCmd" jdbcType="TINYINT" property="devicectrlcmd" />
+    <result column="NetWorkGroupId" jdbcType="TINYINT" property="networkgroupid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DeviceId, DeviceDescribe, DeviceGroupId, NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+    DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, SpecialDetectRollCode, 
+    SpecialDetectRate, LastSpecialDetectTotalTime, DeviceCtrlCmd, NetWorkGroupId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deviceinfo
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from deviceinfo
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo (DeviceId, DeviceDescribe, DeviceGroupId, 
+      NormalStartIP, NormalEndIP, NormalDetectRollCode, 
+      DeviceBeatInfo, CurrentRunStatus, SpecialDetectStartTime, 
+      SpecialDetectRollCode, SpecialDetectRate, 
+      LastSpecialDetectTotalTime, DeviceCtrlCmd, 
+      NetWorkGroupId)
+    values (#{deviceid,jdbcType=INTEGER}, #{devicedescribe,jdbcType=VARCHAR}, #{devicegroupid,jdbcType=INTEGER}, 
+      #{normalstartip,jdbcType=INTEGER}, #{normalendip,jdbcType=INTEGER}, #{normaldetectrollcode,jdbcType=INTEGER}, 
+      #{devicebeatinfo,jdbcType=INTEGER}, #{currentrunstatus,jdbcType=INTEGER}, #{specialdetectstarttime,jdbcType=INTEGER}, 
+      #{specialdetectrollcode,jdbcType=INTEGER}, #{specialdetectrate,jdbcType=INTEGER}, 
+      #{lastspecialdetecttotaltime,jdbcType=INTEGER}, #{devicectrlcmd,jdbcType=TINYINT}, 
+      #{networkgroupid,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceInfo">
+    insert into deviceinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        DeviceId,
+      </if>
+      <if test="devicedescribe != null">
+        DeviceDescribe,
+      </if>
+      <if test="devicegroupid != null">
+        DeviceGroupId,
+      </if>
+      <if test="normalstartip != null">
+        NormalStartIP,
+      </if>
+      <if test="normalendip != null">
+        NormalEndIP,
+      </if>
+      <if test="normaldetectrollcode != null">
+        NormalDetectRollCode,
+      </if>
+      <if test="devicebeatinfo != null">
+        DeviceBeatInfo,
+      </if>
+      <if test="currentrunstatus != null">
+        CurrentRunStatus,
+      </if>
+      <if test="specialdetectstarttime != null">
+        SpecialDetectStartTime,
+      </if>
+      <if test="specialdetectrollcode != null">
+        SpecialDetectRollCode,
+      </if>
+      <if test="specialdetectrate != null">
+        SpecialDetectRate,
+      </if>
+      <if test="lastspecialdetecttotaltime != null">
+        LastSpecialDetectTotalTime,
+      </if>
+      <if test="devicectrlcmd != null">
+        DeviceCtrlCmd,
+      </if>
+      <if test="networkgroupid != null">
+        NetWorkGroupId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=INTEGER},
+      </if>
+      <if test="devicedescribe != null">
+        #{devicedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="devicegroupid != null">
+        #{devicegroupid,jdbcType=INTEGER},
+      </if>
+      <if test="normalstartip != null">
+        #{normalstartip,jdbcType=INTEGER},
+      </if>
+      <if test="normalendip != null">
+        #{normalendip,jdbcType=INTEGER},
+      </if>
+      <if test="normaldetectrollcode != null">
+        #{normaldetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="devicebeatinfo != null">
+        #{devicebeatinfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentrunstatus != null">
+        #{currentrunstatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectstarttime != null">
+        #{specialdetectstarttime,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrollcode != null">
+        #{specialdetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrate != null">
+        #{specialdetectrate,jdbcType=INTEGER},
+      </if>
+      <if test="lastspecialdetecttotaltime != null">
+        #{lastspecialdetecttotaltime,jdbcType=INTEGER},
+      </if>
+      <if test="devicectrlcmd != null">
+        #{devicectrlcmd,jdbcType=TINYINT},
+      </if>
+      <if test="networkgroupid != null">
+        #{networkgroupid,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    <set>
+      <if test="devicedescribe != null">
+        DeviceDescribe = #{devicedescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="devicegroupid != null">
+        DeviceGroupId = #{devicegroupid,jdbcType=INTEGER},
+      </if>
+      <if test="normalstartip != null">
+        NormalStartIP = #{normalstartip,jdbcType=INTEGER},
+      </if>
+      <if test="normalendip != null">
+        NormalEndIP = #{normalendip,jdbcType=INTEGER},
+      </if>
+      <if test="normaldetectrollcode != null">
+        NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="devicebeatinfo != null">
+        DeviceBeatInfo = #{devicebeatinfo,jdbcType=INTEGER},
+      </if>
+      <if test="currentrunstatus != null">
+        CurrentRunStatus = #{currentrunstatus,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectstarttime != null">
+        SpecialDetectStartTime = #{specialdetectstarttime,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrollcode != null">
+        SpecialDetectRollCode = #{specialdetectrollcode,jdbcType=INTEGER},
+      </if>
+      <if test="specialdetectrate != null">
+        SpecialDetectRate = #{specialdetectrate,jdbcType=INTEGER},
+      </if>
+      <if test="lastspecialdetecttotaltime != null">
+        LastSpecialDetectTotalTime = #{lastspecialdetecttotaltime,jdbcType=INTEGER},
+      </if>
+      <if test="devicectrlcmd != null">
+        DeviceCtrlCmd = #{devicectrlcmd,jdbcType=TINYINT},
+      </if>
+      <if test="networkgroupid != null">
+        NetWorkGroupId = #{networkgroupid,jdbcType=TINYINT},
+      </if>
+    </set>
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceInfo">
+    update deviceinfo
+    set DeviceDescribe = #{devicedescribe,jdbcType=VARCHAR},
+      DeviceGroupId = #{devicegroupid,jdbcType=INTEGER},
+      NormalStartIP = #{normalstartip,jdbcType=INTEGER},
+      NormalEndIP = #{normalendip,jdbcType=INTEGER},
+      NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
+      DeviceBeatInfo = #{devicebeatinfo,jdbcType=INTEGER},
+      CurrentRunStatus = #{currentrunstatus,jdbcType=INTEGER},
+      SpecialDetectStartTime = #{specialdetectstarttime,jdbcType=INTEGER},
+      SpecialDetectRollCode = #{specialdetectrollcode,jdbcType=INTEGER},
+      SpecialDetectRate = #{specialdetectrate,jdbcType=INTEGER},
+      LastSpecialDetectTotalTime = #{lastspecialdetecttotaltime,jdbcType=INTEGER},
+      DeviceCtrlCmd = #{devicectrlcmd,jdbcType=TINYINT},
+      NetWorkGroupId = #{networkgroupid,jdbcType=TINYINT}
+    where DeviceId = #{deviceid,jdbcType=INTEGER}
+  </update>
+</mapper>

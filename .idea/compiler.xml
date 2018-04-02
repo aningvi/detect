@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="detect-cache" />
+        <module name="detect-dao" />
+        <module name="detect-utils" />
+        <module name="detect-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="detect" target="1.8" />
+      <module name="detect-cache" target="1.8" />
+      <module name="detect-dao" target="1.8" />
+      <module name="detect-utils" target="1.8" />
+      <module name="detect-web" target="1.8" />
+      <module name="detectcache" target="1.8" />
+      <module name="detectutils" target="1.8" />
+      <module name="utils" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.zstu.dao.IPAddrLibMapper">
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddrLib">
+    <result column="ip_start" jdbcType="VARCHAR" property="ip_start" />
+    <result column="ip_end" jdbcType="VARCHAR" property="ip_end" />
+    <result column="ip_start_num" jdbcType="BIGINT" property="ip_start_num" />
+    <result column="ip_end_num" jdbcType="BIGINT" property="ip_end_num" />
+    <result column="continent" jdbcType="VARCHAR" property="continent" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="isp" jdbcType="VARCHAR" property="isp" />
+    <result column="area_code" jdbcType="VARCHAR" property="area_code" />
+    <result column="country_english" jdbcType="VARCHAR" property="country_english" />
+    <result column="country_code" jdbcType="VARCHAR" property="country_code" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+  </resultMap>
+  <insert id="insert" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib (ip_start, ip_end, ip_start_num, 
+      ip_end_num, continent, country, 
+      province, city, district, 
+      isp, area_code, country_english, 
+      country_code, longitude, latitude
+      )
+    values (#{ip_start,jdbcType=VARCHAR}, #{ip_end,jdbcType=VARCHAR}, #{ip_start_num,jdbcType=BIGINT}, 
+      #{ip_end_num,jdbcType=BIGINT}, #{continent,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{isp,jdbcType=VARCHAR}, #{area_code,jdbcType=VARCHAR}, #{country_english,jdbcType=VARCHAR}, 
+      #{country_code,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ip_start != null">
+        ip_start,
+      </if>
+      <if test="ip_end != null">
+        ip_end,
+      </if>
+      <if test="ip_start_num != null">
+        ip_start_num,
+      </if>
+      <if test="ip_end_num != null">
+        ip_end_num,
+      </if>
+      <if test="continent != null">
+        continent,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="district != null">
+        district,
+      </if>
+      <if test="isp != null">
+        isp,
+      </if>
+      <if test="area_code != null">
+        area_code,
+      </if>
+      <if test="country_english != null">
+        country_english,
+      </if>
+      <if test="country_code != null">
+        country_code,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ip_start != null">
+        #{ip_start,jdbcType=VARCHAR},
+      </if>
+      <if test="ip_end != null">
+        #{ip_end,jdbcType=VARCHAR},
+      </if>
+      <if test="ip_start_num != null">
+        #{ip_start_num,jdbcType=BIGINT},
+      </if>
+      <if test="ip_end_num != null">
+        #{ip_end_num,jdbcType=BIGINT},
+      </if>
+      <if test="continent != null">
+        #{continent,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="isp != null">
+        #{isp,jdbcType=VARCHAR},
+      </if>
+      <if test="area_code != null">
+        #{area_code,jdbcType=VARCHAR},
+      </if>
+      <if test="country_english != null">
+        #{country_english,jdbcType=VARCHAR},
+      </if>
+      <if test="country_code != null">
+        #{country_code,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddrLib">
+    <result column="ip_start" jdbcType="VARCHAR" property="ip_start" />
+    <result column="ip_end" jdbcType="VARCHAR" property="ip_end" />
+    <result column="ip_start_num" jdbcType="BIGINT" property="ip_start_num" />
+    <result column="ip_end_num" jdbcType="BIGINT" property="ip_end_num" />
+    <result column="continent" jdbcType="VARCHAR" property="continent" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="isp" jdbcType="VARCHAR" property="isp" />
+    <result column="area_code" jdbcType="VARCHAR" property="area_code" />
+    <result column="country_english" jdbcType="VARCHAR" property="country_english" />
+    <result column="country_code" jdbcType="VARCHAR" property="country_code" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+  </resultMap>
+  <insert id="insert" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib (ip_start, ip_end, ip_start_num, 
+      ip_end_num, continent, country, 
+      province, city, district, 
+      isp, area_code, country_english, 
+      country_code, longitude, latitude
+      )
+    values (#{ip_start,jdbcType=VARCHAR}, #{ip_end,jdbcType=VARCHAR}, #{ip_start_num,jdbcType=BIGINT}, 
+      #{ip_end_num,jdbcType=BIGINT}, #{continent,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{isp,jdbcType=VARCHAR}, #{area_code,jdbcType=VARCHAR}, #{country_english,jdbcType=VARCHAR}, 
+      #{country_code,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ip_start != null">
+        ip_start,
+      </if>
+      <if test="ip_end != null">
+        ip_end,
+      </if>
+      <if test="ip_start_num != null">
+        ip_start_num,
+      </if>
+      <if test="ip_end_num != null">
+        ip_end_num,
+      </if>
+      <if test="continent != null">
+        continent,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="district != null">
+        district,
+      </if>
+      <if test="isp != null">
+        isp,
+      </if>
+      <if test="area_code != null">
+        area_code,
+      </if>
+      <if test="country_english != null">
+        country_english,
+      </if>
+      <if test="country_code != null">
+        country_code,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ip_start != null">
+        #{ip_start,jdbcType=VARCHAR},
+      </if>
+      <if test="ip_end != null">
+        #{ip_end,jdbcType=VARCHAR},
+      </if>
+      <if test="ip_start_num != null">
+        #{ip_start_num,jdbcType=BIGINT},
+      </if>
+      <if test="ip_end_num != null">
+        #{ip_end_num,jdbcType=BIGINT},
+      </if>
+      <if test="continent != null">
+        #{continent,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="isp != null">
+        #{isp,jdbcType=VARCHAR},
+      </if>
+      <if test="area_code != null">
+        #{area_code,jdbcType=VARCHAR},
+      </if>
+      <if test="country_english != null">
+        #{country_english,jdbcType=VARCHAR},
+      </if>
+      <if test="country_code != null">
+        #{country_code,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddrLib">
+    <result column="ip_start" jdbcType="VARCHAR" property="ip_start" />
+    <result column="ip_end" jdbcType="VARCHAR" property="ip_end" />
+    <result column="ip_start_num" jdbcType="BIGINT" property="ip_start_num" />
+    <result column="ip_end_num" jdbcType="BIGINT" property="ip_end_num" />
+    <result column="continent" jdbcType="VARCHAR" property="continent" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="isp" jdbcType="VARCHAR" property="isp" />
+    <result column="area_code" jdbcType="VARCHAR" property="area_code" />
+    <result column="country_english" jdbcType="VARCHAR" property="country_english" />
+    <result column="country_code" jdbcType="VARCHAR" property="country_code" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+  </resultMap>
+  <insert id="insert" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib (ip_start, ip_end, ip_start_num, 
+      ip_end_num, continent, country, 
+      province, city, district, 
+      isp, area_code, country_english, 
+      country_code, longitude, latitude
+      )
+    values (#{ip_start,jdbcType=VARCHAR}, #{ip_end,jdbcType=VARCHAR}, #{ip_start_num,jdbcType=BIGINT}, 
+      #{ip_end_num,jdbcType=BIGINT}, #{continent,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{isp,jdbcType=VARCHAR}, #{area_code,jdbcType=VARCHAR}, #{country_english,jdbcType=VARCHAR}, 
+      #{country_code,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ip_start != null">
+        ip_start,
+      </if>
+      <if test="ip_end != null">
+        ip_end,
+      </if>
+      <if test="ip_start_num != null">
+        ip_start_num,
+      </if>
+      <if test="ip_end_num != null">
+        ip_end_num,
+      </if>
+      <if test="continent != null">
+        continent,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="district != null">
+        district,
+      </if>
+      <if test="isp != null">
+        isp,
+      </if>
+      <if test="area_code != null">
+        area_code,
+      </if>
+      <if test="country_english != null">
+        country_english,
+      </if>
+      <if test="country_code != null">
+        country_code,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ip_start != null">
+        #{ip_start,jdbcType=VARCHAR},
+      </if>
+      <if test="ip_end != null">
+        #{ip_end,jdbcType=VARCHAR},
+      </if>
+      <if test="ip_start_num != null">
+        #{ip_start_num,jdbcType=BIGINT},
+      </if>
+      <if test="ip_end_num != null">
+        #{ip_end_num,jdbcType=BIGINT},
+      </if>
+      <if test="continent != null">
+        #{continent,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="isp != null">
+        #{isp,jdbcType=VARCHAR},
+      </if>
+      <if test="area_code != null">
+        #{area_code,jdbcType=VARCHAR},
+      </if>
+      <if test="country_english != null">
+        #{country_english,jdbcType=VARCHAR},
+      </if>
+      <if test="country_code != null">
+        #{country_code,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddrLib">
+    <result column="ip_start" jdbcType="VARCHAR" property="ip_start" />
+    <result column="ip_end" jdbcType="VARCHAR" property="ip_end" />
+    <result column="ip_start_num" jdbcType="BIGINT" property="ip_start_num" />
+    <result column="ip_end_num" jdbcType="BIGINT" property="ip_end_num" />
+    <result column="continent" jdbcType="VARCHAR" property="continent" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="isp" jdbcType="VARCHAR" property="isp" />
+    <result column="area_code" jdbcType="VARCHAR" property="area_code" />
+    <result column="country_english" jdbcType="VARCHAR" property="country_english" />
+    <result column="country_code" jdbcType="VARCHAR" property="country_code" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+  </resultMap>
+  <insert id="insert" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib (ip_start, ip_end, ip_start_num, 
+      ip_end_num, continent, country, 
+      province, city, district, 
+      isp, area_code, country_english, 
+      country_code, longitude, latitude
+      )
+    values (#{ip_start,jdbcType=VARCHAR}, #{ip_end,jdbcType=VARCHAR}, #{ip_start_num,jdbcType=BIGINT}, 
+      #{ip_end_num,jdbcType=BIGINT}, #{continent,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{isp,jdbcType=VARCHAR}, #{area_code,jdbcType=VARCHAR}, #{country_english,jdbcType=VARCHAR}, 
+      #{country_code,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ip_start != null">
+        ip_start,
+      </if>
+      <if test="ip_end != null">
+        ip_end,
+      </if>
+      <if test="ip_start_num != null">
+        ip_start_num,
+      </if>
+      <if test="ip_end_num != null">
+        ip_end_num,
+      </if>
+      <if test="continent != null">
+        continent,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="district != null">
+        district,
+      </if>
+      <if test="isp != null">
+        isp,
+      </if>
+      <if test="area_code != null">
+        area_code,
+      </if>
+      <if test="country_english != null">
+        country_english,
+      </if>
+      <if test="country_code != null">
+        country_code,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ip_start != null">
+        #{ip_start,jdbcType=VARCHAR},
+      </if>
+      <if test="ip_end != null">
+        #{ip_end,jdbcType=VARCHAR},
+      </if>
+      <if test="ip_start_num != null">
+        #{ip_start_num,jdbcType=BIGINT},
+      </if>
+      <if test="ip_end_num != null">
+        #{ip_end_num,jdbcType=BIGINT},
+      </if>
+      <if test="continent != null">
+        #{continent,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="isp != null">
+        #{isp,jdbcType=VARCHAR},
+      </if>
+      <if test="area_code != null">
+        #{area_code,jdbcType=VARCHAR},
+      </if>
+      <if test="country_english != null">
+        #{country_english,jdbcType=VARCHAR},
+      </if>
+      <if test="country_code != null">
+        #{country_code,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddrLib">
+    <result column="ip_start" jdbcType="VARCHAR" property="ipStart" />
+    <result column="ip_end" jdbcType="VARCHAR" property="ipEnd" />
+    <result column="ip_start_num" jdbcType="BIGINT" property="ipStartNum" />
+    <result column="ip_end_num" jdbcType="BIGINT" property="ipEndNum" />
+    <result column="continent" jdbcType="VARCHAR" property="continent" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="isp" jdbcType="VARCHAR" property="isp" />
+    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="country_english" jdbcType="VARCHAR" property="countryEnglish" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+  </resultMap>
+  <insert id="insert" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib (ip_start, ip_end, ip_start_num, 
+      ip_end_num, continent, country, 
+      province, city, district, 
+      isp, area_code, country_english, 
+      country_code, longitude, latitude
+      )
+    values (#{ipStart,jdbcType=VARCHAR}, #{ipEnd,jdbcType=VARCHAR}, #{ipStartNum,jdbcType=BIGINT}, 
+      #{ipEndNum,jdbcType=BIGINT}, #{continent,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{isp,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, #{countryEnglish,jdbcType=VARCHAR}, 
+      #{countryCode,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ipStart != null">
+        ip_start,
+      </if>
+      <if test="ipEnd != null">
+        ip_end,
+      </if>
+      <if test="ipStartNum != null">
+        ip_start_num,
+      </if>
+      <if test="ipEndNum != null">
+        ip_end_num,
+      </if>
+      <if test="continent != null">
+        continent,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="district != null">
+        district,
+      </if>
+      <if test="isp != null">
+        isp,
+      </if>
+      <if test="areaCode != null">
+        area_code,
+      </if>
+      <if test="countryEnglish != null">
+        country_english,
+      </if>
+      <if test="countryCode != null">
+        country_code,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ipStart != null">
+        #{ipStart,jdbcType=VARCHAR},
+      </if>
+      <if test="ipEnd != null">
+        #{ipEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="ipStartNum != null">
+        #{ipStartNum,jdbcType=BIGINT},
+      </if>
+      <if test="ipEndNum != null">
+        #{ipEndNum,jdbcType=BIGINT},
+      </if>
+      <if test="continent != null">
+        #{continent,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="isp != null">
+        #{isp,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="countryEnglish != null">
+        #{countryEnglish,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCode != null">
+        #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddrLib">
+    <result column="ip_start" jdbcType="VARCHAR" property="ipStart" />
+    <result column="ip_end" jdbcType="VARCHAR" property="ipEnd" />
+    <result column="ip_start_num" jdbcType="BIGINT" property="ipStartNum" />
+    <result column="ip_end_num" jdbcType="BIGINT" property="ipEndNum" />
+    <result column="continent" jdbcType="VARCHAR" property="continent" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="isp" jdbcType="VARCHAR" property="isp" />
+    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="country_english" jdbcType="VARCHAR" property="countryEnglish" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+  </resultMap>
+  <insert id="insert" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib (ip_start, ip_end, ip_start_num, 
+      ip_end_num, continent, country, 
+      province, city, district, 
+      isp, area_code, country_english, 
+      country_code, longitude, latitude
+      )
+    values (#{ipStart,jdbcType=VARCHAR}, #{ipEnd,jdbcType=VARCHAR}, #{ipStartNum,jdbcType=BIGINT}, 
+      #{ipEndNum,jdbcType=BIGINT}, #{continent,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{isp,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, #{countryEnglish,jdbcType=VARCHAR}, 
+      #{countryCode,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ipStart != null">
+        ip_start,
+      </if>
+      <if test="ipEnd != null">
+        ip_end,
+      </if>
+      <if test="ipStartNum != null">
+        ip_start_num,
+      </if>
+      <if test="ipEndNum != null">
+        ip_end_num,
+      </if>
+      <if test="continent != null">
+        continent,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="district != null">
+        district,
+      </if>
+      <if test="isp != null">
+        isp,
+      </if>
+      <if test="areaCode != null">
+        area_code,
+      </if>
+      <if test="countryEnglish != null">
+        country_english,
+      </if>
+      <if test="countryCode != null">
+        country_code,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ipStart != null">
+        #{ipStart,jdbcType=VARCHAR},
+      </if>
+      <if test="ipEnd != null">
+        #{ipEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="ipStartNum != null">
+        #{ipStartNum,jdbcType=BIGINT},
+      </if>
+      <if test="ipEndNum != null">
+        #{ipEndNum,jdbcType=BIGINT},
+      </if>
+      <if test="continent != null">
+        #{continent,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="isp != null">
+        #{isp,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="countryEnglish != null">
+        #{countryEnglish,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCode != null">
+        #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddrLib">
+    <result column="ip_start" jdbcType="VARCHAR" property="ipStart" />
+    <result column="ip_end" jdbcType="VARCHAR" property="ipEnd" />
+    <result column="ip_start_num" jdbcType="BIGINT" property="ipStartNum" />
+    <result column="ip_end_num" jdbcType="BIGINT" property="ipEndNum" />
+    <result column="continent" jdbcType="VARCHAR" property="continent" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="isp" jdbcType="VARCHAR" property="isp" />
+    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="country_english" jdbcType="VARCHAR" property="countryEnglish" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+  </resultMap>
+  <insert id="insert" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib (ip_start, ip_end, ip_start_num, 
+      ip_end_num, continent, country, 
+      province, city, district, 
+      isp, area_code, country_english, 
+      country_code, longitude, latitude
+      )
+    values (#{ipStart,jdbcType=VARCHAR}, #{ipEnd,jdbcType=VARCHAR}, #{ipStartNum,jdbcType=BIGINT}, 
+      #{ipEndNum,jdbcType=BIGINT}, #{continent,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{isp,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, #{countryEnglish,jdbcType=VARCHAR}, 
+      #{countryCode,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddrLib">
+    insert into ipaddrlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ipStart != null">
+        ip_start,
+      </if>
+      <if test="ipEnd != null">
+        ip_end,
+      </if>
+      <if test="ipStartNum != null">
+        ip_start_num,
+      </if>
+      <if test="ipEndNum != null">
+        ip_end_num,
+      </if>
+      <if test="continent != null">
+        continent,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="district != null">
+        district,
+      </if>
+      <if test="isp != null">
+        isp,
+      </if>
+      <if test="areaCode != null">
+        area_code,
+      </if>
+      <if test="countryEnglish != null">
+        country_english,
+      </if>
+      <if test="countryCode != null">
+        country_code,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ipStart != null">
+        #{ipStart,jdbcType=VARCHAR},
+      </if>
+      <if test="ipEnd != null">
+        #{ipEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="ipStartNum != null">
+        #{ipStartNum,jdbcType=BIGINT},
+      </if>
+      <if test="ipEndNum != null">
+        #{ipEndNum,jdbcType=BIGINT},
+      </if>
+      <if test="continent != null">
+        #{continent,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="isp != null">
+        #{isp,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="countryEnglish != null">
+        #{countryEnglish,jdbcType=VARCHAR},
+      </if>
+      <if test="countryCode != null">
+        #{countryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
