@@ -1,37 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.zstu.dao.DetectTaskInfoMapper">
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectTaskInfo">
-    <id column="DetectTaskId" jdbcType="INTEGER" property="detectTaskId" />
-    <result column="DetectTaskDescribe" jdbcType="VARCHAR" property="detectTaskDescribe" />
-    <result column="DetectTaskDomain" jdbcType="VARCHAR" property="detectTaskDomain" />
-    <result column="DetectStartIP" jdbcType="INTEGER" property="detectStartIP" />
-    <result column="DetectEndIP" jdbcType="INTEGER" property="detectEndIP" />
-    <result column="DetectIPTotalNum" jdbcType="INTEGER" property="detectIPTotalNum" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectTaskType" jdbcType="TINYINT" property="detectTaskType" />
-    <result column="DetectIsValid" jdbcType="TINYINT" property="detectIsValid" />
-    <result column="DetectFileName" jdbcType="CHAR" property="detectFileName" />
-    <result column="DetectIntervalTime" jdbcType="INTEGER" property="detectIntervalTime" />
-    <result column="DetectAppProtocal" jdbcType="INTEGER" property="detectAppProtocal" />
-    <result column="DetectFileNameDescribe" jdbcType="VARCHAR" property="detectFileNameDescribe" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zstu.dao.DetectTaskInfoMapper" >
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectTaskInfo" >
+    <id column="DetectTaskId" property="detectTaskId" jdbcType="INTEGER" />
+    <result column="DetectTaskDescribe" property="detectTaskDescribe" jdbcType="VARCHAR" />
+    <result column="DetectTaskDomain" property="detectTaskDomain" jdbcType="VARCHAR" />
+    <result column="DetectStartIP" property="detectStartIP" jdbcType="INTEGER" />
+    <result column="DetectEndIP" property="detectEndIP" jdbcType="INTEGER" />
+    <result column="DetectIPTotalNum" property="detectIPTotalNum" jdbcType="INTEGER" />
+    <result column="DetectPortId" property="detectPortId" jdbcType="INTEGER" />
+    <result column="DetectTaskType" property="detectTaskType" jdbcType="TINYINT" />
+    <result column="DetectIsValid" property="detectIsValid" jdbcType="TINYINT" />
+    <result column="DetectFileName" property="detectFileName" jdbcType="CHAR" />
+    <result column="DetectIntervalTime" property="detectIntervalTime" jdbcType="INTEGER" />
+    <result column="DetectAppProtocal" property="detectAppProtocal" jdbcType="INTEGER" />
+    <result column="DetectFileNameDescribe" property="detectFileNameDescribe" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     DetectTaskId, DetectTaskDescribe, DetectTaskDomain, DetectStartIP, DetectEndIP, DetectIPTotalNum, 
     DetectPortId, DetectTaskType, DetectIsValid, DetectFileName, DetectIntervalTime, 
     DetectAppProtocal, DetectFileNameDescribe
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from detecttaskinfo
     where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from detecttaskinfo
     where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectTaskInfo">
+  <insert id="insert" parameterType="edu.zstu.domain.DetectTaskInfo" >
     insert into detecttaskinfo (DetectTaskId, DetectTaskDescribe, 
       DetectTaskDomain, DetectStartIP, DetectEndIP, 
       DetectIPTotalNum, DetectPortId, DetectTaskType, 
@@ -45,134 +45,134 @@
       #{detectAppProtocal,jdbcType=INTEGER}, #{detectFileNameDescribe,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectTaskInfo">
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectTaskInfo" >
     insert into detecttaskinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detectTaskId != null" >
         DetectTaskId,
       </if>
-      <if test="detectTaskDescribe != null">
+      <if test="detectTaskDescribe != null" >
         DetectTaskDescribe,
       </if>
-      <if test="detectTaskDomain != null">
+      <if test="detectTaskDomain != null" >
         DetectTaskDomain,
       </if>
-      <if test="detectStartIP != null">
+      <if test="detectStartIP != null" >
         DetectStartIP,
       </if>
-      <if test="detectEndIP != null">
+      <if test="detectEndIP != null" >
         DetectEndIP,
       </if>
-      <if test="detectIPTotalNum != null">
+      <if test="detectIPTotalNum != null" >
         DetectIPTotalNum,
       </if>
-      <if test="detectPortId != null">
+      <if test="detectPortId != null" >
         DetectPortId,
       </if>
-      <if test="detectTaskType != null">
+      <if test="detectTaskType != null" >
         DetectTaskType,
       </if>
-      <if test="detectIsValid != null">
+      <if test="detectIsValid != null" >
         DetectIsValid,
       </if>
-      <if test="detectFileName != null">
+      <if test="detectFileName != null" >
         DetectFileName,
       </if>
-      <if test="detectIntervalTime != null">
+      <if test="detectIntervalTime != null" >
         DetectIntervalTime,
       </if>
-      <if test="detectAppProtocal != null">
+      <if test="detectAppProtocal != null" >
         DetectAppProtocal,
       </if>
-      <if test="detectFileNameDescribe != null">
+      <if test="detectFileNameDescribe != null" >
         DetectFileNameDescribe,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detectTaskId != null" >
         #{detectTaskId,jdbcType=INTEGER},
       </if>
-      <if test="detectTaskDescribe != null">
+      <if test="detectTaskDescribe != null" >
         #{detectTaskDescribe,jdbcType=VARCHAR},
       </if>
-      <if test="detectTaskDomain != null">
+      <if test="detectTaskDomain != null" >
         #{detectTaskDomain,jdbcType=VARCHAR},
       </if>
-      <if test="detectStartIP != null">
+      <if test="detectStartIP != null" >
         #{detectStartIP,jdbcType=INTEGER},
       </if>
-      <if test="detectEndIP != null">
+      <if test="detectEndIP != null" >
         #{detectEndIP,jdbcType=INTEGER},
       </if>
-      <if test="detectIPTotalNum != null">
+      <if test="detectIPTotalNum != null" >
         #{detectIPTotalNum,jdbcType=INTEGER},
       </if>
-      <if test="detectPortId != null">
+      <if test="detectPortId != null" >
         #{detectPortId,jdbcType=INTEGER},
       </if>
-      <if test="detectTaskType != null">
+      <if test="detectTaskType != null" >
         #{detectTaskType,jdbcType=TINYINT},
       </if>
-      <if test="detectIsValid != null">
+      <if test="detectIsValid != null" >
         #{detectIsValid,jdbcType=TINYINT},
       </if>
-      <if test="detectFileName != null">
+      <if test="detectFileName != null" >
         #{detectFileName,jdbcType=CHAR},
       </if>
-      <if test="detectIntervalTime != null">
+      <if test="detectIntervalTime != null" >
         #{detectIntervalTime,jdbcType=INTEGER},
       </if>
-      <if test="detectAppProtocal != null">
+      <if test="detectAppProtocal != null" >
         #{detectAppProtocal,jdbcType=INTEGER},
       </if>
-      <if test="detectFileNameDescribe != null">
+      <if test="detectFileNameDescribe != null" >
         #{detectFileNameDescribe,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectTaskInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectTaskInfo" >
     update detecttaskinfo
-    <set>
-      <if test="detectTaskDescribe != null">
+    <set >
+      <if test="detectTaskDescribe != null" >
         DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
       </if>
-      <if test="detectTaskDomain != null">
+      <if test="detectTaskDomain != null" >
         DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
       </if>
-      <if test="detectStartIP != null">
+      <if test="detectStartIP != null" >
         DetectStartIP = #{detectStartIP,jdbcType=INTEGER},
       </if>
-      <if test="detectEndIP != null">
+      <if test="detectEndIP != null" >
         DetectEndIP = #{detectEndIP,jdbcType=INTEGER},
       </if>
-      <if test="detectIPTotalNum != null">
+      <if test="detectIPTotalNum != null" >
         DetectIPTotalNum = #{detectIPTotalNum,jdbcType=INTEGER},
       </if>
-      <if test="detectPortId != null">
+      <if test="detectPortId != null" >
         DetectPortId = #{detectPortId,jdbcType=INTEGER},
       </if>
-      <if test="detectTaskType != null">
+      <if test="detectTaskType != null" >
         DetectTaskType = #{detectTaskType,jdbcType=TINYINT},
       </if>
-      <if test="detectIsValid != null">
+      <if test="detectIsValid != null" >
         DetectIsValid = #{detectIsValid,jdbcType=TINYINT},
       </if>
-      <if test="detectFileName != null">
+      <if test="detectFileName != null" >
         DetectFileName = #{detectFileName,jdbcType=CHAR},
       </if>
-      <if test="detectIntervalTime != null">
+      <if test="detectIntervalTime != null" >
         DetectIntervalTime = #{detectIntervalTime,jdbcType=INTEGER},
       </if>
-      <if test="detectAppProtocal != null">
+      <if test="detectAppProtocal != null" >
         DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
       </if>
-      <if test="detectFileNameDescribe != null">
+      <if test="detectFileNameDescribe != null" >
         DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR},
       </if>
     </set>
     where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectTaskInfo">
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectTaskInfo" >
     update detecttaskinfo
     set DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
       DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
@@ -187,1127 +187,5 @@
       DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
       DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR}
     where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectTaskInfo">
-    <id column="DetectTaskId" jdbcType="INTEGER" property="detectTaskId" />
-    <result column="DetectTaskDescribe" jdbcType="VARCHAR" property="detectTaskDescribe" />
-    <result column="DetectTaskDomain" jdbcType="VARCHAR" property="detectTaskDomain" />
-    <result column="DetectStartIP" jdbcType="INTEGER" property="detectStartIP" />
-    <result column="DetectEndIP" jdbcType="INTEGER" property="detectEndIP" />
-    <result column="DetectIPTotalNum" jdbcType="INTEGER" property="detectIPTotalNum" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectTaskType" jdbcType="TINYINT" property="detectTaskType" />
-    <result column="DetectIsValid" jdbcType="TINYINT" property="detectIsValid" />
-    <result column="DetectFileName" jdbcType="CHAR" property="detectFileName" />
-    <result column="DetectIntervalTime" jdbcType="INTEGER" property="detectIntervalTime" />
-    <result column="DetectAppProtocal" jdbcType="INTEGER" property="detectAppProtocal" />
-    <result column="DetectFileNameDescribe" jdbcType="VARCHAR" property="detectFileNameDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectTaskId, DetectTaskDescribe, DetectTaskDomain, DetectStartIP, DetectEndIP, DetectIPTotalNum, 
-    DetectPortId, DetectTaskType, DetectIsValid, DetectFileName, DetectIntervalTime, 
-    DetectAppProtocal, DetectFileNameDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detecttaskinfo
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detecttaskinfo
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo (DetectTaskId, DetectTaskDescribe, 
-      DetectTaskDomain, DetectStartIP, DetectEndIP, 
-      DetectIPTotalNum, DetectPortId, DetectTaskType, 
-      DetectIsValid, DetectFileName, DetectIntervalTime, 
-      DetectAppProtocal, DetectFileNameDescribe
-      )
-    values (#{detectTaskId,jdbcType=INTEGER}, #{detectTaskDescribe,jdbcType=VARCHAR}, 
-      #{detectTaskDomain,jdbcType=VARCHAR}, #{detectStartIP,jdbcType=INTEGER}, #{detectEndIP,jdbcType=INTEGER}, 
-      #{detectIPTotalNum,jdbcType=INTEGER}, #{detectPortId,jdbcType=INTEGER}, #{detectTaskType,jdbcType=TINYINT}, 
-      #{detectIsValid,jdbcType=TINYINT}, #{detectFileName,jdbcType=CHAR}, #{detectIntervalTime,jdbcType=INTEGER}, 
-      #{detectAppProtocal,jdbcType=INTEGER}, #{detectFileNameDescribe,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
-        DetectTaskId,
-      </if>
-      <if test="detectTaskDescribe != null">
-        DetectTaskDescribe,
-      </if>
-      <if test="detectTaskDomain != null">
-        DetectTaskDomain,
-      </if>
-      <if test="detectStartIP != null">
-        DetectStartIP,
-      </if>
-      <if test="detectEndIP != null">
-        DetectEndIP,
-      </if>
-      <if test="detectIPTotalNum != null">
-        DetectIPTotalNum,
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="detectTaskType != null">
-        DetectTaskType,
-      </if>
-      <if test="detectIsValid != null">
-        DetectIsValid,
-      </if>
-      <if test="detectFileName != null">
-        DetectFileName,
-      </if>
-      <if test="detectIntervalTime != null">
-        DetectIntervalTime,
-      </if>
-      <if test="detectAppProtocal != null">
-        DetectAppProtocal,
-      </if>
-      <if test="detectFileNameDescribe != null">
-        DetectFileNameDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
-        #{detectTaskId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskDescribe != null">
-        #{detectTaskDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectTaskDomain != null">
-        #{detectTaskDomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectStartIP != null">
-        #{detectStartIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectEndIP != null">
-        #{detectEndIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectIPTotalNum != null">
-        #{detectIPTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskType != null">
-        #{detectTaskType,jdbcType=TINYINT},
-      </if>
-      <if test="detectIsValid != null">
-        #{detectIsValid,jdbcType=TINYINT},
-      </if>
-      <if test="detectFileName != null">
-        #{detectFileName,jdbcType=CHAR},
-      </if>
-      <if test="detectIntervalTime != null">
-        #{detectIntervalTime,jdbcType=INTEGER},
-      </if>
-      <if test="detectAppProtocal != null">
-        #{detectAppProtocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectFileNameDescribe != null">
-        #{detectFileNameDescribe,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    <set>
-      <if test="detectTaskDescribe != null">
-        DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectTaskDomain != null">
-        DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectStartIP != null">
-        DetectStartIP = #{detectStartIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectEndIP != null">
-        DetectEndIP = #{detectEndIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectIPTotalNum != null">
-        DetectIPTotalNum = #{detectIPTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskType != null">
-        DetectTaskType = #{detectTaskType,jdbcType=TINYINT},
-      </if>
-      <if test="detectIsValid != null">
-        DetectIsValid = #{detectIsValid,jdbcType=TINYINT},
-      </if>
-      <if test="detectFileName != null">
-        DetectFileName = #{detectFileName,jdbcType=CHAR},
-      </if>
-      <if test="detectIntervalTime != null">
-        DetectIntervalTime = #{detectIntervalTime,jdbcType=INTEGER},
-      </if>
-      <if test="detectAppProtocal != null">
-        DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectFileNameDescribe != null">
-        DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    set DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
-      DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
-      DetectStartIP = #{detectStartIP,jdbcType=INTEGER},
-      DetectEndIP = #{detectEndIP,jdbcType=INTEGER},
-      DetectIPTotalNum = #{detectIPTotalNum,jdbcType=INTEGER},
-      DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      DetectTaskType = #{detectTaskType,jdbcType=TINYINT},
-      DetectIsValid = #{detectIsValid,jdbcType=TINYINT},
-      DetectFileName = #{detectFileName,jdbcType=CHAR},
-      DetectIntervalTime = #{detectIntervalTime,jdbcType=INTEGER},
-      DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
-      DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR}
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectTaskInfo">
-    <id column="DetectTaskId" jdbcType="INTEGER" property="detectTaskId" />
-    <result column="DetectTaskDescribe" jdbcType="VARCHAR" property="detectTaskDescribe" />
-    <result column="DetectTaskDomain" jdbcType="VARCHAR" property="detectTaskDomain" />
-    <result column="DetectStartIP" jdbcType="INTEGER" property="detectStartIP" />
-    <result column="DetectEndIP" jdbcType="INTEGER" property="detectEndIP" />
-    <result column="DetectIPTotalNum" jdbcType="INTEGER" property="detectIPTotalNum" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectTaskType" jdbcType="TINYINT" property="detectTaskType" />
-    <result column="DetectIsValid" jdbcType="TINYINT" property="detectIsValid" />
-    <result column="DetectFileName" jdbcType="CHAR" property="detectFileName" />
-    <result column="DetectIntervalTime" jdbcType="INTEGER" property="detectIntervalTime" />
-    <result column="DetectAppProtocal" jdbcType="INTEGER" property="detectAppProtocal" />
-    <result column="DetectFileNameDescribe" jdbcType="VARCHAR" property="detectFileNameDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectTaskId, DetectTaskDescribe, DetectTaskDomain, DetectStartIP, DetectEndIP, DetectIPTotalNum, 
-    DetectPortId, DetectTaskType, DetectIsValid, DetectFileName, DetectIntervalTime, 
-    DetectAppProtocal, DetectFileNameDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detecttaskinfo
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detecttaskinfo
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo (DetectTaskId, DetectTaskDescribe, 
-      DetectTaskDomain, DetectStartIP, DetectEndIP, 
-      DetectIPTotalNum, DetectPortId, DetectTaskType, 
-      DetectIsValid, DetectFileName, DetectIntervalTime, 
-      DetectAppProtocal, DetectFileNameDescribe
-      )
-    values (#{detectTaskId,jdbcType=INTEGER}, #{detectTaskDescribe,jdbcType=VARCHAR}, 
-      #{detectTaskDomain,jdbcType=VARCHAR}, #{detectStartIP,jdbcType=INTEGER}, #{detectEndIP,jdbcType=INTEGER}, 
-      #{detectIPTotalNum,jdbcType=INTEGER}, #{detectPortId,jdbcType=INTEGER}, #{detectTaskType,jdbcType=TINYINT}, 
-      #{detectIsValid,jdbcType=TINYINT}, #{detectFileName,jdbcType=CHAR}, #{detectIntervalTime,jdbcType=INTEGER}, 
-      #{detectAppProtocal,jdbcType=INTEGER}, #{detectFileNameDescribe,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
-        DetectTaskId,
-      </if>
-      <if test="detectTaskDescribe != null">
-        DetectTaskDescribe,
-      </if>
-      <if test="detectTaskDomain != null">
-        DetectTaskDomain,
-      </if>
-      <if test="detectStartIP != null">
-        DetectStartIP,
-      </if>
-      <if test="detectEndIP != null">
-        DetectEndIP,
-      </if>
-      <if test="detectIPTotalNum != null">
-        DetectIPTotalNum,
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="detectTaskType != null">
-        DetectTaskType,
-      </if>
-      <if test="detectIsValid != null">
-        DetectIsValid,
-      </if>
-      <if test="detectFileName != null">
-        DetectFileName,
-      </if>
-      <if test="detectIntervalTime != null">
-        DetectIntervalTime,
-      </if>
-      <if test="detectAppProtocal != null">
-        DetectAppProtocal,
-      </if>
-      <if test="detectFileNameDescribe != null">
-        DetectFileNameDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
-        #{detectTaskId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskDescribe != null">
-        #{detectTaskDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectTaskDomain != null">
-        #{detectTaskDomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectStartIP != null">
-        #{detectStartIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectEndIP != null">
-        #{detectEndIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectIPTotalNum != null">
-        #{detectIPTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskType != null">
-        #{detectTaskType,jdbcType=TINYINT},
-      </if>
-      <if test="detectIsValid != null">
-        #{detectIsValid,jdbcType=TINYINT},
-      </if>
-      <if test="detectFileName != null">
-        #{detectFileName,jdbcType=CHAR},
-      </if>
-      <if test="detectIntervalTime != null">
-        #{detectIntervalTime,jdbcType=INTEGER},
-      </if>
-      <if test="detectAppProtocal != null">
-        #{detectAppProtocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectFileNameDescribe != null">
-        #{detectFileNameDescribe,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    <set>
-      <if test="detectTaskDescribe != null">
-        DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectTaskDomain != null">
-        DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectStartIP != null">
-        DetectStartIP = #{detectStartIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectEndIP != null">
-        DetectEndIP = #{detectEndIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectIPTotalNum != null">
-        DetectIPTotalNum = #{detectIPTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskType != null">
-        DetectTaskType = #{detectTaskType,jdbcType=TINYINT},
-      </if>
-      <if test="detectIsValid != null">
-        DetectIsValid = #{detectIsValid,jdbcType=TINYINT},
-      </if>
-      <if test="detectFileName != null">
-        DetectFileName = #{detectFileName,jdbcType=CHAR},
-      </if>
-      <if test="detectIntervalTime != null">
-        DetectIntervalTime = #{detectIntervalTime,jdbcType=INTEGER},
-      </if>
-      <if test="detectAppProtocal != null">
-        DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectFileNameDescribe != null">
-        DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    set DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
-      DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
-      DetectStartIP = #{detectStartIP,jdbcType=INTEGER},
-      DetectEndIP = #{detectEndIP,jdbcType=INTEGER},
-      DetectIPTotalNum = #{detectIPTotalNum,jdbcType=INTEGER},
-      DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      DetectTaskType = #{detectTaskType,jdbcType=TINYINT},
-      DetectIsValid = #{detectIsValid,jdbcType=TINYINT},
-      DetectFileName = #{detectFileName,jdbcType=CHAR},
-      DetectIntervalTime = #{detectIntervalTime,jdbcType=INTEGER},
-      DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
-      DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR}
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectTaskInfo">
-    <id column="DetectTaskId" jdbcType="INTEGER" property="detectTaskId" />
-    <result column="DetectTaskDescribe" jdbcType="VARCHAR" property="detectTaskDescribe" />
-    <result column="DetectTaskDomain" jdbcType="VARCHAR" property="detectTaskDomain" />
-    <result column="DetectStartIP" jdbcType="INTEGER" property="detectStartIP" />
-    <result column="DetectEndIP" jdbcType="INTEGER" property="detectEndIP" />
-    <result column="DetectIPTotalNum" jdbcType="INTEGER" property="detectIPTotalNum" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectTaskType" jdbcType="TINYINT" property="detectTaskType" />
-    <result column="DetectIsValid" jdbcType="TINYINT" property="detectIsValid" />
-    <result column="DetectFileName" jdbcType="CHAR" property="detectFileName" />
-    <result column="DetectIntervalTime" jdbcType="INTEGER" property="detectIntervalTime" />
-    <result column="DetectAppProtocal" jdbcType="INTEGER" property="detectAppProtocal" />
-    <result column="DetectFileNameDescribe" jdbcType="VARCHAR" property="detectFileNameDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectTaskId, DetectTaskDescribe, DetectTaskDomain, DetectStartIP, DetectEndIP, DetectIPTotalNum, 
-    DetectPortId, DetectTaskType, DetectIsValid, DetectFileName, DetectIntervalTime, 
-    DetectAppProtocal, DetectFileNameDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detecttaskinfo
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detecttaskinfo
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo (DetectTaskId, DetectTaskDescribe, 
-      DetectTaskDomain, DetectStartIP, DetectEndIP, 
-      DetectIPTotalNum, DetectPortId, DetectTaskType, 
-      DetectIsValid, DetectFileName, DetectIntervalTime, 
-      DetectAppProtocal, DetectFileNameDescribe
-      )
-    values (#{detectTaskId,jdbcType=INTEGER}, #{detectTaskDescribe,jdbcType=VARCHAR}, 
-      #{detectTaskDomain,jdbcType=VARCHAR}, #{detectStartIP,jdbcType=INTEGER}, #{detectEndIP,jdbcType=INTEGER}, 
-      #{detectIPTotalNum,jdbcType=INTEGER}, #{detectPortId,jdbcType=INTEGER}, #{detectTaskType,jdbcType=TINYINT}, 
-      #{detectIsValid,jdbcType=TINYINT}, #{detectFileName,jdbcType=CHAR}, #{detectIntervalTime,jdbcType=INTEGER}, 
-      #{detectAppProtocal,jdbcType=INTEGER}, #{detectFileNameDescribe,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
-        DetectTaskId,
-      </if>
-      <if test="detectTaskDescribe != null">
-        DetectTaskDescribe,
-      </if>
-      <if test="detectTaskDomain != null">
-        DetectTaskDomain,
-      </if>
-      <if test="detectStartIP != null">
-        DetectStartIP,
-      </if>
-      <if test="detectEndIP != null">
-        DetectEndIP,
-      </if>
-      <if test="detectIPTotalNum != null">
-        DetectIPTotalNum,
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="detectTaskType != null">
-        DetectTaskType,
-      </if>
-      <if test="detectIsValid != null">
-        DetectIsValid,
-      </if>
-      <if test="detectFileName != null">
-        DetectFileName,
-      </if>
-      <if test="detectIntervalTime != null">
-        DetectIntervalTime,
-      </if>
-      <if test="detectAppProtocal != null">
-        DetectAppProtocal,
-      </if>
-      <if test="detectFileNameDescribe != null">
-        DetectFileNameDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
-        #{detectTaskId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskDescribe != null">
-        #{detectTaskDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectTaskDomain != null">
-        #{detectTaskDomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectStartIP != null">
-        #{detectStartIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectEndIP != null">
-        #{detectEndIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectIPTotalNum != null">
-        #{detectIPTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskType != null">
-        #{detectTaskType,jdbcType=TINYINT},
-      </if>
-      <if test="detectIsValid != null">
-        #{detectIsValid,jdbcType=TINYINT},
-      </if>
-      <if test="detectFileName != null">
-        #{detectFileName,jdbcType=CHAR},
-      </if>
-      <if test="detectIntervalTime != null">
-        #{detectIntervalTime,jdbcType=INTEGER},
-      </if>
-      <if test="detectAppProtocal != null">
-        #{detectAppProtocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectFileNameDescribe != null">
-        #{detectFileNameDescribe,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    <set>
-      <if test="detectTaskDescribe != null">
-        DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectTaskDomain != null">
-        DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectStartIP != null">
-        DetectStartIP = #{detectStartIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectEndIP != null">
-        DetectEndIP = #{detectEndIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectIPTotalNum != null">
-        DetectIPTotalNum = #{detectIPTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskType != null">
-        DetectTaskType = #{detectTaskType,jdbcType=TINYINT},
-      </if>
-      <if test="detectIsValid != null">
-        DetectIsValid = #{detectIsValid,jdbcType=TINYINT},
-      </if>
-      <if test="detectFileName != null">
-        DetectFileName = #{detectFileName,jdbcType=CHAR},
-      </if>
-      <if test="detectIntervalTime != null">
-        DetectIntervalTime = #{detectIntervalTime,jdbcType=INTEGER},
-      </if>
-      <if test="detectAppProtocal != null">
-        DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectFileNameDescribe != null">
-        DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    set DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
-      DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
-      DetectStartIP = #{detectStartIP,jdbcType=INTEGER},
-      DetectEndIP = #{detectEndIP,jdbcType=INTEGER},
-      DetectIPTotalNum = #{detectIPTotalNum,jdbcType=INTEGER},
-      DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      DetectTaskType = #{detectTaskType,jdbcType=TINYINT},
-      DetectIsValid = #{detectIsValid,jdbcType=TINYINT},
-      DetectFileName = #{detectFileName,jdbcType=CHAR},
-      DetectIntervalTime = #{detectIntervalTime,jdbcType=INTEGER},
-      DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
-      DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR}
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectTaskInfo">
-    <id column="DetectTaskId" jdbcType="INTEGER" property="detectTaskId" />
-    <result column="DetectTaskDescribe" jdbcType="VARCHAR" property="detectTaskDescribe" />
-    <result column="DetectTaskDomain" jdbcType="VARCHAR" property="detectTaskDomain" />
-    <result column="DetectStartIP" jdbcType="INTEGER" property="detectStartIP" />
-    <result column="DetectEndIP" jdbcType="INTEGER" property="detectEndIP" />
-    <result column="DetectIPTotalNum" jdbcType="INTEGER" property="detectIPTotalNum" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectTaskType" jdbcType="TINYINT" property="detectTaskType" />
-    <result column="DetectIsValid" jdbcType="TINYINT" property="detectIsValid" />
-    <result column="DetectFileName" jdbcType="CHAR" property="detectFileName" />
-    <result column="DetectIntervalTime" jdbcType="INTEGER" property="detectIntervalTime" />
-    <result column="DetectAppProtocal" jdbcType="INTEGER" property="detectAppProtocal" />
-    <result column="DetectFileNameDescribe" jdbcType="VARCHAR" property="detectFileNameDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectTaskId, DetectTaskDescribe, DetectTaskDomain, DetectStartIP, DetectEndIP, DetectIPTotalNum, 
-    DetectPortId, DetectTaskType, DetectIsValid, DetectFileName, DetectIntervalTime, 
-    DetectAppProtocal, DetectFileNameDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detecttaskinfo
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detecttaskinfo
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo (DetectTaskId, DetectTaskDescribe, 
-      DetectTaskDomain, DetectStartIP, DetectEndIP, 
-      DetectIPTotalNum, DetectPortId, DetectTaskType, 
-      DetectIsValid, DetectFileName, DetectIntervalTime, 
-      DetectAppProtocal, DetectFileNameDescribe
-      )
-    values (#{detectTaskId,jdbcType=INTEGER}, #{detectTaskDescribe,jdbcType=VARCHAR}, 
-      #{detectTaskDomain,jdbcType=VARCHAR}, #{detectStartIP,jdbcType=INTEGER}, #{detectEndIP,jdbcType=INTEGER}, 
-      #{detectIPTotalNum,jdbcType=INTEGER}, #{detectPortId,jdbcType=INTEGER}, #{detectTaskType,jdbcType=TINYINT}, 
-      #{detectIsValid,jdbcType=TINYINT}, #{detectFileName,jdbcType=CHAR}, #{detectIntervalTime,jdbcType=INTEGER}, 
-      #{detectAppProtocal,jdbcType=INTEGER}, #{detectFileNameDescribe,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
-        DetectTaskId,
-      </if>
-      <if test="detectTaskDescribe != null">
-        DetectTaskDescribe,
-      </if>
-      <if test="detectTaskDomain != null">
-        DetectTaskDomain,
-      </if>
-      <if test="detectStartIP != null">
-        DetectStartIP,
-      </if>
-      <if test="detectEndIP != null">
-        DetectEndIP,
-      </if>
-      <if test="detectIPTotalNum != null">
-        DetectIPTotalNum,
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="detectTaskType != null">
-        DetectTaskType,
-      </if>
-      <if test="detectIsValid != null">
-        DetectIsValid,
-      </if>
-      <if test="detectFileName != null">
-        DetectFileName,
-      </if>
-      <if test="detectIntervalTime != null">
-        DetectIntervalTime,
-      </if>
-      <if test="detectAppProtocal != null">
-        DetectAppProtocal,
-      </if>
-      <if test="detectFileNameDescribe != null">
-        DetectFileNameDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectTaskId != null">
-        #{detectTaskId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskDescribe != null">
-        #{detectTaskDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectTaskDomain != null">
-        #{detectTaskDomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectStartIP != null">
-        #{detectStartIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectEndIP != null">
-        #{detectEndIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectIPTotalNum != null">
-        #{detectIPTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskType != null">
-        #{detectTaskType,jdbcType=TINYINT},
-      </if>
-      <if test="detectIsValid != null">
-        #{detectIsValid,jdbcType=TINYINT},
-      </if>
-      <if test="detectFileName != null">
-        #{detectFileName,jdbcType=CHAR},
-      </if>
-      <if test="detectIntervalTime != null">
-        #{detectIntervalTime,jdbcType=INTEGER},
-      </if>
-      <if test="detectAppProtocal != null">
-        #{detectAppProtocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectFileNameDescribe != null">
-        #{detectFileNameDescribe,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    <set>
-      <if test="detectTaskDescribe != null">
-        DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectTaskDomain != null">
-        DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectStartIP != null">
-        DetectStartIP = #{detectStartIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectEndIP != null">
-        DetectEndIP = #{detectEndIP,jdbcType=INTEGER},
-      </if>
-      <if test="detectIPTotalNum != null">
-        DetectIPTotalNum = #{detectIPTotalNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectTaskType != null">
-        DetectTaskType = #{detectTaskType,jdbcType=TINYINT},
-      </if>
-      <if test="detectIsValid != null">
-        DetectIsValid = #{detectIsValid,jdbcType=TINYINT},
-      </if>
-      <if test="detectFileName != null">
-        DetectFileName = #{detectFileName,jdbcType=CHAR},
-      </if>
-      <if test="detectIntervalTime != null">
-        DetectIntervalTime = #{detectIntervalTime,jdbcType=INTEGER},
-      </if>
-      <if test="detectAppProtocal != null">
-        DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectFileNameDescribe != null">
-        DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    set DetectTaskDescribe = #{detectTaskDescribe,jdbcType=VARCHAR},
-      DetectTaskDomain = #{detectTaskDomain,jdbcType=VARCHAR},
-      DetectStartIP = #{detectStartIP,jdbcType=INTEGER},
-      DetectEndIP = #{detectEndIP,jdbcType=INTEGER},
-      DetectIPTotalNum = #{detectIPTotalNum,jdbcType=INTEGER},
-      DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      DetectTaskType = #{detectTaskType,jdbcType=TINYINT},
-      DetectIsValid = #{detectIsValid,jdbcType=TINYINT},
-      DetectFileName = #{detectFileName,jdbcType=CHAR},
-      DetectIntervalTime = #{detectIntervalTime,jdbcType=INTEGER},
-      DetectAppProtocal = #{detectAppProtocal,jdbcType=INTEGER},
-      DetectFileNameDescribe = #{detectFileNameDescribe,jdbcType=VARCHAR}
-    where DetectTaskId = #{detectTaskId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectTaskInfo">
-    <id column="DetectTaskId" jdbcType="INTEGER" property="detecttaskid" />
-    <result column="DetectTaskDescribe" jdbcType="VARCHAR" property="detecttaskdescribe" />
-    <result column="DetectTaskDomain" jdbcType="VARCHAR" property="detecttaskdomain" />
-    <result column="DetectStartIP" jdbcType="INTEGER" property="detectstartip" />
-    <result column="DetectEndIP" jdbcType="INTEGER" property="detectendip" />
-    <result column="DetectIPTotalNum" jdbcType="INTEGER" property="detectiptotalnum" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectportid" />
-    <result column="DetectTaskType" jdbcType="TINYINT" property="detecttasktype" />
-    <result column="DetectIsValid" jdbcType="TINYINT" property="detectisvalid" />
-    <result column="DetectFileName" jdbcType="CHAR" property="detectfilename" />
-    <result column="DetectIntervalTime" jdbcType="INTEGER" property="detectintervaltime" />
-    <result column="DetectAppProtocal" jdbcType="INTEGER" property="detectappprotocal" />
-    <result column="DetectFileNameDescribe" jdbcType="VARCHAR" property="detectfilenamedescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectTaskId, DetectTaskDescribe, DetectTaskDomain, DetectStartIP, DetectEndIP, DetectIPTotalNum, 
-    DetectPortId, DetectTaskType, DetectIsValid, DetectFileName, DetectIntervalTime, 
-    DetectAppProtocal, DetectFileNameDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detecttaskinfo
-    where DetectTaskId = #{detecttaskid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detecttaskinfo
-    where DetectTaskId = #{detecttaskid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo (DetectTaskId, DetectTaskDescribe, 
-      DetectTaskDomain, DetectStartIP, DetectEndIP, 
-      DetectIPTotalNum, DetectPortId, DetectTaskType, 
-      DetectIsValid, DetectFileName, DetectIntervalTime, 
-      DetectAppProtocal, DetectFileNameDescribe
-      )
-    values (#{detecttaskid,jdbcType=INTEGER}, #{detecttaskdescribe,jdbcType=VARCHAR}, 
-      #{detecttaskdomain,jdbcType=VARCHAR}, #{detectstartip,jdbcType=INTEGER}, #{detectendip,jdbcType=INTEGER}, 
-      #{detectiptotalnum,jdbcType=INTEGER}, #{detectportid,jdbcType=INTEGER}, #{detecttasktype,jdbcType=TINYINT}, 
-      #{detectisvalid,jdbcType=TINYINT}, #{detectfilename,jdbcType=CHAR}, #{detectintervaltime,jdbcType=INTEGER}, 
-      #{detectappprotocal,jdbcType=INTEGER}, #{detectfilenamedescribe,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detecttaskid != null">
-        DetectTaskId,
-      </if>
-      <if test="detecttaskdescribe != null">
-        DetectTaskDescribe,
-      </if>
-      <if test="detecttaskdomain != null">
-        DetectTaskDomain,
-      </if>
-      <if test="detectstartip != null">
-        DetectStartIP,
-      </if>
-      <if test="detectendip != null">
-        DetectEndIP,
-      </if>
-      <if test="detectiptotalnum != null">
-        DetectIPTotalNum,
-      </if>
-      <if test="detectportid != null">
-        DetectPortId,
-      </if>
-      <if test="detecttasktype != null">
-        DetectTaskType,
-      </if>
-      <if test="detectisvalid != null">
-        DetectIsValid,
-      </if>
-      <if test="detectfilename != null">
-        DetectFileName,
-      </if>
-      <if test="detectintervaltime != null">
-        DetectIntervalTime,
-      </if>
-      <if test="detectappprotocal != null">
-        DetectAppProtocal,
-      </if>
-      <if test="detectfilenamedescribe != null">
-        DetectFileNameDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detecttaskid != null">
-        #{detecttaskid,jdbcType=INTEGER},
-      </if>
-      <if test="detecttaskdescribe != null">
-        #{detecttaskdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detecttaskdomain != null">
-        #{detecttaskdomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectstartip != null">
-        #{detectstartip,jdbcType=INTEGER},
-      </if>
-      <if test="detectendip != null">
-        #{detectendip,jdbcType=INTEGER},
-      </if>
-      <if test="detectiptotalnum != null">
-        #{detectiptotalnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectportid != null">
-        #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="detecttasktype != null">
-        #{detecttasktype,jdbcType=TINYINT},
-      </if>
-      <if test="detectisvalid != null">
-        #{detectisvalid,jdbcType=TINYINT},
-      </if>
-      <if test="detectfilename != null">
-        #{detectfilename,jdbcType=CHAR},
-      </if>
-      <if test="detectintervaltime != null">
-        #{detectintervaltime,jdbcType=INTEGER},
-      </if>
-      <if test="detectappprotocal != null">
-        #{detectappprotocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectfilenamedescribe != null">
-        #{detectfilenamedescribe,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    <set>
-      <if test="detecttaskdescribe != null">
-        DetectTaskDescribe = #{detecttaskdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detecttaskdomain != null">
-        DetectTaskDomain = #{detecttaskdomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectstartip != null">
-        DetectStartIP = #{detectstartip,jdbcType=INTEGER},
-      </if>
-      <if test="detectendip != null">
-        DetectEndIP = #{detectendip,jdbcType=INTEGER},
-      </if>
-      <if test="detectiptotalnum != null">
-        DetectIPTotalNum = #{detectiptotalnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectportid != null">
-        DetectPortId = #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="detecttasktype != null">
-        DetectTaskType = #{detecttasktype,jdbcType=TINYINT},
-      </if>
-      <if test="detectisvalid != null">
-        DetectIsValid = #{detectisvalid,jdbcType=TINYINT},
-      </if>
-      <if test="detectfilename != null">
-        DetectFileName = #{detectfilename,jdbcType=CHAR},
-      </if>
-      <if test="detectintervaltime != null">
-        DetectIntervalTime = #{detectintervaltime,jdbcType=INTEGER},
-      </if>
-      <if test="detectappprotocal != null">
-        DetectAppProtocal = #{detectappprotocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectfilenamedescribe != null">
-        DetectFileNameDescribe = #{detectfilenamedescribe,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where DetectTaskId = #{detecttaskid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    set DetectTaskDescribe = #{detecttaskdescribe,jdbcType=VARCHAR},
-      DetectTaskDomain = #{detecttaskdomain,jdbcType=VARCHAR},
-      DetectStartIP = #{detectstartip,jdbcType=INTEGER},
-      DetectEndIP = #{detectendip,jdbcType=INTEGER},
-      DetectIPTotalNum = #{detectiptotalnum,jdbcType=INTEGER},
-      DetectPortId = #{detectportid,jdbcType=INTEGER},
-      DetectTaskType = #{detecttasktype,jdbcType=TINYINT},
-      DetectIsValid = #{detectisvalid,jdbcType=TINYINT},
-      DetectFileName = #{detectfilename,jdbcType=CHAR},
-      DetectIntervalTime = #{detectintervaltime,jdbcType=INTEGER},
-      DetectAppProtocal = #{detectappprotocal,jdbcType=INTEGER},
-      DetectFileNameDescribe = #{detectfilenamedescribe,jdbcType=VARCHAR}
-    where DetectTaskId = #{detecttaskid,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectTaskInfo">
-    <id column="DetectTaskId" jdbcType="INTEGER" property="detecttaskid" />
-    <result column="DetectTaskDescribe" jdbcType="VARCHAR" property="detecttaskdescribe" />
-    <result column="DetectTaskDomain" jdbcType="VARCHAR" property="detecttaskdomain" />
-    <result column="DetectStartIP" jdbcType="INTEGER" property="detectstartip" />
-    <result column="DetectEndIP" jdbcType="INTEGER" property="detectendip" />
-    <result column="DetectIPTotalNum" jdbcType="INTEGER" property="detectiptotalnum" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectportid" />
-    <result column="DetectTaskType" jdbcType="TINYINT" property="detecttasktype" />
-    <result column="DetectIsValid" jdbcType="TINYINT" property="detectisvalid" />
-    <result column="DetectFileName" jdbcType="CHAR" property="detectfilename" />
-    <result column="DetectIntervalTime" jdbcType="INTEGER" property="detectintervaltime" />
-    <result column="DetectAppProtocal" jdbcType="INTEGER" property="detectappprotocal" />
-    <result column="DetectFileNameDescribe" jdbcType="VARCHAR" property="detectfilenamedescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectTaskId, DetectTaskDescribe, DetectTaskDomain, DetectStartIP, DetectEndIP, DetectIPTotalNum, 
-    DetectPortId, DetectTaskType, DetectIsValid, DetectFileName, DetectIntervalTime, 
-    DetectAppProtocal, DetectFileNameDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detecttaskinfo
-    where DetectTaskId = #{detecttaskid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detecttaskinfo
-    where DetectTaskId = #{detecttaskid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo (DetectTaskId, DetectTaskDescribe, 
-      DetectTaskDomain, DetectStartIP, DetectEndIP, 
-      DetectIPTotalNum, DetectPortId, DetectTaskType, 
-      DetectIsValid, DetectFileName, DetectIntervalTime, 
-      DetectAppProtocal, DetectFileNameDescribe
-      )
-    values (#{detecttaskid,jdbcType=INTEGER}, #{detecttaskdescribe,jdbcType=VARCHAR}, 
-      #{detecttaskdomain,jdbcType=VARCHAR}, #{detectstartip,jdbcType=INTEGER}, #{detectendip,jdbcType=INTEGER}, 
-      #{detectiptotalnum,jdbcType=INTEGER}, #{detectportid,jdbcType=INTEGER}, #{detecttasktype,jdbcType=TINYINT}, 
-      #{detectisvalid,jdbcType=TINYINT}, #{detectfilename,jdbcType=CHAR}, #{detectintervaltime,jdbcType=INTEGER}, 
-      #{detectappprotocal,jdbcType=INTEGER}, #{detectfilenamedescribe,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    insert into detecttaskinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detecttaskid != null">
-        DetectTaskId,
-      </if>
-      <if test="detecttaskdescribe != null">
-        DetectTaskDescribe,
-      </if>
-      <if test="detecttaskdomain != null">
-        DetectTaskDomain,
-      </if>
-      <if test="detectstartip != null">
-        DetectStartIP,
-      </if>
-      <if test="detectendip != null">
-        DetectEndIP,
-      </if>
-      <if test="detectiptotalnum != null">
-        DetectIPTotalNum,
-      </if>
-      <if test="detectportid != null">
-        DetectPortId,
-      </if>
-      <if test="detecttasktype != null">
-        DetectTaskType,
-      </if>
-      <if test="detectisvalid != null">
-        DetectIsValid,
-      </if>
-      <if test="detectfilename != null">
-        DetectFileName,
-      </if>
-      <if test="detectintervaltime != null">
-        DetectIntervalTime,
-      </if>
-      <if test="detectappprotocal != null">
-        DetectAppProtocal,
-      </if>
-      <if test="detectfilenamedescribe != null">
-        DetectFileNameDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detecttaskid != null">
-        #{detecttaskid,jdbcType=INTEGER},
-      </if>
-      <if test="detecttaskdescribe != null">
-        #{detecttaskdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detecttaskdomain != null">
-        #{detecttaskdomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectstartip != null">
-        #{detectstartip,jdbcType=INTEGER},
-      </if>
-      <if test="detectendip != null">
-        #{detectendip,jdbcType=INTEGER},
-      </if>
-      <if test="detectiptotalnum != null">
-        #{detectiptotalnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectportid != null">
-        #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="detecttasktype != null">
-        #{detecttasktype,jdbcType=TINYINT},
-      </if>
-      <if test="detectisvalid != null">
-        #{detectisvalid,jdbcType=TINYINT},
-      </if>
-      <if test="detectfilename != null">
-        #{detectfilename,jdbcType=CHAR},
-      </if>
-      <if test="detectintervaltime != null">
-        #{detectintervaltime,jdbcType=INTEGER},
-      </if>
-      <if test="detectappprotocal != null">
-        #{detectappprotocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectfilenamedescribe != null">
-        #{detectfilenamedescribe,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    <set>
-      <if test="detecttaskdescribe != null">
-        DetectTaskDescribe = #{detecttaskdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detecttaskdomain != null">
-        DetectTaskDomain = #{detecttaskdomain,jdbcType=VARCHAR},
-      </if>
-      <if test="detectstartip != null">
-        DetectStartIP = #{detectstartip,jdbcType=INTEGER},
-      </if>
-      <if test="detectendip != null">
-        DetectEndIP = #{detectendip,jdbcType=INTEGER},
-      </if>
-      <if test="detectiptotalnum != null">
-        DetectIPTotalNum = #{detectiptotalnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectportid != null">
-        DetectPortId = #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="detecttasktype != null">
-        DetectTaskType = #{detecttasktype,jdbcType=TINYINT},
-      </if>
-      <if test="detectisvalid != null">
-        DetectIsValid = #{detectisvalid,jdbcType=TINYINT},
-      </if>
-      <if test="detectfilename != null">
-        DetectFileName = #{detectfilename,jdbcType=CHAR},
-      </if>
-      <if test="detectintervaltime != null">
-        DetectIntervalTime = #{detectintervaltime,jdbcType=INTEGER},
-      </if>
-      <if test="detectappprotocal != null">
-        DetectAppProtocal = #{detectappprotocal,jdbcType=INTEGER},
-      </if>
-      <if test="detectfilenamedescribe != null">
-        DetectFileNameDescribe = #{detectfilenamedescribe,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where DetectTaskId = #{detecttaskid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectTaskInfo">
-    update detecttaskinfo
-    set DetectTaskDescribe = #{detecttaskdescribe,jdbcType=VARCHAR},
-      DetectTaskDomain = #{detecttaskdomain,jdbcType=VARCHAR},
-      DetectStartIP = #{detectstartip,jdbcType=INTEGER},
-      DetectEndIP = #{detectendip,jdbcType=INTEGER},
-      DetectIPTotalNum = #{detectiptotalnum,jdbcType=INTEGER},
-      DetectPortId = #{detectportid,jdbcType=INTEGER},
-      DetectTaskType = #{detecttasktype,jdbcType=TINYINT},
-      DetectIsValid = #{detectisvalid,jdbcType=TINYINT},
-      DetectFileName = #{detectfilename,jdbcType=CHAR},
-      DetectIntervalTime = #{detectintervaltime,jdbcType=INTEGER},
-      DetectAppProtocal = #{detectappprotocal,jdbcType=INTEGER},
-      DetectFileNameDescribe = #{detectfilenamedescribe,jdbcType=VARCHAR}
-    where DetectTaskId = #{detecttaskid,jdbcType=INTEGER}
   </update>
 </mapper>

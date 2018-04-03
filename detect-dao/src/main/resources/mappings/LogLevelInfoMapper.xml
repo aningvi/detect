@@ -1,473 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.zstu.dao.LogLevelInfoMapper">
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.LogLevelInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="LevelId" jdbcType="INTEGER" property="levelId" />
-    <result column="LevelDescribe" jdbcType="CHAR" property="levelDescribe" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zstu.dao.LogLevelInfoMapper" >
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.LogLevelInfo" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="LevelId" property="levelId" jdbcType="INTEGER" />
+    <result column="LevelDescribe" property="levelDescribe" jdbcType="CHAR" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     Id, LevelId, LevelDescribe
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from loglevelinfo
     where Id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from loglevelinfo
     where Id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.LogLevelInfo">
+  <insert id="insert" parameterType="edu.zstu.domain.LogLevelInfo" >
     insert into loglevelinfo (Id, LevelId, LevelDescribe
       )
     values (#{id,jdbcType=INTEGER}, #{levelId,jdbcType=INTEGER}, #{levelDescribe,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.LogLevelInfo">
+  <insert id="insertSelective" parameterType="edu.zstu.domain.LogLevelInfo" >
     insert into loglevelinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         Id,
       </if>
-      <if test="levelId != null">
+      <if test="levelId != null" >
         LevelId,
       </if>
-      <if test="levelDescribe != null">
+      <if test="levelDescribe != null" >
         LevelDescribe,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="levelId != null">
+      <if test="levelId != null" >
         #{levelId,jdbcType=INTEGER},
       </if>
-      <if test="levelDescribe != null">
+      <if test="levelDescribe != null" >
         #{levelDescribe,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.LogLevelInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.LogLevelInfo" >
     update loglevelinfo
-    <set>
-      <if test="levelId != null">
+    <set >
+      <if test="levelId != null" >
         LevelId = #{levelId,jdbcType=INTEGER},
       </if>
-      <if test="levelDescribe != null">
+      <if test="levelDescribe != null" >
         LevelDescribe = #{levelDescribe,jdbcType=CHAR},
       </if>
     </set>
     where Id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.LogLevelInfo">
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.LogLevelInfo" >
     update loglevelinfo
     set LevelId = #{levelId,jdbcType=INTEGER},
       LevelDescribe = #{levelDescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.LogLevelInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="LevelId" jdbcType="INTEGER" property="levelId" />
-    <result column="LevelDescribe" jdbcType="CHAR" property="levelDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, LevelId, LevelDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo (Id, LevelId, LevelDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{levelId,jdbcType=INTEGER}, #{levelDescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="levelId != null">
-        LevelId,
-      </if>
-      <if test="levelDescribe != null">
-        LevelDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="levelId != null">
-        #{levelId,jdbcType=INTEGER},
-      </if>
-      <if test="levelDescribe != null">
-        #{levelDescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    <set>
-      <if test="levelId != null">
-        LevelId = #{levelId,jdbcType=INTEGER},
-      </if>
-      <if test="levelDescribe != null">
-        LevelDescribe = #{levelDescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    set LevelId = #{levelId,jdbcType=INTEGER},
-      LevelDescribe = #{levelDescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.LogLevelInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="LevelId" jdbcType="INTEGER" property="levelId" />
-    <result column="LevelDescribe" jdbcType="CHAR" property="levelDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, LevelId, LevelDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo (Id, LevelId, LevelDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{levelId,jdbcType=INTEGER}, #{levelDescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="levelId != null">
-        LevelId,
-      </if>
-      <if test="levelDescribe != null">
-        LevelDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="levelId != null">
-        #{levelId,jdbcType=INTEGER},
-      </if>
-      <if test="levelDescribe != null">
-        #{levelDescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    <set>
-      <if test="levelId != null">
-        LevelId = #{levelId,jdbcType=INTEGER},
-      </if>
-      <if test="levelDescribe != null">
-        LevelDescribe = #{levelDescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    set LevelId = #{levelId,jdbcType=INTEGER},
-      LevelDescribe = #{levelDescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.LogLevelInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="LevelId" jdbcType="INTEGER" property="levelId" />
-    <result column="LevelDescribe" jdbcType="CHAR" property="levelDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, LevelId, LevelDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo (Id, LevelId, LevelDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{levelId,jdbcType=INTEGER}, #{levelDescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="levelId != null">
-        LevelId,
-      </if>
-      <if test="levelDescribe != null">
-        LevelDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="levelId != null">
-        #{levelId,jdbcType=INTEGER},
-      </if>
-      <if test="levelDescribe != null">
-        #{levelDescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    <set>
-      <if test="levelId != null">
-        LevelId = #{levelId,jdbcType=INTEGER},
-      </if>
-      <if test="levelDescribe != null">
-        LevelDescribe = #{levelDescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    set LevelId = #{levelId,jdbcType=INTEGER},
-      LevelDescribe = #{levelDescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.LogLevelInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="LevelId" jdbcType="INTEGER" property="levelid" />
-    <result column="LevelDescribe" jdbcType="CHAR" property="leveldescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, LevelId, LevelDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo (Id, LevelId, LevelDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{levelid,jdbcType=INTEGER}, #{leveldescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="levelid != null">
-        LevelId,
-      </if>
-      <if test="leveldescribe != null">
-        LevelDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="levelid != null">
-        #{levelid,jdbcType=INTEGER},
-      </if>
-      <if test="leveldescribe != null">
-        #{leveldescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    <set>
-      <if test="levelid != null">
-        LevelId = #{levelid,jdbcType=INTEGER},
-      </if>
-      <if test="leveldescribe != null">
-        LevelDescribe = #{leveldescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    set LevelId = #{levelid,jdbcType=INTEGER},
-      LevelDescribe = #{leveldescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.LogLevelInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="LevelId" jdbcType="INTEGER" property="levelid" />
-    <result column="LevelDescribe" jdbcType="CHAR" property="leveldescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, LevelId, LevelDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo (Id, LevelId, LevelDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{levelid,jdbcType=INTEGER}, #{leveldescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="levelid != null">
-        LevelId,
-      </if>
-      <if test="leveldescribe != null">
-        LevelDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="levelid != null">
-        #{levelid,jdbcType=INTEGER},
-      </if>
-      <if test="leveldescribe != null">
-        #{leveldescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    <set>
-      <if test="levelid != null">
-        LevelId = #{levelid,jdbcType=INTEGER},
-      </if>
-      <if test="leveldescribe != null">
-        LevelDescribe = #{leveldescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    set LevelId = #{levelid,jdbcType=INTEGER},
-      LevelDescribe = #{leveldescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.LogLevelInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="LevelId" jdbcType="INTEGER" property="levelid" />
-    <result column="LevelDescribe" jdbcType="CHAR" property="leveldescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, LevelId, LevelDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from loglevelinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo (Id, LevelId, LevelDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{levelid,jdbcType=INTEGER}, #{leveldescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    insert into loglevelinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="levelid != null">
-        LevelId,
-      </if>
-      <if test="leveldescribe != null">
-        LevelDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="levelid != null">
-        #{levelid,jdbcType=INTEGER},
-      </if>
-      <if test="leveldescribe != null">
-        #{leveldescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    <set>
-      <if test="levelid != null">
-        LevelId = #{levelid,jdbcType=INTEGER},
-      </if>
-      <if test="leveldescribe != null">
-        LevelDescribe = #{leveldescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.LogLevelInfo">
-    update loglevelinfo
-    set LevelId = #{levelid,jdbcType=INTEGER},
-      LevelDescribe = #{leveldescribe,jdbcType=CHAR}
     where Id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

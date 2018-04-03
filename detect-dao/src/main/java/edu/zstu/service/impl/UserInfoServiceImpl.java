@@ -17,13 +17,13 @@ import java.io.Serializable;
  * @author Aning
  */
 @Service
-public class UserInfoServiceImpl implements IUserInfoService, Serializable {
+public class UserInfoServiceImpl implements IUserInfoService{
 
     @Autowired
     UserInfoMapper userInfoMapper;
 
     @Override
-    public UserInfo getUserByUsername(String username) {
-        return userInfoMapper.selectByUserName(username);
+    public UserInfo getUserById(int id) {
+        return userInfoMapper.selectByPrimaryKey(id);
     }
 }

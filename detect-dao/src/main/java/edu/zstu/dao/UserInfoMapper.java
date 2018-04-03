@@ -3,5 +3,15 @@ package edu.zstu.dao;
 import edu.zstu.domain.UserInfo;
 
 public interface UserInfoMapper {
-    UserInfo selectByUserName(String username);
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(UserInfo record);
+
+    int insertSelective(UserInfo record);
+
+    UserInfo selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(UserInfo record);
+
+    int updateByPrimaryKey(UserInfo record);
 }

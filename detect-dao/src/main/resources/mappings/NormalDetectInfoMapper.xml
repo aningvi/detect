@@ -1,29 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.zstu.dao.NormalDetectInfoMapper">
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.NormalDetectInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normalDetectRollCode" />
-    <result column="NormalCurDetectIP" jdbcType="INTEGER" property="normalCurDetectIP" />
-    <result column="NormalDetectStartTime" jdbcType="INTEGER" property="normalDetectStartTime" />
-    <result column="LastNormalDetectTotalTime" jdbcType="INTEGER" property="lastNormalDetectTotalTime" />
-    <result column="NormalProbRate" jdbcType="TINYINT" property="normalProbRate" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zstu.dao.NormalDetectInfoMapper" >
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.NormalDetectInfo" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="NormalDetectRollCode" property="normalDetectRollCode" jdbcType="INTEGER" />
+    <result column="NormalCurDetectIP" property="normalCurDetectIP" jdbcType="INTEGER" />
+    <result column="NormalDetectStartTime" property="normalDetectStartTime" jdbcType="INTEGER" />
+    <result column="LastNormalDetectTotalTime" property="lastNormalDetectTotalTime" jdbcType="INTEGER" />
+    <result column="NormalProbRate" property="normalProbRate" jdbcType="TINYINT" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     Id, NormalDetectRollCode, NormalCurDetectIP, NormalDetectStartTime, LastNormalDetectTotalTime, 
     NormalProbRate
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from normaldetectinfo
     where Id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from normaldetectinfo
     where Id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.NormalDetectInfo">
+  <insert id="insert" parameterType="edu.zstu.domain.NormalDetectInfo" >
     insert into normaldetectinfo (Id, NormalDetectRollCode, NormalCurDetectIP, 
       NormalDetectStartTime, LastNormalDetectTotalTime, 
       NormalProbRate)
@@ -31,695 +31,77 @@
       #{normalDetectStartTime,jdbcType=INTEGER}, #{lastNormalDetectTotalTime,jdbcType=INTEGER}, 
       #{normalProbRate,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.NormalDetectInfo">
+  <insert id="insertSelective" parameterType="edu.zstu.domain.NormalDetectInfo" >
     insert into normaldetectinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         Id,
       </if>
-      <if test="normalDetectRollCode != null">
+      <if test="normalDetectRollCode != null" >
         NormalDetectRollCode,
       </if>
-      <if test="normalCurDetectIP != null">
+      <if test="normalCurDetectIP != null" >
         NormalCurDetectIP,
       </if>
-      <if test="normalDetectStartTime != null">
+      <if test="normalDetectStartTime != null" >
         NormalDetectStartTime,
       </if>
-      <if test="lastNormalDetectTotalTime != null">
+      <if test="lastNormalDetectTotalTime != null" >
         LastNormalDetectTotalTime,
       </if>
-      <if test="normalProbRate != null">
+      <if test="normalProbRate != null" >
         NormalProbRate,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="normalDetectRollCode != null">
+      <if test="normalDetectRollCode != null" >
         #{normalDetectRollCode,jdbcType=INTEGER},
       </if>
-      <if test="normalCurDetectIP != null">
+      <if test="normalCurDetectIP != null" >
         #{normalCurDetectIP,jdbcType=INTEGER},
       </if>
-      <if test="normalDetectStartTime != null">
+      <if test="normalDetectStartTime != null" >
         #{normalDetectStartTime,jdbcType=INTEGER},
       </if>
-      <if test="lastNormalDetectTotalTime != null">
+      <if test="lastNormalDetectTotalTime != null" >
         #{lastNormalDetectTotalTime,jdbcType=INTEGER},
       </if>
-      <if test="normalProbRate != null">
+      <if test="normalProbRate != null" >
         #{normalProbRate,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.NormalDetectInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.NormalDetectInfo" >
     update normaldetectinfo
-    <set>
-      <if test="normalDetectRollCode != null">
+    <set >
+      <if test="normalDetectRollCode != null" >
         NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
       </if>
-      <if test="normalCurDetectIP != null">
+      <if test="normalCurDetectIP != null" >
         NormalCurDetectIP = #{normalCurDetectIP,jdbcType=INTEGER},
       </if>
-      <if test="normalDetectStartTime != null">
+      <if test="normalDetectStartTime != null" >
         NormalDetectStartTime = #{normalDetectStartTime,jdbcType=INTEGER},
       </if>
-      <if test="lastNormalDetectTotalTime != null">
+      <if test="lastNormalDetectTotalTime != null" >
         LastNormalDetectTotalTime = #{lastNormalDetectTotalTime,jdbcType=INTEGER},
       </if>
-      <if test="normalProbRate != null">
+      <if test="normalProbRate != null" >
         NormalProbRate = #{normalProbRate,jdbcType=TINYINT},
       </if>
     </set>
     where Id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.NormalDetectInfo">
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.NormalDetectInfo" >
     update normaldetectinfo
     set NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
       NormalCurDetectIP = #{normalCurDetectIP,jdbcType=INTEGER},
       NormalDetectStartTime = #{normalDetectStartTime,jdbcType=INTEGER},
       LastNormalDetectTotalTime = #{lastNormalDetectTotalTime,jdbcType=INTEGER},
       NormalProbRate = #{normalProbRate,jdbcType=TINYINT}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.NormalDetectInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normalDetectRollCode" />
-    <result column="NormalCurDetectIP" jdbcType="INTEGER" property="normalCurDetectIP" />
-    <result column="NormalDetectStartTime" jdbcType="INTEGER" property="normalDetectStartTime" />
-    <result column="LastNormalDetectTotalTime" jdbcType="INTEGER" property="lastNormalDetectTotalTime" />
-    <result column="NormalProbRate" jdbcType="TINYINT" property="normalProbRate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, NormalDetectRollCode, NormalCurDetectIP, NormalDetectStartTime, LastNormalDetectTotalTime, 
-    NormalProbRate
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo (Id, NormalDetectRollCode, NormalCurDetectIP, 
-      NormalDetectStartTime, LastNormalDetectTotalTime, 
-      NormalProbRate)
-    values (#{id,jdbcType=INTEGER}, #{normalDetectRollCode,jdbcType=INTEGER}, #{normalCurDetectIP,jdbcType=INTEGER}, 
-      #{normalDetectStartTime,jdbcType=INTEGER}, #{lastNormalDetectTotalTime,jdbcType=INTEGER}, 
-      #{normalProbRate,jdbcType=TINYINT})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="normalDetectRollCode != null">
-        NormalDetectRollCode,
-      </if>
-      <if test="normalCurDetectIP != null">
-        NormalCurDetectIP,
-      </if>
-      <if test="normalDetectStartTime != null">
-        NormalDetectStartTime,
-      </if>
-      <if test="lastNormalDetectTotalTime != null">
-        LastNormalDetectTotalTime,
-      </if>
-      <if test="normalProbRate != null">
-        NormalProbRate,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="normalDetectRollCode != null">
-        #{normalDetectRollCode,jdbcType=INTEGER},
-      </if>
-      <if test="normalCurDetectIP != null">
-        #{normalCurDetectIP,jdbcType=INTEGER},
-      </if>
-      <if test="normalDetectStartTime != null">
-        #{normalDetectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="lastNormalDetectTotalTime != null">
-        #{lastNormalDetectTotalTime,jdbcType=INTEGER},
-      </if>
-      <if test="normalProbRate != null">
-        #{normalProbRate,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    <set>
-      <if test="normalDetectRollCode != null">
-        NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
-      </if>
-      <if test="normalCurDetectIP != null">
-        NormalCurDetectIP = #{normalCurDetectIP,jdbcType=INTEGER},
-      </if>
-      <if test="normalDetectStartTime != null">
-        NormalDetectStartTime = #{normalDetectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="lastNormalDetectTotalTime != null">
-        LastNormalDetectTotalTime = #{lastNormalDetectTotalTime,jdbcType=INTEGER},
-      </if>
-      <if test="normalProbRate != null">
-        NormalProbRate = #{normalProbRate,jdbcType=TINYINT},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    set NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
-      NormalCurDetectIP = #{normalCurDetectIP,jdbcType=INTEGER},
-      NormalDetectStartTime = #{normalDetectStartTime,jdbcType=INTEGER},
-      LastNormalDetectTotalTime = #{lastNormalDetectTotalTime,jdbcType=INTEGER},
-      NormalProbRate = #{normalProbRate,jdbcType=TINYINT}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.NormalDetectInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normalDetectRollCode" />
-    <result column="NormalCurDetectIP" jdbcType="INTEGER" property="normalCurDetectIP" />
-    <result column="NormalDetectStartTime" jdbcType="INTEGER" property="normalDetectStartTime" />
-    <result column="LastNormalDetectTotalTime" jdbcType="INTEGER" property="lastNormalDetectTotalTime" />
-    <result column="NormalProbRate" jdbcType="TINYINT" property="normalProbRate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, NormalDetectRollCode, NormalCurDetectIP, NormalDetectStartTime, LastNormalDetectTotalTime, 
-    NormalProbRate
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo (Id, NormalDetectRollCode, NormalCurDetectIP, 
-      NormalDetectStartTime, LastNormalDetectTotalTime, 
-      NormalProbRate)
-    values (#{id,jdbcType=INTEGER}, #{normalDetectRollCode,jdbcType=INTEGER}, #{normalCurDetectIP,jdbcType=INTEGER}, 
-      #{normalDetectStartTime,jdbcType=INTEGER}, #{lastNormalDetectTotalTime,jdbcType=INTEGER}, 
-      #{normalProbRate,jdbcType=TINYINT})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="normalDetectRollCode != null">
-        NormalDetectRollCode,
-      </if>
-      <if test="normalCurDetectIP != null">
-        NormalCurDetectIP,
-      </if>
-      <if test="normalDetectStartTime != null">
-        NormalDetectStartTime,
-      </if>
-      <if test="lastNormalDetectTotalTime != null">
-        LastNormalDetectTotalTime,
-      </if>
-      <if test="normalProbRate != null">
-        NormalProbRate,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="normalDetectRollCode != null">
-        #{normalDetectRollCode,jdbcType=INTEGER},
-      </if>
-      <if test="normalCurDetectIP != null">
-        #{normalCurDetectIP,jdbcType=INTEGER},
-      </if>
-      <if test="normalDetectStartTime != null">
-        #{normalDetectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="lastNormalDetectTotalTime != null">
-        #{lastNormalDetectTotalTime,jdbcType=INTEGER},
-      </if>
-      <if test="normalProbRate != null">
-        #{normalProbRate,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    <set>
-      <if test="normalDetectRollCode != null">
-        NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
-      </if>
-      <if test="normalCurDetectIP != null">
-        NormalCurDetectIP = #{normalCurDetectIP,jdbcType=INTEGER},
-      </if>
-      <if test="normalDetectStartTime != null">
-        NormalDetectStartTime = #{normalDetectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="lastNormalDetectTotalTime != null">
-        LastNormalDetectTotalTime = #{lastNormalDetectTotalTime,jdbcType=INTEGER},
-      </if>
-      <if test="normalProbRate != null">
-        NormalProbRate = #{normalProbRate,jdbcType=TINYINT},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    set NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
-      NormalCurDetectIP = #{normalCurDetectIP,jdbcType=INTEGER},
-      NormalDetectStartTime = #{normalDetectStartTime,jdbcType=INTEGER},
-      LastNormalDetectTotalTime = #{lastNormalDetectTotalTime,jdbcType=INTEGER},
-      NormalProbRate = #{normalProbRate,jdbcType=TINYINT}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.NormalDetectInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normalDetectRollCode" />
-    <result column="NormalCurDetectIP" jdbcType="INTEGER" property="normalCurDetectIP" />
-    <result column="NormalDetectStartTime" jdbcType="INTEGER" property="normalDetectStartTime" />
-    <result column="LastNormalDetectTotalTime" jdbcType="INTEGER" property="lastNormalDetectTotalTime" />
-    <result column="NormalProbRate" jdbcType="TINYINT" property="normalProbRate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, NormalDetectRollCode, NormalCurDetectIP, NormalDetectStartTime, LastNormalDetectTotalTime, 
-    NormalProbRate
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo (Id, NormalDetectRollCode, NormalCurDetectIP, 
-      NormalDetectStartTime, LastNormalDetectTotalTime, 
-      NormalProbRate)
-    values (#{id,jdbcType=INTEGER}, #{normalDetectRollCode,jdbcType=INTEGER}, #{normalCurDetectIP,jdbcType=INTEGER}, 
-      #{normalDetectStartTime,jdbcType=INTEGER}, #{lastNormalDetectTotalTime,jdbcType=INTEGER}, 
-      #{normalProbRate,jdbcType=TINYINT})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="normalDetectRollCode != null">
-        NormalDetectRollCode,
-      </if>
-      <if test="normalCurDetectIP != null">
-        NormalCurDetectIP,
-      </if>
-      <if test="normalDetectStartTime != null">
-        NormalDetectStartTime,
-      </if>
-      <if test="lastNormalDetectTotalTime != null">
-        LastNormalDetectTotalTime,
-      </if>
-      <if test="normalProbRate != null">
-        NormalProbRate,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="normalDetectRollCode != null">
-        #{normalDetectRollCode,jdbcType=INTEGER},
-      </if>
-      <if test="normalCurDetectIP != null">
-        #{normalCurDetectIP,jdbcType=INTEGER},
-      </if>
-      <if test="normalDetectStartTime != null">
-        #{normalDetectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="lastNormalDetectTotalTime != null">
-        #{lastNormalDetectTotalTime,jdbcType=INTEGER},
-      </if>
-      <if test="normalProbRate != null">
-        #{normalProbRate,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    <set>
-      <if test="normalDetectRollCode != null">
-        NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
-      </if>
-      <if test="normalCurDetectIP != null">
-        NormalCurDetectIP = #{normalCurDetectIP,jdbcType=INTEGER},
-      </if>
-      <if test="normalDetectStartTime != null">
-        NormalDetectStartTime = #{normalDetectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="lastNormalDetectTotalTime != null">
-        LastNormalDetectTotalTime = #{lastNormalDetectTotalTime,jdbcType=INTEGER},
-      </if>
-      <if test="normalProbRate != null">
-        NormalProbRate = #{normalProbRate,jdbcType=TINYINT},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    set NormalDetectRollCode = #{normalDetectRollCode,jdbcType=INTEGER},
-      NormalCurDetectIP = #{normalCurDetectIP,jdbcType=INTEGER},
-      NormalDetectStartTime = #{normalDetectStartTime,jdbcType=INTEGER},
-      LastNormalDetectTotalTime = #{lastNormalDetectTotalTime,jdbcType=INTEGER},
-      NormalProbRate = #{normalProbRate,jdbcType=TINYINT}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.NormalDetectInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normaldetectrollcode" />
-    <result column="NormalCurDetectIP" jdbcType="INTEGER" property="normalcurdetectip" />
-    <result column="NormalDetectStartTime" jdbcType="INTEGER" property="normaldetectstarttime" />
-    <result column="LastNormalDetectTotalTime" jdbcType="INTEGER" property="lastnormaldetecttotaltime" />
-    <result column="NormalProbRate" jdbcType="TINYINT" property="normalprobrate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, NormalDetectRollCode, NormalCurDetectIP, NormalDetectStartTime, LastNormalDetectTotalTime, 
-    NormalProbRate
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo (Id, NormalDetectRollCode, NormalCurDetectIP, 
-      NormalDetectStartTime, LastNormalDetectTotalTime, 
-      NormalProbRate)
-    values (#{id,jdbcType=INTEGER}, #{normaldetectrollcode,jdbcType=INTEGER}, #{normalcurdetectip,jdbcType=INTEGER}, 
-      #{normaldetectstarttime,jdbcType=INTEGER}, #{lastnormaldetecttotaltime,jdbcType=INTEGER}, 
-      #{normalprobrate,jdbcType=TINYINT})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="normaldetectrollcode != null">
-        NormalDetectRollCode,
-      </if>
-      <if test="normalcurdetectip != null">
-        NormalCurDetectIP,
-      </if>
-      <if test="normaldetectstarttime != null">
-        NormalDetectStartTime,
-      </if>
-      <if test="lastnormaldetecttotaltime != null">
-        LastNormalDetectTotalTime,
-      </if>
-      <if test="normalprobrate != null">
-        NormalProbRate,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="normaldetectrollcode != null">
-        #{normaldetectrollcode,jdbcType=INTEGER},
-      </if>
-      <if test="normalcurdetectip != null">
-        #{normalcurdetectip,jdbcType=INTEGER},
-      </if>
-      <if test="normaldetectstarttime != null">
-        #{normaldetectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="lastnormaldetecttotaltime != null">
-        #{lastnormaldetecttotaltime,jdbcType=INTEGER},
-      </if>
-      <if test="normalprobrate != null">
-        #{normalprobrate,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    <set>
-      <if test="normaldetectrollcode != null">
-        NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
-      </if>
-      <if test="normalcurdetectip != null">
-        NormalCurDetectIP = #{normalcurdetectip,jdbcType=INTEGER},
-      </if>
-      <if test="normaldetectstarttime != null">
-        NormalDetectStartTime = #{normaldetectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="lastnormaldetecttotaltime != null">
-        LastNormalDetectTotalTime = #{lastnormaldetecttotaltime,jdbcType=INTEGER},
-      </if>
-      <if test="normalprobrate != null">
-        NormalProbRate = #{normalprobrate,jdbcType=TINYINT},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    set NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
-      NormalCurDetectIP = #{normalcurdetectip,jdbcType=INTEGER},
-      NormalDetectStartTime = #{normaldetectstarttime,jdbcType=INTEGER},
-      LastNormalDetectTotalTime = #{lastnormaldetecttotaltime,jdbcType=INTEGER},
-      NormalProbRate = #{normalprobrate,jdbcType=TINYINT}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.NormalDetectInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normaldetectrollcode" />
-    <result column="NormalCurDetectIP" jdbcType="INTEGER" property="normalcurdetectip" />
-    <result column="NormalDetectStartTime" jdbcType="INTEGER" property="normaldetectstarttime" />
-    <result column="LastNormalDetectTotalTime" jdbcType="INTEGER" property="lastnormaldetecttotaltime" />
-    <result column="NormalProbRate" jdbcType="TINYINT" property="normalprobrate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, NormalDetectRollCode, NormalCurDetectIP, NormalDetectStartTime, LastNormalDetectTotalTime, 
-    NormalProbRate
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo (Id, NormalDetectRollCode, NormalCurDetectIP, 
-      NormalDetectStartTime, LastNormalDetectTotalTime, 
-      NormalProbRate)
-    values (#{id,jdbcType=INTEGER}, #{normaldetectrollcode,jdbcType=INTEGER}, #{normalcurdetectip,jdbcType=INTEGER}, 
-      #{normaldetectstarttime,jdbcType=INTEGER}, #{lastnormaldetecttotaltime,jdbcType=INTEGER}, 
-      #{normalprobrate,jdbcType=TINYINT})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="normaldetectrollcode != null">
-        NormalDetectRollCode,
-      </if>
-      <if test="normalcurdetectip != null">
-        NormalCurDetectIP,
-      </if>
-      <if test="normaldetectstarttime != null">
-        NormalDetectStartTime,
-      </if>
-      <if test="lastnormaldetecttotaltime != null">
-        LastNormalDetectTotalTime,
-      </if>
-      <if test="normalprobrate != null">
-        NormalProbRate,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="normaldetectrollcode != null">
-        #{normaldetectrollcode,jdbcType=INTEGER},
-      </if>
-      <if test="normalcurdetectip != null">
-        #{normalcurdetectip,jdbcType=INTEGER},
-      </if>
-      <if test="normaldetectstarttime != null">
-        #{normaldetectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="lastnormaldetecttotaltime != null">
-        #{lastnormaldetecttotaltime,jdbcType=INTEGER},
-      </if>
-      <if test="normalprobrate != null">
-        #{normalprobrate,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    <set>
-      <if test="normaldetectrollcode != null">
-        NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
-      </if>
-      <if test="normalcurdetectip != null">
-        NormalCurDetectIP = #{normalcurdetectip,jdbcType=INTEGER},
-      </if>
-      <if test="normaldetectstarttime != null">
-        NormalDetectStartTime = #{normaldetectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="lastnormaldetecttotaltime != null">
-        LastNormalDetectTotalTime = #{lastnormaldetecttotaltime,jdbcType=INTEGER},
-      </if>
-      <if test="normalprobrate != null">
-        NormalProbRate = #{normalprobrate,jdbcType=TINYINT},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    set NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
-      NormalCurDetectIP = #{normalcurdetectip,jdbcType=INTEGER},
-      NormalDetectStartTime = #{normaldetectstarttime,jdbcType=INTEGER},
-      LastNormalDetectTotalTime = #{lastnormaldetecttotaltime,jdbcType=INTEGER},
-      NormalProbRate = #{normalprobrate,jdbcType=TINYINT}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.NormalDetectInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="NormalDetectRollCode" jdbcType="INTEGER" property="normaldetectrollcode" />
-    <result column="NormalCurDetectIP" jdbcType="INTEGER" property="normalcurdetectip" />
-    <result column="NormalDetectStartTime" jdbcType="INTEGER" property="normaldetectstarttime" />
-    <result column="LastNormalDetectTotalTime" jdbcType="INTEGER" property="lastnormaldetecttotaltime" />
-    <result column="NormalProbRate" jdbcType="TINYINT" property="normalprobrate" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, NormalDetectRollCode, NormalCurDetectIP, NormalDetectStartTime, LastNormalDetectTotalTime, 
-    NormalProbRate
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from normaldetectinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo (Id, NormalDetectRollCode, NormalCurDetectIP, 
-      NormalDetectStartTime, LastNormalDetectTotalTime, 
-      NormalProbRate)
-    values (#{id,jdbcType=INTEGER}, #{normaldetectrollcode,jdbcType=INTEGER}, #{normalcurdetectip,jdbcType=INTEGER}, 
-      #{normaldetectstarttime,jdbcType=INTEGER}, #{lastnormaldetecttotaltime,jdbcType=INTEGER}, 
-      #{normalprobrate,jdbcType=TINYINT})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    insert into normaldetectinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="normaldetectrollcode != null">
-        NormalDetectRollCode,
-      </if>
-      <if test="normalcurdetectip != null">
-        NormalCurDetectIP,
-      </if>
-      <if test="normaldetectstarttime != null">
-        NormalDetectStartTime,
-      </if>
-      <if test="lastnormaldetecttotaltime != null">
-        LastNormalDetectTotalTime,
-      </if>
-      <if test="normalprobrate != null">
-        NormalProbRate,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="normaldetectrollcode != null">
-        #{normaldetectrollcode,jdbcType=INTEGER},
-      </if>
-      <if test="normalcurdetectip != null">
-        #{normalcurdetectip,jdbcType=INTEGER},
-      </if>
-      <if test="normaldetectstarttime != null">
-        #{normaldetectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="lastnormaldetecttotaltime != null">
-        #{lastnormaldetecttotaltime,jdbcType=INTEGER},
-      </if>
-      <if test="normalprobrate != null">
-        #{normalprobrate,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    <set>
-      <if test="normaldetectrollcode != null">
-        NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
-      </if>
-      <if test="normalcurdetectip != null">
-        NormalCurDetectIP = #{normalcurdetectip,jdbcType=INTEGER},
-      </if>
-      <if test="normaldetectstarttime != null">
-        NormalDetectStartTime = #{normaldetectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="lastnormaldetecttotaltime != null">
-        LastNormalDetectTotalTime = #{lastnormaldetecttotaltime,jdbcType=INTEGER},
-      </if>
-      <if test="normalprobrate != null">
-        NormalProbRate = #{normalprobrate,jdbcType=TINYINT},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.NormalDetectInfo">
-    update normaldetectinfo
-    set NormalDetectRollCode = #{normaldetectrollcode,jdbcType=INTEGER},
-      NormalCurDetectIP = #{normalcurdetectip,jdbcType=INTEGER},
-      NormalDetectStartTime = #{normaldetectstarttime,jdbcType=INTEGER},
-      LastNormalDetectTotalTime = #{lastnormaldetecttotaltime,jdbcType=INTEGER},
-      NormalProbRate = #{normalprobrate,jdbcType=TINYINT}
     where Id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

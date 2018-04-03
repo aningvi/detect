@@ -11,5 +11,5 @@ import edu.zstu.domain.UserInfo;
  * @author Aning
  */
 public interface IUserInfoService {
-    UserInfo getUserByUsername(String username);
+    UserInfo getUserById(int id);
 }

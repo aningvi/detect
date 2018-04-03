@@ -1,550 +1,82 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.zstu.dao.DetectPortInfoMapper">
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectPortInfo">
-    <id column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectPortDescribe" jdbcType="VARCHAR" property="detectPortDescribe" />
-    <result column="DetectPortInfo" jdbcType="VARCHAR" property="detectPortInfo" />
-    <result column="DetectPortIsValid" jdbcType="INTEGER" property="detectPortIsValid" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zstu.dao.DetectPortInfoMapper" >
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectPortInfo" >
+    <id column="DetectPortId" property="detectPortId" jdbcType="INTEGER" />
+    <result column="DetectPortDescribe" property="detectPortDescribe" jdbcType="VARCHAR" />
+    <result column="DetectPortInfo" property="detectPortInfo" jdbcType="VARCHAR" />
+    <result column="DetectPortIsValid" property="detectPortIsValid" jdbcType="INTEGER" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     DetectPortId, DetectPortDescribe, DetectPortInfo, DetectPortIsValid
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from detectportinfo
     where DetectPortId = #{detectPortId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from detectportinfo
     where DetectPortId = #{detectPortId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectPortInfo">
+  <insert id="insert" parameterType="edu.zstu.domain.DetectPortInfo" >
     insert into detectportinfo (DetectPortId, DetectPortDescribe, 
       DetectPortInfo, DetectPortIsValid)
     values (#{detectPortId,jdbcType=INTEGER}, #{detectPortDescribe,jdbcType=VARCHAR}, 
       #{detectPortInfo,jdbcType=VARCHAR}, #{detectPortIsValid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectPortInfo">
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectPortInfo" >
     insert into detectportinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="detectPortId != null" >
         DetectPortId,
       </if>
-      <if test="detectPortDescribe != null">
+      <if test="detectPortDescribe != null" >
         DetectPortDescribe,
       </if>
-      <if test="detectPortInfo != null">
+      <if test="detectPortInfo != null" >
         DetectPortInfo,
       </if>
-      <if test="detectPortIsValid != null">
+      <if test="detectPortIsValid != null" >
         DetectPortIsValid,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="detectPortId != null" >
         #{detectPortId,jdbcType=INTEGER},
       </if>
-      <if test="detectPortDescribe != null">
+      <if test="detectPortDescribe != null" >
         #{detectPortDescribe,jdbcType=VARCHAR},
       </if>
-      <if test="detectPortInfo != null">
+      <if test="detectPortInfo != null" >
         #{detectPortInfo,jdbcType=VARCHAR},
       </if>
-      <if test="detectPortIsValid != null">
+      <if test="detectPortIsValid != null" >
         #{detectPortIsValid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectPortInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectPortInfo" >
     update detectportinfo
-    <set>
-      <if test="detectPortDescribe != null">
+    <set >
+      <if test="detectPortDescribe != null" >
         DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
       </if>
-      <if test="detectPortInfo != null">
+      <if test="detectPortInfo != null" >
         DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
       </if>
-      <if test="detectPortIsValid != null">
+      <if test="detectPortIsValid != null" >
         DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER},
       </if>
     </set>
     where DetectPortId = #{detectPortId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectPortInfo">
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectPortInfo" >
     update detectportinfo
     set DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
       DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
       DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER}
     where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectPortInfo">
-    <id column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectPortDescribe" jdbcType="VARCHAR" property="detectPortDescribe" />
-    <result column="DetectPortInfo" jdbcType="VARCHAR" property="detectPortInfo" />
-    <result column="DetectPortIsValid" jdbcType="INTEGER" property="detectPortIsValid" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectPortId, DetectPortDescribe, DetectPortInfo, DetectPortIsValid
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detectportinfo
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detectportinfo
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo (DetectPortId, DetectPortDescribe, 
-      DetectPortInfo, DetectPortIsValid)
-    values (#{detectPortId,jdbcType=INTEGER}, #{detectPortDescribe,jdbcType=VARCHAR}, 
-      #{detectPortInfo,jdbcType=VARCHAR}, #{detectPortIsValid,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="detectPortDescribe != null">
-        DetectPortDescribe,
-      </if>
-      <if test="detectPortInfo != null">
-        DetectPortInfo,
-      </if>
-      <if test="detectPortIsValid != null">
-        DetectPortIsValid,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortDescribe != null">
-        #{detectPortDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortInfo != null">
-        #{detectPortInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortIsValid != null">
-        #{detectPortIsValid,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    <set>
-      <if test="detectPortDescribe != null">
-        DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortInfo != null">
-        DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortIsValid != null">
-        DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    set DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
-      DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
-      DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER}
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectPortInfo">
-    <id column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectPortDescribe" jdbcType="VARCHAR" property="detectPortDescribe" />
-    <result column="DetectPortInfo" jdbcType="VARCHAR" property="detectPortInfo" />
-    <result column="DetectPortIsValid" jdbcType="INTEGER" property="detectPortIsValid" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectPortId, DetectPortDescribe, DetectPortInfo, DetectPortIsValid
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detectportinfo
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detectportinfo
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo (DetectPortId, DetectPortDescribe, 
-      DetectPortInfo, DetectPortIsValid)
-    values (#{detectPortId,jdbcType=INTEGER}, #{detectPortDescribe,jdbcType=VARCHAR}, 
-      #{detectPortInfo,jdbcType=VARCHAR}, #{detectPortIsValid,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="detectPortDescribe != null">
-        DetectPortDescribe,
-      </if>
-      <if test="detectPortInfo != null">
-        DetectPortInfo,
-      </if>
-      <if test="detectPortIsValid != null">
-        DetectPortIsValid,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortDescribe != null">
-        #{detectPortDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortInfo != null">
-        #{detectPortInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortIsValid != null">
-        #{detectPortIsValid,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    <set>
-      <if test="detectPortDescribe != null">
-        DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortInfo != null">
-        DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortIsValid != null">
-        DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    set DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
-      DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
-      DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER}
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectPortInfo">
-    <id column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectPortDescribe" jdbcType="VARCHAR" property="detectPortDescribe" />
-    <result column="DetectPortInfo" jdbcType="VARCHAR" property="detectPortInfo" />
-    <result column="DetectPortIsValid" jdbcType="INTEGER" property="detectPortIsValid" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectPortId, DetectPortDescribe, DetectPortInfo, DetectPortIsValid
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detectportinfo
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detectportinfo
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo (DetectPortId, DetectPortDescribe, 
-      DetectPortInfo, DetectPortIsValid)
-    values (#{detectPortId,jdbcType=INTEGER}, #{detectPortDescribe,jdbcType=VARCHAR}, 
-      #{detectPortInfo,jdbcType=VARCHAR}, #{detectPortIsValid,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="detectPortDescribe != null">
-        DetectPortDescribe,
-      </if>
-      <if test="detectPortInfo != null">
-        DetectPortInfo,
-      </if>
-      <if test="detectPortIsValid != null">
-        DetectPortIsValid,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortDescribe != null">
-        #{detectPortDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortInfo != null">
-        #{detectPortInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortIsValid != null">
-        #{detectPortIsValid,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    <set>
-      <if test="detectPortDescribe != null">
-        DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortInfo != null">
-        DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortIsValid != null">
-        DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    set DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
-      DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
-      DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER}
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectPortInfo">
-    <id column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="DetectPortDescribe" jdbcType="VARCHAR" property="detectPortDescribe" />
-    <result column="DetectPortInfo" jdbcType="VARCHAR" property="detectPortInfo" />
-    <result column="DetectPortIsValid" jdbcType="INTEGER" property="detectPortIsValid" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectPortId, DetectPortDescribe, DetectPortInfo, DetectPortIsValid
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detectportinfo
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detectportinfo
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo (DetectPortId, DetectPortDescribe, 
-      DetectPortInfo, DetectPortIsValid)
-    values (#{detectPortId,jdbcType=INTEGER}, #{detectPortDescribe,jdbcType=VARCHAR}, 
-      #{detectPortInfo,jdbcType=VARCHAR}, #{detectPortIsValid,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="detectPortDescribe != null">
-        DetectPortDescribe,
-      </if>
-      <if test="detectPortInfo != null">
-        DetectPortInfo,
-      </if>
-      <if test="detectPortIsValid != null">
-        DetectPortIsValid,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="detectPortDescribe != null">
-        #{detectPortDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortInfo != null">
-        #{detectPortInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortIsValid != null">
-        #{detectPortIsValid,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    <set>
-      <if test="detectPortDescribe != null">
-        DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortInfo != null">
-        DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectPortIsValid != null">
-        DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    set DetectPortDescribe = #{detectPortDescribe,jdbcType=VARCHAR},
-      DetectPortInfo = #{detectPortInfo,jdbcType=VARCHAR},
-      DetectPortIsValid = #{detectPortIsValid,jdbcType=INTEGER}
-    where DetectPortId = #{detectPortId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectPortInfo">
-    <id column="DetectPortId" jdbcType="INTEGER" property="detectportid" />
-    <result column="DetectPortDescribe" jdbcType="VARCHAR" property="detectportdescribe" />
-    <result column="DetectPortInfo" jdbcType="VARCHAR" property="detectportinfo" />
-    <result column="DetectPortIsValid" jdbcType="INTEGER" property="detectportisvalid" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectPortId, DetectPortDescribe, DetectPortInfo, DetectPortIsValid
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detectportinfo
-    where DetectPortId = #{detectportid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detectportinfo
-    where DetectPortId = #{detectportid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo (DetectPortId, DetectPortDescribe, 
-      DetectPortInfo, DetectPortIsValid)
-    values (#{detectportid,jdbcType=INTEGER}, #{detectportdescribe,jdbcType=VARCHAR}, 
-      #{detectportinfo,jdbcType=VARCHAR}, #{detectportisvalid,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectportid != null">
-        DetectPortId,
-      </if>
-      <if test="detectportdescribe != null">
-        DetectPortDescribe,
-      </if>
-      <if test="detectportinfo != null">
-        DetectPortInfo,
-      </if>
-      <if test="detectportisvalid != null">
-        DetectPortIsValid,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectportid != null">
-        #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="detectportdescribe != null">
-        #{detectportdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectportinfo != null">
-        #{detectportinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectportisvalid != null">
-        #{detectportisvalid,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    <set>
-      <if test="detectportdescribe != null">
-        DetectPortDescribe = #{detectportdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectportinfo != null">
-        DetectPortInfo = #{detectportinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectportisvalid != null">
-        DetectPortIsValid = #{detectportisvalid,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DetectPortId = #{detectportid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    set DetectPortDescribe = #{detectportdescribe,jdbcType=VARCHAR},
-      DetectPortInfo = #{detectportinfo,jdbcType=VARCHAR},
-      DetectPortIsValid = #{detectportisvalid,jdbcType=INTEGER}
-    where DetectPortId = #{detectportid,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DetectPortInfo">
-    <id column="DetectPortId" jdbcType="INTEGER" property="detectportid" />
-    <result column="DetectPortDescribe" jdbcType="VARCHAR" property="detectportdescribe" />
-    <result column="DetectPortInfo" jdbcType="VARCHAR" property="detectportinfo" />
-    <result column="DetectPortIsValid" jdbcType="INTEGER" property="detectportisvalid" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DetectPortId, DetectPortDescribe, DetectPortInfo, DetectPortIsValid
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from detectportinfo
-    where DetectPortId = #{detectportid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from detectportinfo
-    where DetectPortId = #{detectportid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo (DetectPortId, DetectPortDescribe, 
-      DetectPortInfo, DetectPortIsValid)
-    values (#{detectportid,jdbcType=INTEGER}, #{detectportdescribe,jdbcType=VARCHAR}, 
-      #{detectportinfo,jdbcType=VARCHAR}, #{detectportisvalid,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    insert into detectportinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="detectportid != null">
-        DetectPortId,
-      </if>
-      <if test="detectportdescribe != null">
-        DetectPortDescribe,
-      </if>
-      <if test="detectportinfo != null">
-        DetectPortInfo,
-      </if>
-      <if test="detectportisvalid != null">
-        DetectPortIsValid,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="detectportid != null">
-        #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="detectportdescribe != null">
-        #{detectportdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectportinfo != null">
-        #{detectportinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectportisvalid != null">
-        #{detectportisvalid,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    <set>
-      <if test="detectportdescribe != null">
-        DetectPortDescribe = #{detectportdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectportinfo != null">
-        DetectPortInfo = #{detectportinfo,jdbcType=VARCHAR},
-      </if>
-      <if test="detectportisvalid != null">
-        DetectPortIsValid = #{detectportisvalid,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DetectPortId = #{detectportid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DetectPortInfo">
-    update detectportinfo
-    set DetectPortDescribe = #{detectportdescribe,jdbcType=VARCHAR},
-      DetectPortInfo = #{detectportinfo,jdbcType=VARCHAR},
-      DetectPortIsValid = #{detectportisvalid,jdbcType=INTEGER}
-    where DetectPortId = #{detectportid,jdbcType=INTEGER}
   </update>
 </mapper>

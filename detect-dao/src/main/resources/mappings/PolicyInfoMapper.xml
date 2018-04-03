@@ -1,29 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.zstu.dao.PolicyInfoMapper">
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.PolicyInfo">
-    <id column="PolicyId" jdbcType="INTEGER" property="policyId" />
-    <result column="DeviceId" jdbcType="INTEGER" property="deviceId" />
-    <result column="TaskId" jdbcType="INTEGER" property="taskId" />
-    <result column="PolicyType" jdbcType="TINYINT" property="policyType" />
-    <result column="DetectNum" jdbcType="INTEGER" property="detectNum" />
-    <result column="DetectStartTime" jdbcType="INTEGER" property="detectStartTime" />
-    <result column="CurDetectStartTime" jdbcType="INTEGER" property="curDetectStartTime" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zstu.dao.PolicyInfoMapper" >
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.PolicyInfo" >
+    <id column="PolicyId" property="policyId" jdbcType="INTEGER" />
+    <result column="DeviceId" property="deviceId" jdbcType="INTEGER" />
+    <result column="TaskId" property="taskId" jdbcType="INTEGER" />
+    <result column="PolicyType" property="policyType" jdbcType="TINYINT" />
+    <result column="DetectNum" property="detectNum" jdbcType="INTEGER" />
+    <result column="DetectStartTime" property="detectStartTime" jdbcType="INTEGER" />
+    <result column="CurDetectStartTime" property="curDetectStartTime" jdbcType="INTEGER" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     PolicyId, DeviceId, TaskId, PolicyType, DetectNum, DetectStartTime, CurDetectStartTime
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from policyinfo
     where PolicyId = #{policyId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from policyinfo
     where PolicyId = #{policyId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.PolicyInfo">
+  <insert id="insert" parameterType="edu.zstu.domain.PolicyInfo" >
     insert into policyinfo (PolicyId, DeviceId, TaskId, 
       PolicyType, DetectNum, DetectStartTime, 
       CurDetectStartTime)
@@ -31,80 +31,80 @@
       #{policyType,jdbcType=TINYINT}, #{detectNum,jdbcType=INTEGER}, #{detectStartTime,jdbcType=INTEGER}, 
       #{curDetectStartTime,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.PolicyInfo">
+  <insert id="insertSelective" parameterType="edu.zstu.domain.PolicyInfo" >
     insert into policyinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="policyId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="policyId != null" >
         PolicyId,
       </if>
-      <if test="deviceId != null">
+      <if test="deviceId != null" >
         DeviceId,
       </if>
-      <if test="taskId != null">
+      <if test="taskId != null" >
         TaskId,
       </if>
-      <if test="policyType != null">
+      <if test="policyType != null" >
         PolicyType,
       </if>
-      <if test="detectNum != null">
+      <if test="detectNum != null" >
         DetectNum,
       </if>
-      <if test="detectStartTime != null">
+      <if test="detectStartTime != null" >
         DetectStartTime,
       </if>
-      <if test="curDetectStartTime != null">
+      <if test="curDetectStartTime != null" >
         CurDetectStartTime,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="policyId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="policyId != null" >
         #{policyId,jdbcType=INTEGER},
       </if>
-      <if test="deviceId != null">
+      <if test="deviceId != null" >
         #{deviceId,jdbcType=INTEGER},
       </if>
-      <if test="taskId != null">
+      <if test="taskId != null" >
         #{taskId,jdbcType=INTEGER},
       </if>
-      <if test="policyType != null">
+      <if test="policyType != null" >
         #{policyType,jdbcType=TINYINT},
       </if>
-      <if test="detectNum != null">
+      <if test="detectNum != null" >
         #{detectNum,jdbcType=INTEGER},
       </if>
-      <if test="detectStartTime != null">
+      <if test="detectStartTime != null" >
         #{detectStartTime,jdbcType=INTEGER},
       </if>
-      <if test="curDetectStartTime != null">
+      <if test="curDetectStartTime != null" >
         #{curDetectStartTime,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.PolicyInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.PolicyInfo" >
     update policyinfo
-    <set>
-      <if test="deviceId != null">
+    <set >
+      <if test="deviceId != null" >
         DeviceId = #{deviceId,jdbcType=INTEGER},
       </if>
-      <if test="taskId != null">
+      <if test="taskId != null" >
         TaskId = #{taskId,jdbcType=INTEGER},
       </if>
-      <if test="policyType != null">
+      <if test="policyType != null" >
         PolicyType = #{policyType,jdbcType=TINYINT},
       </if>
-      <if test="detectNum != null">
+      <if test="detectNum != null" >
         DetectNum = #{detectNum,jdbcType=INTEGER},
       </if>
-      <if test="detectStartTime != null">
+      <if test="detectStartTime != null" >
         DetectStartTime = #{detectStartTime,jdbcType=INTEGER},
       </if>
-      <if test="curDetectStartTime != null">
+      <if test="curDetectStartTime != null" >
         CurDetectStartTime = #{curDetectStartTime,jdbcType=INTEGER},
       </if>
     </set>
     where PolicyId = #{policyId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.PolicyInfo">
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.PolicyInfo" >
     update policyinfo
     set DeviceId = #{deviceId,jdbcType=INTEGER},
       TaskId = #{taskId,jdbcType=INTEGER},
@@ -113,683 +113,5 @@
       DetectStartTime = #{detectStartTime,jdbcType=INTEGER},
       CurDetectStartTime = #{curDetectStartTime,jdbcType=INTEGER}
     where PolicyId = #{policyId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.PolicyInfo">
-    <id column="PolicyId" jdbcType="INTEGER" property="policyId" />
-    <result column="DeviceId" jdbcType="INTEGER" property="deviceId" />
-    <result column="TaskId" jdbcType="INTEGER" property="taskId" />
-    <result column="PolicyType" jdbcType="TINYINT" property="policyType" />
-    <result column="DetectNum" jdbcType="INTEGER" property="detectNum" />
-    <result column="DetectStartTime" jdbcType="INTEGER" property="detectStartTime" />
-    <result column="CurDetectStartTime" jdbcType="INTEGER" property="curDetectStartTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    PolicyId, DeviceId, TaskId, PolicyType, DetectNum, DetectStartTime, CurDetectStartTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from policyinfo
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from policyinfo
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo (PolicyId, DeviceId, TaskId, 
-      PolicyType, DetectNum, DetectStartTime, 
-      CurDetectStartTime)
-    values (#{policyId,jdbcType=INTEGER}, #{deviceId,jdbcType=INTEGER}, #{taskId,jdbcType=INTEGER}, 
-      #{policyType,jdbcType=TINYINT}, #{detectNum,jdbcType=INTEGER}, #{detectStartTime,jdbcType=INTEGER}, 
-      #{curDetectStartTime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="policyId != null">
-        PolicyId,
-      </if>
-      <if test="deviceId != null">
-        DeviceId,
-      </if>
-      <if test="taskId != null">
-        TaskId,
-      </if>
-      <if test="policyType != null">
-        PolicyType,
-      </if>
-      <if test="detectNum != null">
-        DetectNum,
-      </if>
-      <if test="detectStartTime != null">
-        DetectStartTime,
-      </if>
-      <if test="curDetectStartTime != null">
-        CurDetectStartTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="policyId != null">
-        #{policyId,jdbcType=INTEGER},
-      </if>
-      <if test="deviceId != null">
-        #{deviceId,jdbcType=INTEGER},
-      </if>
-      <if test="taskId != null">
-        #{taskId,jdbcType=INTEGER},
-      </if>
-      <if test="policyType != null">
-        #{policyType,jdbcType=TINYINT},
-      </if>
-      <if test="detectNum != null">
-        #{detectNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectStartTime != null">
-        #{detectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="curDetectStartTime != null">
-        #{curDetectStartTime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    <set>
-      <if test="deviceId != null">
-        DeviceId = #{deviceId,jdbcType=INTEGER},
-      </if>
-      <if test="taskId != null">
-        TaskId = #{taskId,jdbcType=INTEGER},
-      </if>
-      <if test="policyType != null">
-        PolicyType = #{policyType,jdbcType=TINYINT},
-      </if>
-      <if test="detectNum != null">
-        DetectNum = #{detectNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectStartTime != null">
-        DetectStartTime = #{detectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="curDetectStartTime != null">
-        CurDetectStartTime = #{curDetectStartTime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    set DeviceId = #{deviceId,jdbcType=INTEGER},
-      TaskId = #{taskId,jdbcType=INTEGER},
-      PolicyType = #{policyType,jdbcType=TINYINT},
-      DetectNum = #{detectNum,jdbcType=INTEGER},
-      DetectStartTime = #{detectStartTime,jdbcType=INTEGER},
-      CurDetectStartTime = #{curDetectStartTime,jdbcType=INTEGER}
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.PolicyInfo">
-    <id column="PolicyId" jdbcType="INTEGER" property="policyId" />
-    <result column="DeviceId" jdbcType="INTEGER" property="deviceId" />
-    <result column="TaskId" jdbcType="INTEGER" property="taskId" />
-    <result column="PolicyType" jdbcType="TINYINT" property="policyType" />
-    <result column="DetectNum" jdbcType="INTEGER" property="detectNum" />
-    <result column="DetectStartTime" jdbcType="INTEGER" property="detectStartTime" />
-    <result column="CurDetectStartTime" jdbcType="INTEGER" property="curDetectStartTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    PolicyId, DeviceId, TaskId, PolicyType, DetectNum, DetectStartTime, CurDetectStartTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from policyinfo
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from policyinfo
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo (PolicyId, DeviceId, TaskId, 
-      PolicyType, DetectNum, DetectStartTime, 
-      CurDetectStartTime)
-    values (#{policyId,jdbcType=INTEGER}, #{deviceId,jdbcType=INTEGER}, #{taskId,jdbcType=INTEGER}, 
-      #{policyType,jdbcType=TINYINT}, #{detectNum,jdbcType=INTEGER}, #{detectStartTime,jdbcType=INTEGER}, 
-      #{curDetectStartTime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="policyId != null">
-        PolicyId,
-      </if>
-      <if test="deviceId != null">
-        DeviceId,
-      </if>
-      <if test="taskId != null">
-        TaskId,
-      </if>
-      <if test="policyType != null">
-        PolicyType,
-      </if>
-      <if test="detectNum != null">
-        DetectNum,
-      </if>
-      <if test="detectStartTime != null">
-        DetectStartTime,
-      </if>
-      <if test="curDetectStartTime != null">
-        CurDetectStartTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="policyId != null">
-        #{policyId,jdbcType=INTEGER},
-      </if>
-      <if test="deviceId != null">
-        #{deviceId,jdbcType=INTEGER},
-      </if>
-      <if test="taskId != null">
-        #{taskId,jdbcType=INTEGER},
-      </if>
-      <if test="policyType != null">
-        #{policyType,jdbcType=TINYINT},
-      </if>
-      <if test="detectNum != null">
-        #{detectNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectStartTime != null">
-        #{detectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="curDetectStartTime != null">
-        #{curDetectStartTime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    <set>
-      <if test="deviceId != null">
-        DeviceId = #{deviceId,jdbcType=INTEGER},
-      </if>
-      <if test="taskId != null">
-        TaskId = #{taskId,jdbcType=INTEGER},
-      </if>
-      <if test="policyType != null">
-        PolicyType = #{policyType,jdbcType=TINYINT},
-      </if>
-      <if test="detectNum != null">
-        DetectNum = #{detectNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectStartTime != null">
-        DetectStartTime = #{detectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="curDetectStartTime != null">
-        CurDetectStartTime = #{curDetectStartTime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    set DeviceId = #{deviceId,jdbcType=INTEGER},
-      TaskId = #{taskId,jdbcType=INTEGER},
-      PolicyType = #{policyType,jdbcType=TINYINT},
-      DetectNum = #{detectNum,jdbcType=INTEGER},
-      DetectStartTime = #{detectStartTime,jdbcType=INTEGER},
-      CurDetectStartTime = #{curDetectStartTime,jdbcType=INTEGER}
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.PolicyInfo">
-    <id column="PolicyId" jdbcType="INTEGER" property="policyId" />
-    <result column="DeviceId" jdbcType="INTEGER" property="deviceId" />
-    <result column="TaskId" jdbcType="INTEGER" property="taskId" />
-    <result column="PolicyType" jdbcType="TINYINT" property="policyType" />
-    <result column="DetectNum" jdbcType="INTEGER" property="detectNum" />
-    <result column="DetectStartTime" jdbcType="INTEGER" property="detectStartTime" />
-    <result column="CurDetectStartTime" jdbcType="INTEGER" property="curDetectStartTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    PolicyId, DeviceId, TaskId, PolicyType, DetectNum, DetectStartTime, CurDetectStartTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from policyinfo
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from policyinfo
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo (PolicyId, DeviceId, TaskId, 
-      PolicyType, DetectNum, DetectStartTime, 
-      CurDetectStartTime)
-    values (#{policyId,jdbcType=INTEGER}, #{deviceId,jdbcType=INTEGER}, #{taskId,jdbcType=INTEGER}, 
-      #{policyType,jdbcType=TINYINT}, #{detectNum,jdbcType=INTEGER}, #{detectStartTime,jdbcType=INTEGER}, 
-      #{curDetectStartTime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="policyId != null">
-        PolicyId,
-      </if>
-      <if test="deviceId != null">
-        DeviceId,
-      </if>
-      <if test="taskId != null">
-        TaskId,
-      </if>
-      <if test="policyType != null">
-        PolicyType,
-      </if>
-      <if test="detectNum != null">
-        DetectNum,
-      </if>
-      <if test="detectStartTime != null">
-        DetectStartTime,
-      </if>
-      <if test="curDetectStartTime != null">
-        CurDetectStartTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="policyId != null">
-        #{policyId,jdbcType=INTEGER},
-      </if>
-      <if test="deviceId != null">
-        #{deviceId,jdbcType=INTEGER},
-      </if>
-      <if test="taskId != null">
-        #{taskId,jdbcType=INTEGER},
-      </if>
-      <if test="policyType != null">
-        #{policyType,jdbcType=TINYINT},
-      </if>
-      <if test="detectNum != null">
-        #{detectNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectStartTime != null">
-        #{detectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="curDetectStartTime != null">
-        #{curDetectStartTime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    <set>
-      <if test="deviceId != null">
-        DeviceId = #{deviceId,jdbcType=INTEGER},
-      </if>
-      <if test="taskId != null">
-        TaskId = #{taskId,jdbcType=INTEGER},
-      </if>
-      <if test="policyType != null">
-        PolicyType = #{policyType,jdbcType=TINYINT},
-      </if>
-      <if test="detectNum != null">
-        DetectNum = #{detectNum,jdbcType=INTEGER},
-      </if>
-      <if test="detectStartTime != null">
-        DetectStartTime = #{detectStartTime,jdbcType=INTEGER},
-      </if>
-      <if test="curDetectStartTime != null">
-        CurDetectStartTime = #{curDetectStartTime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    set DeviceId = #{deviceId,jdbcType=INTEGER},
-      TaskId = #{taskId,jdbcType=INTEGER},
-      PolicyType = #{policyType,jdbcType=TINYINT},
-      DetectNum = #{detectNum,jdbcType=INTEGER},
-      DetectStartTime = #{detectStartTime,jdbcType=INTEGER},
-      CurDetectStartTime = #{curDetectStartTime,jdbcType=INTEGER}
-    where PolicyId = #{policyId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.PolicyInfo">
-    <id column="PolicyId" jdbcType="INTEGER" property="policyid" />
-    <result column="DeviceId" jdbcType="INTEGER" property="deviceid" />
-    <result column="TaskId" jdbcType="INTEGER" property="taskid" />
-    <result column="PolicyType" jdbcType="TINYINT" property="policytype" />
-    <result column="DetectNum" jdbcType="INTEGER" property="detectnum" />
-    <result column="DetectStartTime" jdbcType="INTEGER" property="detectstarttime" />
-    <result column="CurDetectStartTime" jdbcType="INTEGER" property="curdetectstarttime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    PolicyId, DeviceId, TaskId, PolicyType, DetectNum, DetectStartTime, CurDetectStartTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from policyinfo
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from policyinfo
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo (PolicyId, DeviceId, TaskId, 
-      PolicyType, DetectNum, DetectStartTime, 
-      CurDetectStartTime)
-    values (#{policyid,jdbcType=INTEGER}, #{deviceid,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, 
-      #{policytype,jdbcType=TINYINT}, #{detectnum,jdbcType=INTEGER}, #{detectstarttime,jdbcType=INTEGER}, 
-      #{curdetectstarttime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="policyid != null">
-        PolicyId,
-      </if>
-      <if test="deviceid != null">
-        DeviceId,
-      </if>
-      <if test="taskid != null">
-        TaskId,
-      </if>
-      <if test="policytype != null">
-        PolicyType,
-      </if>
-      <if test="detectnum != null">
-        DetectNum,
-      </if>
-      <if test="detectstarttime != null">
-        DetectStartTime,
-      </if>
-      <if test="curdetectstarttime != null">
-        CurDetectStartTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="policyid != null">
-        #{policyid,jdbcType=INTEGER},
-      </if>
-      <if test="deviceid != null">
-        #{deviceid,jdbcType=INTEGER},
-      </if>
-      <if test="taskid != null">
-        #{taskid,jdbcType=INTEGER},
-      </if>
-      <if test="policytype != null">
-        #{policytype,jdbcType=TINYINT},
-      </if>
-      <if test="detectnum != null">
-        #{detectnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectstarttime != null">
-        #{detectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="curdetectstarttime != null">
-        #{curdetectstarttime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    <set>
-      <if test="deviceid != null">
-        DeviceId = #{deviceid,jdbcType=INTEGER},
-      </if>
-      <if test="taskid != null">
-        TaskId = #{taskid,jdbcType=INTEGER},
-      </if>
-      <if test="policytype != null">
-        PolicyType = #{policytype,jdbcType=TINYINT},
-      </if>
-      <if test="detectnum != null">
-        DetectNum = #{detectnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectstarttime != null">
-        DetectStartTime = #{detectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="curdetectstarttime != null">
-        CurDetectStartTime = #{curdetectstarttime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    set DeviceId = #{deviceid,jdbcType=INTEGER},
-      TaskId = #{taskid,jdbcType=INTEGER},
-      PolicyType = #{policytype,jdbcType=TINYINT},
-      DetectNum = #{detectnum,jdbcType=INTEGER},
-      DetectStartTime = #{detectstarttime,jdbcType=INTEGER},
-      CurDetectStartTime = #{curdetectstarttime,jdbcType=INTEGER}
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.PolicyInfo">
-    <id column="PolicyId" jdbcType="INTEGER" property="policyid" />
-    <result column="DeviceId" jdbcType="INTEGER" property="deviceid" />
-    <result column="TaskId" jdbcType="INTEGER" property="taskid" />
-    <result column="PolicyType" jdbcType="TINYINT" property="policytype" />
-    <result column="DetectNum" jdbcType="INTEGER" property="detectnum" />
-    <result column="DetectStartTime" jdbcType="INTEGER" property="detectstarttime" />
-    <result column="CurDetectStartTime" jdbcType="INTEGER" property="curdetectstarttime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    PolicyId, DeviceId, TaskId, PolicyType, DetectNum, DetectStartTime, CurDetectStartTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from policyinfo
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from policyinfo
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo (PolicyId, DeviceId, TaskId, 
-      PolicyType, DetectNum, DetectStartTime, 
-      CurDetectStartTime)
-    values (#{policyid,jdbcType=INTEGER}, #{deviceid,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, 
-      #{policytype,jdbcType=TINYINT}, #{detectnum,jdbcType=INTEGER}, #{detectstarttime,jdbcType=INTEGER}, 
-      #{curdetectstarttime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="policyid != null">
-        PolicyId,
-      </if>
-      <if test="deviceid != null">
-        DeviceId,
-      </if>
-      <if test="taskid != null">
-        TaskId,
-      </if>
-      <if test="policytype != null">
-        PolicyType,
-      </if>
-      <if test="detectnum != null">
-        DetectNum,
-      </if>
-      <if test="detectstarttime != null">
-        DetectStartTime,
-      </if>
-      <if test="curdetectstarttime != null">
-        CurDetectStartTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="policyid != null">
-        #{policyid,jdbcType=INTEGER},
-      </if>
-      <if test="deviceid != null">
-        #{deviceid,jdbcType=INTEGER},
-      </if>
-      <if test="taskid != null">
-        #{taskid,jdbcType=INTEGER},
-      </if>
-      <if test="policytype != null">
-        #{policytype,jdbcType=TINYINT},
-      </if>
-      <if test="detectnum != null">
-        #{detectnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectstarttime != null">
-        #{detectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="curdetectstarttime != null">
-        #{curdetectstarttime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    <set>
-      <if test="deviceid != null">
-        DeviceId = #{deviceid,jdbcType=INTEGER},
-      </if>
-      <if test="taskid != null">
-        TaskId = #{taskid,jdbcType=INTEGER},
-      </if>
-      <if test="policytype != null">
-        PolicyType = #{policytype,jdbcType=TINYINT},
-      </if>
-      <if test="detectnum != null">
-        DetectNum = #{detectnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectstarttime != null">
-        DetectStartTime = #{detectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="curdetectstarttime != null">
-        CurDetectStartTime = #{curdetectstarttime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    set DeviceId = #{deviceid,jdbcType=INTEGER},
-      TaskId = #{taskid,jdbcType=INTEGER},
-      PolicyType = #{policytype,jdbcType=TINYINT},
-      DetectNum = #{detectnum,jdbcType=INTEGER},
-      DetectStartTime = #{detectstarttime,jdbcType=INTEGER},
-      CurDetectStartTime = #{curdetectstarttime,jdbcType=INTEGER}
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.PolicyInfo">
-    <id column="PolicyId" jdbcType="INTEGER" property="policyid" />
-    <result column="DeviceId" jdbcType="INTEGER" property="deviceid" />
-    <result column="TaskId" jdbcType="INTEGER" property="taskid" />
-    <result column="PolicyType" jdbcType="TINYINT" property="policytype" />
-    <result column="DetectNum" jdbcType="INTEGER" property="detectnum" />
-    <result column="DetectStartTime" jdbcType="INTEGER" property="detectstarttime" />
-    <result column="CurDetectStartTime" jdbcType="INTEGER" property="curdetectstarttime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    PolicyId, DeviceId, TaskId, PolicyType, DetectNum, DetectStartTime, CurDetectStartTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from policyinfo
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from policyinfo
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo (PolicyId, DeviceId, TaskId, 
-      PolicyType, DetectNum, DetectStartTime, 
-      CurDetectStartTime)
-    values (#{policyid,jdbcType=INTEGER}, #{deviceid,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, 
-      #{policytype,jdbcType=TINYINT}, #{detectnum,jdbcType=INTEGER}, #{detectstarttime,jdbcType=INTEGER}, 
-      #{curdetectstarttime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.PolicyInfo">
-    insert into policyinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="policyid != null">
-        PolicyId,
-      </if>
-      <if test="deviceid != null">
-        DeviceId,
-      </if>
-      <if test="taskid != null">
-        TaskId,
-      </if>
-      <if test="policytype != null">
-        PolicyType,
-      </if>
-      <if test="detectnum != null">
-        DetectNum,
-      </if>
-      <if test="detectstarttime != null">
-        DetectStartTime,
-      </if>
-      <if test="curdetectstarttime != null">
-        CurDetectStartTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="policyid != null">
-        #{policyid,jdbcType=INTEGER},
-      </if>
-      <if test="deviceid != null">
-        #{deviceid,jdbcType=INTEGER},
-      </if>
-      <if test="taskid != null">
-        #{taskid,jdbcType=INTEGER},
-      </if>
-      <if test="policytype != null">
-        #{policytype,jdbcType=TINYINT},
-      </if>
-      <if test="detectnum != null">
-        #{detectnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectstarttime != null">
-        #{detectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="curdetectstarttime != null">
-        #{curdetectstarttime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    <set>
-      <if test="deviceid != null">
-        DeviceId = #{deviceid,jdbcType=INTEGER},
-      </if>
-      <if test="taskid != null">
-        TaskId = #{taskid,jdbcType=INTEGER},
-      </if>
-      <if test="policytype != null">
-        PolicyType = #{policytype,jdbcType=TINYINT},
-      </if>
-      <if test="detectnum != null">
-        DetectNum = #{detectnum,jdbcType=INTEGER},
-      </if>
-      <if test="detectstarttime != null">
-        DetectStartTime = #{detectstarttime,jdbcType=INTEGER},
-      </if>
-      <if test="curdetectstarttime != null">
-        CurDetectStartTime = #{curdetectstarttime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where PolicyId = #{policyid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.PolicyInfo">
-    update policyinfo
-    set DeviceId = #{deviceid,jdbcType=INTEGER},
-      TaskId = #{taskid,jdbcType=INTEGER},
-      PolicyType = #{policytype,jdbcType=TINYINT},
-      DetectNum = #{detectnum,jdbcType=INTEGER},
-      DetectStartTime = #{detectstarttime,jdbcType=INTEGER},
-      CurDetectStartTime = #{curdetectstarttime,jdbcType=INTEGER}
-    where PolicyId = #{policyid,jdbcType=INTEGER}
   </update>
 </mapper>

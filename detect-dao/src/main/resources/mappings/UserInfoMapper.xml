@@ -1,24 +1,117 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.zstu.dao.UserInfoMapper">
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.UserInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="UserName" jdbcType="VARCHAR" property="userName" />
-    <result column="UserDepartment" jdbcType="VARCHAR" property="userDepartment" />
-    <result column="UserType" jdbcType="TINYINT" property="userType" />
-    <result column="LogInName" jdbcType="VARCHAR" property="logInName" />
-    <result column="UserPassword" jdbcType="CHAR" property="userPassword" />
-    <result column="Status" jdbcType="TINYINT" property="status" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zstu.dao.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.UserInfo" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="UserName" property="userName" jdbcType="VARCHAR" />
+    <result column="UserDepartment" property="userDepartment" jdbcType="VARCHAR" />
+    <result column="UserType" property="userType" jdbcType="TINYINT" />
+    <result column="LogInName" property="logInName" jdbcType="VARCHAR" />
+    <result column="UserPassword" property="userPassword" jdbcType="CHAR" />
+    <result column="Status" property="status" jdbcType="TINYINT" />
   </resultMap>
-
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     Id, UserName, UserDepartment, UserType, LogInName, UserPassword, Status
   </sql>
-  <select id="selectByUserName" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
     <include refid="Base_Column_List" />
     from userinfo
-    where username = #{username,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
   </select>
-
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from userinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.zstu.domain.UserInfo" >
+    insert into userinfo (Id, UserName, UserDepartment, 
+      UserType, LogInName, UserPassword, 
+      Status)
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userDepartment,jdbcType=VARCHAR}, 
+      #{userType,jdbcType=TINYINT}, #{logInName,jdbcType=VARCHAR}, #{userPassword,jdbcType=CHAR}, 
+      #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.zstu.domain.UserInfo" >
+    insert into userinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="userName != null" >
+        UserName,
+      </if>
+      <if test="userDepartment != null" >
+        UserDepartment,
+      </if>
+      <if test="userType != null" >
+        UserType,
+      </if>
+      <if test="logInName != null" >
+        LogInName,
+      </if>
+      <if test="userPassword != null" >
+        UserPassword,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userDepartment != null" >
+        #{userDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=TINYINT},
+      </if>
+      <if test="logInName != null" >
+        #{logInName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        #{userPassword,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.UserInfo" >
+    update userinfo
+    <set >
+      <if test="userName != null" >
+        UserName = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userDepartment != null" >
+        UserDepartment = #{userDepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        UserType = #{userType,jdbcType=TINYINT},
+      </if>
+      <if test="logInName != null" >
+        LogInName = #{logInName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null" >
+        UserPassword = #{userPassword,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        Status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.UserInfo" >
+    update userinfo
+    set UserName = #{userName,jdbcType=VARCHAR},
+      UserDepartment = #{userDepartment,jdbcType=VARCHAR},
+      UserType = #{userType,jdbcType=TINYINT},
+      LogInName = #{logInName,jdbcType=VARCHAR},
+      UserPassword = #{userPassword,jdbcType=CHAR},
+      Status = #{status,jdbcType=TINYINT}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

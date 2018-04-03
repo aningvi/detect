@@ -1,627 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.zstu.dao.IPAddressMapper">
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddress">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="IPStart" jdbcType="BIGINT" property="IPStart" />
-    <result column="IPEnd" jdbcType="BIGINT" property="IPEnd" />
-    <result column="IPEnglish" jdbcType="CHAR" property="IPEnglish" />
-    <result column="IPChina" jdbcType="VARCHAR" property="IPChina" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zstu.dao.IPAddressMapper" >
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddress" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="IPStart" property="IPStart" jdbcType="BIGINT" />
+    <result column="IPEnd" property="IPEnd" jdbcType="BIGINT" />
+    <result column="IPEnglish" property="IPEnglish" jdbcType="CHAR" />
+    <result column="IPChina" property="IPChina" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     Id, IPStart, IPEnd, IPEnglish, IPChina
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from ipaddress
     where Id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from ipaddress
     where Id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.IPAddress">
+  <insert id="insert" parameterType="edu.zstu.domain.IPAddress" >
     insert into ipaddress (Id, IPStart, IPEnd, 
       IPEnglish, IPChina)
     values (#{id,jdbcType=INTEGER}, #{IPStart,jdbcType=BIGINT}, #{IPEnd,jdbcType=BIGINT}, 
       #{IPEnglish,jdbcType=CHAR}, #{IPChina,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddress">
+  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddress" >
     insert into ipaddress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         Id,
       </if>
-      <if test="IPStart != null">
+      <if test="IPStart != null" >
         IPStart,
       </if>
-      <if test="IPEnd != null">
+      <if test="IPEnd != null" >
         IPEnd,
       </if>
-      <if test="IPEnglish != null">
+      <if test="IPEnglish != null" >
         IPEnglish,
       </if>
-      <if test="IPChina != null">
+      <if test="IPChina != null" >
         IPChina,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="IPStart != null">
+      <if test="IPStart != null" >
         #{IPStart,jdbcType=BIGINT},
       </if>
-      <if test="IPEnd != null">
+      <if test="IPEnd != null" >
         #{IPEnd,jdbcType=BIGINT},
       </if>
-      <if test="IPEnglish != null">
+      <if test="IPEnglish != null" >
         #{IPEnglish,jdbcType=CHAR},
       </if>
-      <if test="IPChina != null">
+      <if test="IPChina != null" >
         #{IPChina,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPAddress">
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPAddress" >
     update ipaddress
-    <set>
-      <if test="IPStart != null">
+    <set >
+      <if test="IPStart != null" >
         IPStart = #{IPStart,jdbcType=BIGINT},
       </if>
-      <if test="IPEnd != null">
+      <if test="IPEnd != null" >
         IPEnd = #{IPEnd,jdbcType=BIGINT},
       </if>
-      <if test="IPEnglish != null">
+      <if test="IPEnglish != null" >
         IPEnglish = #{IPEnglish,jdbcType=CHAR},
       </if>
-      <if test="IPChina != null">
+      <if test="IPChina != null" >
         IPChina = #{IPChina,jdbcType=VARCHAR},
       </if>
     </set>
     where Id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPAddress">
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPAddress" >
     update ipaddress
     set IPStart = #{IPStart,jdbcType=BIGINT},
       IPEnd = #{IPEnd,jdbcType=BIGINT},
       IPEnglish = #{IPEnglish,jdbcType=CHAR},
       IPChina = #{IPChina,jdbcType=VARCHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddress">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="IPStart" jdbcType="BIGINT" property="IPStart" />
-    <result column="IPEnd" jdbcType="BIGINT" property="IPEnd" />
-    <result column="IPEnglish" jdbcType="CHAR" property="IPEnglish" />
-    <result column="IPChina" jdbcType="VARCHAR" property="IPChina" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, IPStart, IPEnd, IPEnglish, IPChina
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress (Id, IPStart, IPEnd, 
-      IPEnglish, IPChina)
-    values (#{id,jdbcType=INTEGER}, #{IPStart,jdbcType=BIGINT}, #{IPEnd,jdbcType=BIGINT}, 
-      #{IPEnglish,jdbcType=CHAR}, #{IPChina,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="IPStart != null">
-        IPStart,
-      </if>
-      <if test="IPEnd != null">
-        IPEnd,
-      </if>
-      <if test="IPEnglish != null">
-        IPEnglish,
-      </if>
-      <if test="IPChina != null">
-        IPChina,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="IPStart != null">
-        #{IPStart,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnd != null">
-        #{IPEnd,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnglish != null">
-        #{IPEnglish,jdbcType=CHAR},
-      </if>
-      <if test="IPChina != null">
-        #{IPChina,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    <set>
-      <if test="IPStart != null">
-        IPStart = #{IPStart,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnd != null">
-        IPEnd = #{IPEnd,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnglish != null">
-        IPEnglish = #{IPEnglish,jdbcType=CHAR},
-      </if>
-      <if test="IPChina != null">
-        IPChina = #{IPChina,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    set IPStart = #{IPStart,jdbcType=BIGINT},
-      IPEnd = #{IPEnd,jdbcType=BIGINT},
-      IPEnglish = #{IPEnglish,jdbcType=CHAR},
-      IPChina = #{IPChina,jdbcType=VARCHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddress">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="IPStart" jdbcType="BIGINT" property="IPStart" />
-    <result column="IPEnd" jdbcType="BIGINT" property="IPEnd" />
-    <result column="IPEnglish" jdbcType="CHAR" property="IPEnglish" />
-    <result column="IPChina" jdbcType="VARCHAR" property="IPChina" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, IPStart, IPEnd, IPEnglish, IPChina
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress (Id, IPStart, IPEnd, 
-      IPEnglish, IPChina)
-    values (#{id,jdbcType=INTEGER}, #{IPStart,jdbcType=BIGINT}, #{IPEnd,jdbcType=BIGINT}, 
-      #{IPEnglish,jdbcType=CHAR}, #{IPChina,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="IPStart != null">
-        IPStart,
-      </if>
-      <if test="IPEnd != null">
-        IPEnd,
-      </if>
-      <if test="IPEnglish != null">
-        IPEnglish,
-      </if>
-      <if test="IPChina != null">
-        IPChina,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="IPStart != null">
-        #{IPStart,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnd != null">
-        #{IPEnd,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnglish != null">
-        #{IPEnglish,jdbcType=CHAR},
-      </if>
-      <if test="IPChina != null">
-        #{IPChina,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    <set>
-      <if test="IPStart != null">
-        IPStart = #{IPStart,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnd != null">
-        IPEnd = #{IPEnd,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnglish != null">
-        IPEnglish = #{IPEnglish,jdbcType=CHAR},
-      </if>
-      <if test="IPChina != null">
-        IPChina = #{IPChina,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    set IPStart = #{IPStart,jdbcType=BIGINT},
-      IPEnd = #{IPEnd,jdbcType=BIGINT},
-      IPEnglish = #{IPEnglish,jdbcType=CHAR},
-      IPChina = #{IPChina,jdbcType=VARCHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddress">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="IPStart" jdbcType="BIGINT" property="IPStart" />
-    <result column="IPEnd" jdbcType="BIGINT" property="IPEnd" />
-    <result column="IPEnglish" jdbcType="CHAR" property="IPEnglish" />
-    <result column="IPChina" jdbcType="VARCHAR" property="IPChina" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, IPStart, IPEnd, IPEnglish, IPChina
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress (Id, IPStart, IPEnd, 
-      IPEnglish, IPChina)
-    values (#{id,jdbcType=INTEGER}, #{IPStart,jdbcType=BIGINT}, #{IPEnd,jdbcType=BIGINT}, 
-      #{IPEnglish,jdbcType=CHAR}, #{IPChina,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="IPStart != null">
-        IPStart,
-      </if>
-      <if test="IPEnd != null">
-        IPEnd,
-      </if>
-      <if test="IPEnglish != null">
-        IPEnglish,
-      </if>
-      <if test="IPChina != null">
-        IPChina,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="IPStart != null">
-        #{IPStart,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnd != null">
-        #{IPEnd,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnglish != null">
-        #{IPEnglish,jdbcType=CHAR},
-      </if>
-      <if test="IPChina != null">
-        #{IPChina,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    <set>
-      <if test="IPStart != null">
-        IPStart = #{IPStart,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnd != null">
-        IPEnd = #{IPEnd,jdbcType=BIGINT},
-      </if>
-      <if test="IPEnglish != null">
-        IPEnglish = #{IPEnglish,jdbcType=CHAR},
-      </if>
-      <if test="IPChina != null">
-        IPChina = #{IPChina,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    set IPStart = #{IPStart,jdbcType=BIGINT},
-      IPEnd = #{IPEnd,jdbcType=BIGINT},
-      IPEnglish = #{IPEnglish,jdbcType=CHAR},
-      IPChina = #{IPChina,jdbcType=VARCHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddress">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="IPStart" jdbcType="BIGINT" property="ipstart" />
-    <result column="IPEnd" jdbcType="BIGINT" property="ipend" />
-    <result column="IPEnglish" jdbcType="CHAR" property="ipenglish" />
-    <result column="IPChina" jdbcType="VARCHAR" property="ipchina" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, IPStart, IPEnd, IPEnglish, IPChina
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress (Id, IPStart, IPEnd, 
-      IPEnglish, IPChina)
-    values (#{id,jdbcType=INTEGER}, #{ipstart,jdbcType=BIGINT}, #{ipend,jdbcType=BIGINT}, 
-      #{ipenglish,jdbcType=CHAR}, #{ipchina,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="ipstart != null">
-        IPStart,
-      </if>
-      <if test="ipend != null">
-        IPEnd,
-      </if>
-      <if test="ipenglish != null">
-        IPEnglish,
-      </if>
-      <if test="ipchina != null">
-        IPChina,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="ipstart != null">
-        #{ipstart,jdbcType=BIGINT},
-      </if>
-      <if test="ipend != null">
-        #{ipend,jdbcType=BIGINT},
-      </if>
-      <if test="ipenglish != null">
-        #{ipenglish,jdbcType=CHAR},
-      </if>
-      <if test="ipchina != null">
-        #{ipchina,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    <set>
-      <if test="ipstart != null">
-        IPStart = #{ipstart,jdbcType=BIGINT},
-      </if>
-      <if test="ipend != null">
-        IPEnd = #{ipend,jdbcType=BIGINT},
-      </if>
-      <if test="ipenglish != null">
-        IPEnglish = #{ipenglish,jdbcType=CHAR},
-      </if>
-      <if test="ipchina != null">
-        IPChina = #{ipchina,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    set IPStart = #{ipstart,jdbcType=BIGINT},
-      IPEnd = #{ipend,jdbcType=BIGINT},
-      IPEnglish = #{ipenglish,jdbcType=CHAR},
-      IPChina = #{ipchina,jdbcType=VARCHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddress">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="IPStart" jdbcType="BIGINT" property="ipstart" />
-    <result column="IPEnd" jdbcType="BIGINT" property="ipend" />
-    <result column="IPEnglish" jdbcType="CHAR" property="ipenglish" />
-    <result column="IPChina" jdbcType="VARCHAR" property="ipchina" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, IPStart, IPEnd, IPEnglish, IPChina
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress (Id, IPStart, IPEnd, 
-      IPEnglish, IPChina)
-    values (#{id,jdbcType=INTEGER}, #{ipstart,jdbcType=BIGINT}, #{ipend,jdbcType=BIGINT}, 
-      #{ipenglish,jdbcType=CHAR}, #{ipchina,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="ipstart != null">
-        IPStart,
-      </if>
-      <if test="ipend != null">
-        IPEnd,
-      </if>
-      <if test="ipenglish != null">
-        IPEnglish,
-      </if>
-      <if test="ipchina != null">
-        IPChina,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="ipstart != null">
-        #{ipstart,jdbcType=BIGINT},
-      </if>
-      <if test="ipend != null">
-        #{ipend,jdbcType=BIGINT},
-      </if>
-      <if test="ipenglish != null">
-        #{ipenglish,jdbcType=CHAR},
-      </if>
-      <if test="ipchina != null">
-        #{ipchina,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    <set>
-      <if test="ipstart != null">
-        IPStart = #{ipstart,jdbcType=BIGINT},
-      </if>
-      <if test="ipend != null">
-        IPEnd = #{ipend,jdbcType=BIGINT},
-      </if>
-      <if test="ipenglish != null">
-        IPEnglish = #{ipenglish,jdbcType=CHAR},
-      </if>
-      <if test="ipchina != null">
-        IPChina = #{ipchina,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    set IPStart = #{ipstart,jdbcType=BIGINT},
-      IPEnd = #{ipend,jdbcType=BIGINT},
-      IPEnglish = #{ipenglish,jdbcType=CHAR},
-      IPChina = #{ipchina,jdbcType=VARCHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.IPAddress">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="IPStart" jdbcType="BIGINT" property="ipstart" />
-    <result column="IPEnd" jdbcType="BIGINT" property="ipend" />
-    <result column="IPEnglish" jdbcType="CHAR" property="ipenglish" />
-    <result column="IPChina" jdbcType="VARCHAR" property="ipchina" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, IPStart, IPEnd, IPEnglish, IPChina
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from ipaddress
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress (Id, IPStart, IPEnd, 
-      IPEnglish, IPChina)
-    values (#{id,jdbcType=INTEGER}, #{ipstart,jdbcType=BIGINT}, #{ipend,jdbcType=BIGINT}, 
-      #{ipenglish,jdbcType=CHAR}, #{ipchina,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.IPAddress">
-    insert into ipaddress
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="ipstart != null">
-        IPStart,
-      </if>
-      <if test="ipend != null">
-        IPEnd,
-      </if>
-      <if test="ipenglish != null">
-        IPEnglish,
-      </if>
-      <if test="ipchina != null">
-        IPChina,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="ipstart != null">
-        #{ipstart,jdbcType=BIGINT},
-      </if>
-      <if test="ipend != null">
-        #{ipend,jdbcType=BIGINT},
-      </if>
-      <if test="ipenglish != null">
-        #{ipenglish,jdbcType=CHAR},
-      </if>
-      <if test="ipchina != null">
-        #{ipchina,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    <set>
-      <if test="ipstart != null">
-        IPStart = #{ipstart,jdbcType=BIGINT},
-      </if>
-      <if test="ipend != null">
-        IPEnd = #{ipend,jdbcType=BIGINT},
-      </if>
-      <if test="ipenglish != null">
-        IPEnglish = #{ipenglish,jdbcType=CHAR},
-      </if>
-      <if test="ipchina != null">
-        IPChina = #{ipchina,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.IPAddress">
-    update ipaddress
-    set IPStart = #{ipstart,jdbcType=BIGINT},
-      IPEnd = #{ipend,jdbcType=BIGINT},
-      IPEnglish = #{ipenglish,jdbcType=CHAR},
-      IPChina = #{ipchina,jdbcType=VARCHAR}
     where Id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

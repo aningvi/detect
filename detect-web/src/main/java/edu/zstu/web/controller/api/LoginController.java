@@ -21,7 +21,7 @@ public class LoginController {
 
     @RequestMapping("/user/login")
     public void login(){
-        UserInfo admin = userInfoService.getUserByUsername("admin");
+        UserInfo admin = userInfoService.getUserById(1);
         System.out.println(admin);
 
     }

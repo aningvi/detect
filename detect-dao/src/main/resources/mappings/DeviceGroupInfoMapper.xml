@@ -1,28 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.zstu.dao.DeviceGroupInfoMapper">
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceGroupInfo">
-    <id column="DeviceGroupId" jdbcType="INTEGER" property="deviceGroupId" />
-    <result column="DeviceGroupDescribe" jdbcType="VARCHAR" property="deviceGroupDescribe" />
-    <result column="DetectUDPOrTCP" jdbcType="TINYINT" property="detectUDPOrTCP" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="ControlCmd" jdbcType="SMALLINT" property="controlCmd" />
-    <result column="CmdChangeTime" jdbcType="INTEGER" property="cmdChangeTime" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zstu.dao.DeviceGroupInfoMapper" >
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceGroupInfo" >
+    <id column="DeviceGroupId" property="deviceGroupId" jdbcType="INTEGER" />
+    <result column="DeviceGroupDescribe" property="deviceGroupDescribe" jdbcType="VARCHAR" />
+    <result column="DetectUDPOrTCP" property="detectUDPOrTCP" jdbcType="TINYINT" />
+    <result column="DetectPortId" property="detectPortId" jdbcType="INTEGER" />
+    <result column="ControlCmd" property="controlCmd" jdbcType="SMALLINT" />
+    <result column="CmdChangeTime" property="cmdChangeTime" jdbcType="INTEGER" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     DeviceGroupId, DeviceGroupDescribe, DetectUDPOrTCP, DetectPortId, ControlCmd, CmdChangeTime
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from devicegroupinfo
     where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from devicegroupinfo
     where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DeviceGroupInfo">
+  <insert id="insert" parameterType="edu.zstu.domain.DeviceGroupInfo" >
     insert into devicegroupinfo (DeviceGroupId, DeviceGroupDescribe, 
       DetectUDPOrTCP, DetectPortId, ControlCmd, 
       CmdChangeTime)
@@ -30,71 +30,71 @@
       #{detectUDPOrTCP,jdbcType=TINYINT}, #{detectPortId,jdbcType=INTEGER}, #{controlCmd,jdbcType=SMALLINT}, 
       #{cmdChangeTime,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
+  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceGroupInfo" >
     insert into devicegroupinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="deviceGroupId != null" >
         DeviceGroupId,
       </if>
-      <if test="deviceGroupDescribe != null">
+      <if test="deviceGroupDescribe != null" >
         DeviceGroupDescribe,
       </if>
-      <if test="detectUDPOrTCP != null">
+      <if test="detectUDPOrTCP != null" >
         DetectUDPOrTCP,
       </if>
-      <if test="detectPortId != null">
+      <if test="detectPortId != null" >
         DetectPortId,
       </if>
-      <if test="controlCmd != null">
+      <if test="controlCmd != null" >
         ControlCmd,
       </if>
-      <if test="cmdChangeTime != null">
+      <if test="cmdChangeTime != null" >
         CmdChangeTime,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="deviceGroupId != null" >
         #{deviceGroupId,jdbcType=INTEGER},
       </if>
-      <if test="deviceGroupDescribe != null">
+      <if test="deviceGroupDescribe != null" >
         #{deviceGroupDescribe,jdbcType=VARCHAR},
       </if>
-      <if test="detectUDPOrTCP != null">
+      <if test="detectUDPOrTCP != null" >
         #{detectUDPOrTCP,jdbcType=TINYINT},
       </if>
-      <if test="detectPortId != null">
+      <if test="detectPortId != null" >
         #{detectPortId,jdbcType=INTEGER},
       </if>
-      <if test="controlCmd != null">
+      <if test="controlCmd != null" >
         #{controlCmd,jdbcType=SMALLINT},
       </if>
-      <if test="cmdChangeTime != null">
+      <if test="cmdChangeTime != null" >
         #{cmdChangeTime,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceGroupInfo" >
     update devicegroupinfo
-    <set>
-      <if test="deviceGroupDescribe != null">
+    <set >
+      <if test="deviceGroupDescribe != null" >
         DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
       </if>
-      <if test="detectUDPOrTCP != null">
+      <if test="detectUDPOrTCP != null" >
         DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
       </if>
-      <if test="detectPortId != null">
+      <if test="detectPortId != null" >
         DetectPortId = #{detectPortId,jdbcType=INTEGER},
       </if>
-      <if test="controlCmd != null">
+      <if test="controlCmd != null" >
         ControlCmd = #{controlCmd,jdbcType=SMALLINT},
       </if>
-      <if test="cmdChangeTime != null">
+      <if test="cmdChangeTime != null" >
         CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER},
       </if>
     </set>
     where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceGroupInfo">
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceGroupInfo" >
     update devicegroupinfo
     set DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
       DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
@@ -102,617 +102,5 @@
       ControlCmd = #{controlCmd,jdbcType=SMALLINT},
       CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER}
     where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceGroupInfo">
-    <id column="DeviceGroupId" jdbcType="INTEGER" property="deviceGroupId" />
-    <result column="DeviceGroupDescribe" jdbcType="VARCHAR" property="deviceGroupDescribe" />
-    <result column="DetectUDPOrTCP" jdbcType="TINYINT" property="detectUDPOrTCP" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="ControlCmd" jdbcType="SMALLINT" property="controlCmd" />
-    <result column="CmdChangeTime" jdbcType="INTEGER" property="cmdChangeTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DeviceGroupId, DeviceGroupDescribe, DetectUDPOrTCP, DetectPortId, ControlCmd, CmdChangeTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from devicegroupinfo
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from devicegroupinfo
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo (DeviceGroupId, DeviceGroupDescribe, 
-      DetectUDPOrTCP, DetectPortId, ControlCmd, 
-      CmdChangeTime)
-    values (#{deviceGroupId,jdbcType=INTEGER}, #{deviceGroupDescribe,jdbcType=VARCHAR}, 
-      #{detectUDPOrTCP,jdbcType=TINYINT}, #{detectPortId,jdbcType=INTEGER}, #{controlCmd,jdbcType=SMALLINT}, 
-      #{cmdChangeTime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
-        DeviceGroupId,
-      </if>
-      <if test="deviceGroupDescribe != null">
-        DeviceGroupDescribe,
-      </if>
-      <if test="detectUDPOrTCP != null">
-        DetectUDPOrTCP,
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="controlCmd != null">
-        ControlCmd,
-      </if>
-      <if test="cmdChangeTime != null">
-        CmdChangeTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
-        #{deviceGroupId,jdbcType=INTEGER},
-      </if>
-      <if test="deviceGroupDescribe != null">
-        #{deviceGroupDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectUDPOrTCP != null">
-        #{detectUDPOrTCP,jdbcType=TINYINT},
-      </if>
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="controlCmd != null">
-        #{controlCmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdChangeTime != null">
-        #{cmdChangeTime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    <set>
-      <if test="deviceGroupDescribe != null">
-        DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectUDPOrTCP != null">
-        DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="controlCmd != null">
-        ControlCmd = #{controlCmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdChangeTime != null">
-        CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    set DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
-      DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
-      DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      ControlCmd = #{controlCmd,jdbcType=SMALLINT},
-      CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER}
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceGroupInfo">
-    <id column="DeviceGroupId" jdbcType="INTEGER" property="deviceGroupId" />
-    <result column="DeviceGroupDescribe" jdbcType="VARCHAR" property="deviceGroupDescribe" />
-    <result column="DetectUDPOrTCP" jdbcType="TINYINT" property="detectUDPOrTCP" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="ControlCmd" jdbcType="SMALLINT" property="controlCmd" />
-    <result column="CmdChangeTime" jdbcType="INTEGER" property="cmdChangeTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DeviceGroupId, DeviceGroupDescribe, DetectUDPOrTCP, DetectPortId, ControlCmd, CmdChangeTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from devicegroupinfo
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from devicegroupinfo
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo (DeviceGroupId, DeviceGroupDescribe, 
-      DetectUDPOrTCP, DetectPortId, ControlCmd, 
-      CmdChangeTime)
-    values (#{deviceGroupId,jdbcType=INTEGER}, #{deviceGroupDescribe,jdbcType=VARCHAR}, 
-      #{detectUDPOrTCP,jdbcType=TINYINT}, #{detectPortId,jdbcType=INTEGER}, #{controlCmd,jdbcType=SMALLINT}, 
-      #{cmdChangeTime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
-        DeviceGroupId,
-      </if>
-      <if test="deviceGroupDescribe != null">
-        DeviceGroupDescribe,
-      </if>
-      <if test="detectUDPOrTCP != null">
-        DetectUDPOrTCP,
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="controlCmd != null">
-        ControlCmd,
-      </if>
-      <if test="cmdChangeTime != null">
-        CmdChangeTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
-        #{deviceGroupId,jdbcType=INTEGER},
-      </if>
-      <if test="deviceGroupDescribe != null">
-        #{deviceGroupDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectUDPOrTCP != null">
-        #{detectUDPOrTCP,jdbcType=TINYINT},
-      </if>
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="controlCmd != null">
-        #{controlCmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdChangeTime != null">
-        #{cmdChangeTime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    <set>
-      <if test="deviceGroupDescribe != null">
-        DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectUDPOrTCP != null">
-        DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="controlCmd != null">
-        ControlCmd = #{controlCmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdChangeTime != null">
-        CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    set DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
-      DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
-      DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      ControlCmd = #{controlCmd,jdbcType=SMALLINT},
-      CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER}
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceGroupInfo">
-    <id column="DeviceGroupId" jdbcType="INTEGER" property="deviceGroupId" />
-    <result column="DeviceGroupDescribe" jdbcType="VARCHAR" property="deviceGroupDescribe" />
-    <result column="DetectUDPOrTCP" jdbcType="TINYINT" property="detectUDPOrTCP" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="ControlCmd" jdbcType="SMALLINT" property="controlCmd" />
-    <result column="CmdChangeTime" jdbcType="INTEGER" property="cmdChangeTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DeviceGroupId, DeviceGroupDescribe, DetectUDPOrTCP, DetectPortId, ControlCmd, CmdChangeTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from devicegroupinfo
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from devicegroupinfo
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo (DeviceGroupId, DeviceGroupDescribe, 
-      DetectUDPOrTCP, DetectPortId, ControlCmd, 
-      CmdChangeTime)
-    values (#{deviceGroupId,jdbcType=INTEGER}, #{deviceGroupDescribe,jdbcType=VARCHAR}, 
-      #{detectUDPOrTCP,jdbcType=TINYINT}, #{detectPortId,jdbcType=INTEGER}, #{controlCmd,jdbcType=SMALLINT}, 
-      #{cmdChangeTime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
-        DeviceGroupId,
-      </if>
-      <if test="deviceGroupDescribe != null">
-        DeviceGroupDescribe,
-      </if>
-      <if test="detectUDPOrTCP != null">
-        DetectUDPOrTCP,
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="controlCmd != null">
-        ControlCmd,
-      </if>
-      <if test="cmdChangeTime != null">
-        CmdChangeTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
-        #{deviceGroupId,jdbcType=INTEGER},
-      </if>
-      <if test="deviceGroupDescribe != null">
-        #{deviceGroupDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectUDPOrTCP != null">
-        #{detectUDPOrTCP,jdbcType=TINYINT},
-      </if>
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="controlCmd != null">
-        #{controlCmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdChangeTime != null">
-        #{cmdChangeTime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    <set>
-      <if test="deviceGroupDescribe != null">
-        DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectUDPOrTCP != null">
-        DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="controlCmd != null">
-        ControlCmd = #{controlCmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdChangeTime != null">
-        CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    set DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
-      DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
-      DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      ControlCmd = #{controlCmd,jdbcType=SMALLINT},
-      CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER}
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceGroupInfo">
-    <id column="DeviceGroupId" jdbcType="INTEGER" property="deviceGroupId" />
-    <result column="DeviceGroupDescribe" jdbcType="VARCHAR" property="deviceGroupDescribe" />
-    <result column="DetectUDPOrTCP" jdbcType="TINYINT" property="detectUDPOrTCP" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectPortId" />
-    <result column="ControlCmd" jdbcType="SMALLINT" property="controlCmd" />
-    <result column="CmdChangeTime" jdbcType="INTEGER" property="cmdChangeTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DeviceGroupId, DeviceGroupDescribe, DetectUDPOrTCP, DetectPortId, ControlCmd, CmdChangeTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from devicegroupinfo
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from devicegroupinfo
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo (DeviceGroupId, DeviceGroupDescribe, 
-      DetectUDPOrTCP, DetectPortId, ControlCmd, 
-      CmdChangeTime)
-    values (#{deviceGroupId,jdbcType=INTEGER}, #{deviceGroupDescribe,jdbcType=VARCHAR}, 
-      #{detectUDPOrTCP,jdbcType=TINYINT}, #{detectPortId,jdbcType=INTEGER}, #{controlCmd,jdbcType=SMALLINT}, 
-      #{cmdChangeTime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
-        DeviceGroupId,
-      </if>
-      <if test="deviceGroupDescribe != null">
-        DeviceGroupDescribe,
-      </if>
-      <if test="detectUDPOrTCP != null">
-        DetectUDPOrTCP,
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId,
-      </if>
-      <if test="controlCmd != null">
-        ControlCmd,
-      </if>
-      <if test="cmdChangeTime != null">
-        CmdChangeTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="deviceGroupId != null">
-        #{deviceGroupId,jdbcType=INTEGER},
-      </if>
-      <if test="deviceGroupDescribe != null">
-        #{deviceGroupDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectUDPOrTCP != null">
-        #{detectUDPOrTCP,jdbcType=TINYINT},
-      </if>
-      <if test="detectPortId != null">
-        #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="controlCmd != null">
-        #{controlCmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdChangeTime != null">
-        #{cmdChangeTime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    <set>
-      <if test="deviceGroupDescribe != null">
-        DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectUDPOrTCP != null">
-        DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
-      </if>
-      <if test="detectPortId != null">
-        DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      </if>
-      <if test="controlCmd != null">
-        ControlCmd = #{controlCmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdChangeTime != null">
-        CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    set DeviceGroupDescribe = #{deviceGroupDescribe,jdbcType=VARCHAR},
-      DetectUDPOrTCP = #{detectUDPOrTCP,jdbcType=TINYINT},
-      DetectPortId = #{detectPortId,jdbcType=INTEGER},
-      ControlCmd = #{controlCmd,jdbcType=SMALLINT},
-      CmdChangeTime = #{cmdChangeTime,jdbcType=INTEGER}
-    where DeviceGroupId = #{deviceGroupId,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceGroupInfo">
-    <id column="DeviceGroupId" jdbcType="INTEGER" property="devicegroupid" />
-    <result column="DeviceGroupDescribe" jdbcType="VARCHAR" property="devicegroupdescribe" />
-    <result column="DetectUDPOrTCP" jdbcType="TINYINT" property="detectudportcp" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectportid" />
-    <result column="ControlCmd" jdbcType="SMALLINT" property="controlcmd" />
-    <result column="CmdChangeTime" jdbcType="INTEGER" property="cmdchangetime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DeviceGroupId, DeviceGroupDescribe, DetectUDPOrTCP, DetectPortId, ControlCmd, CmdChangeTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from devicegroupinfo
-    where DeviceGroupId = #{devicegroupid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from devicegroupinfo
-    where DeviceGroupId = #{devicegroupid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo (DeviceGroupId, DeviceGroupDescribe, 
-      DetectUDPOrTCP, DetectPortId, ControlCmd, 
-      CmdChangeTime)
-    values (#{devicegroupid,jdbcType=INTEGER}, #{devicegroupdescribe,jdbcType=VARCHAR}, 
-      #{detectudportcp,jdbcType=TINYINT}, #{detectportid,jdbcType=INTEGER}, #{controlcmd,jdbcType=SMALLINT}, 
-      #{cmdchangetime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="devicegroupid != null">
-        DeviceGroupId,
-      </if>
-      <if test="devicegroupdescribe != null">
-        DeviceGroupDescribe,
-      </if>
-      <if test="detectudportcp != null">
-        DetectUDPOrTCP,
-      </if>
-      <if test="detectportid != null">
-        DetectPortId,
-      </if>
-      <if test="controlcmd != null">
-        ControlCmd,
-      </if>
-      <if test="cmdchangetime != null">
-        CmdChangeTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="devicegroupid != null">
-        #{devicegroupid,jdbcType=INTEGER},
-      </if>
-      <if test="devicegroupdescribe != null">
-        #{devicegroupdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectudportcp != null">
-        #{detectudportcp,jdbcType=TINYINT},
-      </if>
-      <if test="detectportid != null">
-        #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="controlcmd != null">
-        #{controlcmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdchangetime != null">
-        #{cmdchangetime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    <set>
-      <if test="devicegroupdescribe != null">
-        DeviceGroupDescribe = #{devicegroupdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectudportcp != null">
-        DetectUDPOrTCP = #{detectudportcp,jdbcType=TINYINT},
-      </if>
-      <if test="detectportid != null">
-        DetectPortId = #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="controlcmd != null">
-        ControlCmd = #{controlcmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdchangetime != null">
-        CmdChangeTime = #{cmdchangetime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DeviceGroupId = #{devicegroupid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    set DeviceGroupDescribe = #{devicegroupdescribe,jdbcType=VARCHAR},
-      DetectUDPOrTCP = #{detectudportcp,jdbcType=TINYINT},
-      DetectPortId = #{detectportid,jdbcType=INTEGER},
-      ControlCmd = #{controlcmd,jdbcType=SMALLINT},
-      CmdChangeTime = #{cmdchangetime,jdbcType=INTEGER}
-    where DeviceGroupId = #{devicegroupid,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.DeviceGroupInfo">
-    <id column="DeviceGroupId" jdbcType="INTEGER" property="devicegroupid" />
-    <result column="DeviceGroupDescribe" jdbcType="VARCHAR" property="devicegroupdescribe" />
-    <result column="DetectUDPOrTCP" jdbcType="TINYINT" property="detectudportcp" />
-    <result column="DetectPortId" jdbcType="INTEGER" property="detectportid" />
-    <result column="ControlCmd" jdbcType="SMALLINT" property="controlcmd" />
-    <result column="CmdChangeTime" jdbcType="INTEGER" property="cmdchangetime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    DeviceGroupId, DeviceGroupDescribe, DetectUDPOrTCP, DetectPortId, ControlCmd, CmdChangeTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from devicegroupinfo
-    where DeviceGroupId = #{devicegroupid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from devicegroupinfo
-    where DeviceGroupId = #{devicegroupid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo (DeviceGroupId, DeviceGroupDescribe, 
-      DetectUDPOrTCP, DetectPortId, ControlCmd, 
-      CmdChangeTime)
-    values (#{devicegroupid,jdbcType=INTEGER}, #{devicegroupdescribe,jdbcType=VARCHAR}, 
-      #{detectudportcp,jdbcType=TINYINT}, #{detectportid,jdbcType=INTEGER}, #{controlcmd,jdbcType=SMALLINT}, 
-      #{cmdchangetime,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    insert into devicegroupinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="devicegroupid != null">
-        DeviceGroupId,
-      </if>
-      <if test="devicegroupdescribe != null">
-        DeviceGroupDescribe,
-      </if>
-      <if test="detectudportcp != null">
-        DetectUDPOrTCP,
-      </if>
-      <if test="detectportid != null">
-        DetectPortId,
-      </if>
-      <if test="controlcmd != null">
-        ControlCmd,
-      </if>
-      <if test="cmdchangetime != null">
-        CmdChangeTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="devicegroupid != null">
-        #{devicegroupid,jdbcType=INTEGER},
-      </if>
-      <if test="devicegroupdescribe != null">
-        #{devicegroupdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectudportcp != null">
-        #{detectudportcp,jdbcType=TINYINT},
-      </if>
-      <if test="detectportid != null">
-        #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="controlcmd != null">
-        #{controlcmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdchangetime != null">
-        #{cmdchangetime,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    <set>
-      <if test="devicegroupdescribe != null">
-        DeviceGroupDescribe = #{devicegroupdescribe,jdbcType=VARCHAR},
-      </if>
-      <if test="detectudportcp != null">
-        DetectUDPOrTCP = #{detectudportcp,jdbcType=TINYINT},
-      </if>
-      <if test="detectportid != null">
-        DetectPortId = #{detectportid,jdbcType=INTEGER},
-      </if>
-      <if test="controlcmd != null">
-        ControlCmd = #{controlcmd,jdbcType=SMALLINT},
-      </if>
-      <if test="cmdchangetime != null">
-        CmdChangeTime = #{cmdchangetime,jdbcType=INTEGER},
-      </if>
-    </set>
-    where DeviceGroupId = #{devicegroupid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.DeviceGroupInfo">
-    update devicegroupinfo
-    set DeviceGroupDescribe = #{devicegroupdescribe,jdbcType=VARCHAR},
-      DetectUDPOrTCP = #{detectudportcp,jdbcType=TINYINT},
-      DetectPortId = #{detectportid,jdbcType=INTEGER},
-      ControlCmd = #{controlcmd,jdbcType=SMALLINT},
-      CmdChangeTime = #{cmdchangetime,jdbcType=INTEGER}
-    where DeviceGroupId = #{devicegroupid,jdbcType=INTEGER}
   </update>
 </mapper>

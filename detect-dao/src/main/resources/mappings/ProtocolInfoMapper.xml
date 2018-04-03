@@ -1,473 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.zstu.dao.ProtocolInfoMapper">
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.ProtocolInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="ProtocolId" jdbcType="INTEGER" property="protocolId" />
-    <result column="ProtocolDescribe" jdbcType="CHAR" property="protocolDescribe" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.zstu.dao.ProtocolInfoMapper" >
+  <resultMap id="BaseResultMap" type="edu.zstu.domain.ProtocolInfo" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="ProtocolId" property="protocolId" jdbcType="INTEGER" />
+    <result column="ProtocolDescribe" property="protocolDescribe" jdbcType="CHAR" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     Id, ProtocolId, ProtocolDescribe
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from protocolinfo
     where Id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from protocolinfo
     where Id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.ProtocolInfo">
+  <insert id="insert" parameterType="edu.zstu.domain.ProtocolInfo" >
     insert into protocolinfo (Id, ProtocolId, ProtocolDescribe
       )
     values (#{id,jdbcType=INTEGER}, #{protocolId,jdbcType=INTEGER}, #{protocolDescribe,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.ProtocolInfo">
+  <insert id="insertSelective" parameterType="edu.zstu.domain.ProtocolInfo" >
     insert into protocolinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         Id,
       </if>
-      <if test="protocolId != null">
+      <if test="protocolId != null" >
         ProtocolId,
       </if>
-      <if test="protocolDescribe != null">
+      <if test="protocolDescribe != null" >
         ProtocolDescribe,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="protocolId != null">
+      <if test="protocolId != null" >
         #{protocolId,jdbcType=INTEGER},
       </if>
-      <if test="protocolDescribe != null">
+      <if test="protocolDescribe != null" >
         #{protocolDescribe,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.ProtocolInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.ProtocolInfo" >
     update protocolinfo
-    <set>
-      <if test="protocolId != null">
+    <set >
+      <if test="protocolId != null" >
         ProtocolId = #{protocolId,jdbcType=INTEGER},
       </if>
-      <if test="protocolDescribe != null">
+      <if test="protocolDescribe != null" >
         ProtocolDescribe = #{protocolDescribe,jdbcType=CHAR},
       </if>
     </set>
     where Id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.ProtocolInfo">
+  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.ProtocolInfo" >
     update protocolinfo
     set ProtocolId = #{protocolId,jdbcType=INTEGER},
       ProtocolDescribe = #{protocolDescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.ProtocolInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="ProtocolId" jdbcType="INTEGER" property="protocolId" />
-    <result column="ProtocolDescribe" jdbcType="CHAR" property="protocolDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, ProtocolId, ProtocolDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo (Id, ProtocolId, ProtocolDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{protocolId,jdbcType=INTEGER}, #{protocolDescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="protocolId != null">
-        ProtocolId,
-      </if>
-      <if test="protocolDescribe != null">
-        ProtocolDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="protocolId != null">
-        #{protocolId,jdbcType=INTEGER},
-      </if>
-      <if test="protocolDescribe != null">
-        #{protocolDescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    <set>
-      <if test="protocolId != null">
-        ProtocolId = #{protocolId,jdbcType=INTEGER},
-      </if>
-      <if test="protocolDescribe != null">
-        ProtocolDescribe = #{protocolDescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    set ProtocolId = #{protocolId,jdbcType=INTEGER},
-      ProtocolDescribe = #{protocolDescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.ProtocolInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="ProtocolId" jdbcType="INTEGER" property="protocolId" />
-    <result column="ProtocolDescribe" jdbcType="CHAR" property="protocolDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, ProtocolId, ProtocolDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo (Id, ProtocolId, ProtocolDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{protocolId,jdbcType=INTEGER}, #{protocolDescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="protocolId != null">
-        ProtocolId,
-      </if>
-      <if test="protocolDescribe != null">
-        ProtocolDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="protocolId != null">
-        #{protocolId,jdbcType=INTEGER},
-      </if>
-      <if test="protocolDescribe != null">
-        #{protocolDescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    <set>
-      <if test="protocolId != null">
-        ProtocolId = #{protocolId,jdbcType=INTEGER},
-      </if>
-      <if test="protocolDescribe != null">
-        ProtocolDescribe = #{protocolDescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    set ProtocolId = #{protocolId,jdbcType=INTEGER},
-      ProtocolDescribe = #{protocolDescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.ProtocolInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="ProtocolId" jdbcType="INTEGER" property="protocolId" />
-    <result column="ProtocolDescribe" jdbcType="CHAR" property="protocolDescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, ProtocolId, ProtocolDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo (Id, ProtocolId, ProtocolDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{protocolId,jdbcType=INTEGER}, #{protocolDescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="protocolId != null">
-        ProtocolId,
-      </if>
-      <if test="protocolDescribe != null">
-        ProtocolDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="protocolId != null">
-        #{protocolId,jdbcType=INTEGER},
-      </if>
-      <if test="protocolDescribe != null">
-        #{protocolDescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    <set>
-      <if test="protocolId != null">
-        ProtocolId = #{protocolId,jdbcType=INTEGER},
-      </if>
-      <if test="protocolDescribe != null">
-        ProtocolDescribe = #{protocolDescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    set ProtocolId = #{protocolId,jdbcType=INTEGER},
-      ProtocolDescribe = #{protocolDescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.ProtocolInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="ProtocolId" jdbcType="INTEGER" property="protocolid" />
-    <result column="ProtocolDescribe" jdbcType="CHAR" property="protocoldescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, ProtocolId, ProtocolDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo (Id, ProtocolId, ProtocolDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{protocolid,jdbcType=INTEGER}, #{protocoldescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="protocolid != null">
-        ProtocolId,
-      </if>
-      <if test="protocoldescribe != null">
-        ProtocolDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="protocolid != null">
-        #{protocolid,jdbcType=INTEGER},
-      </if>
-      <if test="protocoldescribe != null">
-        #{protocoldescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    <set>
-      <if test="protocolid != null">
-        ProtocolId = #{protocolid,jdbcType=INTEGER},
-      </if>
-      <if test="protocoldescribe != null">
-        ProtocolDescribe = #{protocoldescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    set ProtocolId = #{protocolid,jdbcType=INTEGER},
-      ProtocolDescribe = #{protocoldescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.ProtocolInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="ProtocolId" jdbcType="INTEGER" property="protocolid" />
-    <result column="ProtocolDescribe" jdbcType="CHAR" property="protocoldescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, ProtocolId, ProtocolDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo (Id, ProtocolId, ProtocolDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{protocolid,jdbcType=INTEGER}, #{protocoldescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="protocolid != null">
-        ProtocolId,
-      </if>
-      <if test="protocoldescribe != null">
-        ProtocolDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="protocolid != null">
-        #{protocolid,jdbcType=INTEGER},
-      </if>
-      <if test="protocoldescribe != null">
-        #{protocoldescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    <set>
-      <if test="protocolid != null">
-        ProtocolId = #{protocolid,jdbcType=INTEGER},
-      </if>
-      <if test="protocoldescribe != null">
-        ProtocolDescribe = #{protocoldescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    set ProtocolId = #{protocolid,jdbcType=INTEGER},
-      ProtocolDescribe = #{protocoldescribe,jdbcType=CHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="edu.zstu.domain.ProtocolInfo">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="ProtocolId" jdbcType="INTEGER" property="protocolid" />
-    <result column="ProtocolDescribe" jdbcType="CHAR" property="protocoldescribe" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, ProtocolId, ProtocolDescribe
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from protocolinfo
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo (Id, ProtocolId, ProtocolDescribe
-      )
-    values (#{id,jdbcType=INTEGER}, #{protocolid,jdbcType=INTEGER}, #{protocoldescribe,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    insert into protocolinfo
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="protocolid != null">
-        ProtocolId,
-      </if>
-      <if test="protocoldescribe != null">
-        ProtocolDescribe,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="protocolid != null">
-        #{protocolid,jdbcType=INTEGER},
-      </if>
-      <if test="protocoldescribe != null">
-        #{protocoldescribe,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    <set>
-      <if test="protocolid != null">
-        ProtocolId = #{protocolid,jdbcType=INTEGER},
-      </if>
-      <if test="protocoldescribe != null">
-        ProtocolDescribe = #{protocoldescribe,jdbcType=CHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="edu.zstu.domain.ProtocolInfo">
-    update protocolinfo
-    set ProtocolId = #{protocolid,jdbcType=INTEGER},
-      ProtocolDescribe = #{protocoldescribe,jdbcType=CHAR}
     where Id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
